@@ -6,19 +6,211 @@
   <title>아이의 상상 이야기</title>
   <meta name="description" content="아이의 질문과 상상에서 시작된 이야기 모음">
   <link rel="stylesheet" href="../style.css">
+
   <style>
-    .imagination-hero-note{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
-    .hero-visual img{display:block;width:100%;border-radius:24px;border:1px solid rgba(92,70,163,.14);box-shadow:var(--shadow)}
-    .purple-chip{display:inline-flex;padding:8px 12px;border-radius:999px;background:#efe8ff;color:#5c46a3;font-size:13px;font-weight:800;margin-bottom:16px}
-    .guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .guide-card{background:rgba(255,253,249,.92);border:1px solid rgba(92,70,163,.10);border-radius:24px;padding:22px;box-shadow:var(--shadow)}
-    .guide-card h3{margin:8px 0 8px;font-size:22px}
-    .guide-card p{margin:0;color:var(--muted)}
-    .guide-card ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
-    .mini-note{color:var(--muted);font-size:14px}
-    @media(max-width:920px){.imagination-hero-note{grid-template-columns:1fr}}
-    @media(max-width:760px){.guide-grid{grid-template-columns:1fr}}
+    :root{
+      --im-bg:#081226;
+      --im-bg2:#111b3d;
+      --im-card:#111b36;
+      --im-card2:#18234a;
+      --im-text:#f7f8ff;
+      --im-muted:#b9c3df;
+      --im-line:rgba(154,172,255,.18);
+      --im-purple:#9b7cff;
+      --im-cyan:#57d9ff;
+      --im-pink:#ff7fd1;
+      --im-yellow:#ffd86b;
+    }
+
+    body.imagination-page{
+      color:var(--im-text);
+      background:
+        radial-gradient(circle at 12% 12%,rgba(87,217,255,.16),transparent 25%),
+        radial-gradient(circle at 88% 18%,rgba(155,124,255,.18),transparent 28%),
+        radial-gradient(circle at 50% 90%,rgba(255,127,209,.10),transparent 34%),
+        linear-gradient(180deg,var(--im-bg) 0%,var(--im-bg2) 100%);
+      min-height:100vh;
+    }
+
+    .imagination-page .topbar{
+      background:rgba(7,16,36,.86);
+      border-bottom:1px solid var(--im-line);
+    }
+    .imagination-page .brand,
+    .imagination-page .nav a{color:var(--im-text)}
+    .imagination-page .nav a:hover{
+      background:rgba(155,124,255,.16);
+      color:#fff;
+    }
+    .imagination-page .brand-mark{
+      background:linear-gradient(145deg,var(--im-purple),var(--im-cyan));
+      box-shadow:0 10px 28px rgba(87,217,255,.18);
+    }
+
+    .imagination-hero-note{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:32px;
+      align-items:center;
+      background:
+        linear-gradient(135deg,rgba(20,32,72,.96),rgba(12,25,54,.96));
+      border:1px solid var(--im-line);
+      box-shadow:0 24px 70px rgba(0,0,0,.34);
+    }
+
+    .imagination-page .hero-card{
+      border-radius:34px;
+    }
+
+    .purple-chip{
+      display:inline-flex;
+      padding:8px 13px;
+      border-radius:999px;
+      background:linear-gradient(135deg,rgba(155,124,255,.24),rgba(87,217,255,.18));
+      border:1px solid rgba(164,188,255,.20);
+      color:#dcd5ff;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.02em;
+      margin-bottom:16px;
+    }
+
+    .imagination-page h1{
+      color:#fff;
+      text-shadow:0 3px 24px rgba(87,217,255,.10);
+    }
+    .imagination-page .hero p{
+      color:var(--im-muted);
+    }
+
+    .hero-visual{
+      position:relative;
+    }
+    .hero-visual::before{
+      content:"";
+      position:absolute;
+      inset:-16px;
+      border-radius:32px;
+      background:linear-gradient(135deg,rgba(87,217,255,.18),rgba(155,124,255,.20),rgba(255,127,209,.14));
+      filter:blur(24px);
+      z-index:0;
+    }
+    .hero-visual img{
+      position:relative;
+      z-index:1;
+      display:block;
+      width:100%;
+      border-radius:24px;
+      border:1px solid rgba(199,211,255,.22);
+      box-shadow:0 24px 48px rgba(0,0,0,.34);
+    }
+
+    .imagination-page .imagination-btn{
+      background:linear-gradient(135deg,var(--im-purple),#6f8cff);
+      color:#fff;
+      border:none;
+      box-shadow:0 14px 34px rgba(123,104,255,.28);
+    }
+    .imagination-page .imagination-btn:hover{
+      color:#fff;
+      box-shadow:0 18px 42px rgba(87,217,255,.24);
+    }
+
+    #series-list{
+      padding-top:18px;
+    }
+    #series-list .section-title{
+      align-items:end;
+      margin-bottom:22px;
+    }
+    #series-list .section-title h2{
+      color:#fff;
+      font-size:clamp(30px,4vw,44px);
+    }
+    #series-list .section-title p{
+      color:var(--im-muted);
+    }
+
+    .imagination-page .grid{
+      gap:20px;
+    }
+    .imagination-page .essay-card{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(145deg,rgba(22,35,74,.96),rgba(13,24,54,.96));
+      border:1px solid var(--im-line);
+      box-shadow:0 16px 40px rgba(0,0,0,.24);
+      min-height:250px;
+    }
+    .imagination-page .essay-card::after{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      right:-65px;
+      bottom:-70px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(87,217,255,.18),transparent 68%);
+      pointer-events:none;
+    }
+    .imagination-page .essay-card:nth-child(3n+2)::after{
+      background:radial-gradient(circle,rgba(155,124,255,.24),transparent 68%);
+    }
+    .imagination-page .essay-card:nth-child(3n)::after{
+      background:radial-gradient(circle,rgba(255,127,209,.18),transparent 68%);
+    }
+    .imagination-page .essay-card:hover{
+      transform:translateY(-5px) rotate(-.15deg);
+      border-color:rgba(143,201,255,.42);
+      box-shadow:0 22px 52px rgba(0,0,0,.34);
+    }
+    .imagination-page .essay-card h3{
+      color:#fff;
+      position:relative;
+      z-index:1;
+    }
+    .imagination-page .excerpt,
+    .imagination-page .meta{
+      color:var(--im-muted);
+      position:relative;
+      z-index:1;
+    }
+    .imagination-page .tag{
+      position:relative;
+      z-index:1;
+      background:rgba(155,124,255,.16);
+      border:1px solid rgba(174,157,255,.22);
+      color:#d8d0ff;
+    }
+    .imagination-page .essay-card:nth-child(3n+1) .tag{
+      background:rgba(87,217,255,.13);
+      border-color:rgba(87,217,255,.20);
+      color:#aeeeff;
+    }
+    .imagination-page .essay-card:nth-child(3n) .tag{
+      background:rgba(255,127,209,.13);
+      border-color:rgba(255,127,209,.20);
+      color:#ffc2e9;
+    }
+
+    .imagination-page footer{
+      color:var(--im-muted);
+    }
+    .imagination-page .footer-box{
+      background:rgba(12,24,54,.72);
+      border:1px solid var(--im-line);
+      box-shadow:none;
+    }
+
+    @media(max-width:920px){
+      .imagination-hero-note{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .imagination-page .hero-card{padding:24px}
+      .imagination-page .essay-card{min-height:auto}
+    }
   </style>
+
 </head>
 <body class="imagination-page">
   <header class="topbar">
@@ -37,7 +229,7 @@
         <div>
           <div class="purple-chip">CHILD'S IMAGINATION ARCHIVE</div>
           <h1>아이의 한마디가<br>하나의 세계가 되는 곳</h1>
-          <p>전생 시리즈를 포함해 아이가 떠올린 엉뚱한 질문과 장난스러운 상상을 한 편씩 이야기로 묶었습니다. 아래 순서대로 읽어도 좋고, 제목이 마음에 드는 것부터 골라 읽어도 됩니다.</p>
+          <p>아이의 한마디에서 시작된 엉뚱한 전생과 게임 같은 상상을 한 편씩 이야기로 묶었습니다. 제목이 마음에 드는 이야기부터 자유롭게 골라 읽어보세요.</p>
           <div class="hero-actions">
             <a class="btn imagination-btn" href="#series-list">전생 시리즈 보러가기 ↓</a>
           </div>
@@ -47,48 +239,7 @@
         </div>
       </div>
     </section>
-
-    <section>
-      <div class="section-title">
-        <div><h2>이렇게 정리하면 읽기 편해요</h2></div>
-      </div>
-      <div class="guide-grid">
-        <div class="guide-card">
-          <span class="tag">가벼운 시작</span>
-          <h3>1단계 · 장난감 같은 전생</h3>
-          <p>아이가 웃으며 읽기 좋은, 짧고 엉뚱한 전생들입니다.</p>
-          <ul>
-            <li>개미알이었다</li>
-            <li>안경이었다</li>
-            <li>전생하지 않았다</li>
-            <li>전생했다</li>
-          </ul>
-        </div>
-        <div class="guide-card">
-          <span class="tag">모험과 게임</span>
-          <h3>2단계 · 조금 더 큰 이야기</h3>
-          <p>사라짐, 게임, 99퍼센트처럼 모험과 감정이 조금 더 커지는 파트입니다.</p>
-          <ul>
-            <li>사라졌다</li>
-            <li>지오메트리 대쉬 아이콘</li>
-            <li>99퍼였다</li>
-          </ul>
-        </div>
-        <div class="guide-card">
-          <span class="tag">문장과 생활</span>
-          <h3>3단계 · 일상 속 상상</h3>
-          <p>쉼표, 하나로마트, 잘 지내고 있습니다처럼 말과 생활을 섞은 상상 이야기입니다.</p>
-          <ul>
-            <li>전생했더니,</li>
-            <li>하나로마트 이야기</li>
-            <li>잘 지내고 있습니다</li>
-          </ul>
-        </div>
-      </div>
-      <p class="mini-note">추천 방식: <strong>“전생 시리즈”</strong>는 번호순으로, 앞으로 전생이 아닌 새 상상은 별도 묶음으로 추가하면 관리가 가장 쉽습니다.</p>
-    </section>
-
-    <section id="series-list">
+<section id="series-list">
       <div class="section-title">
         <div><h2>전생 시리즈</h2></div>
         <p>현재까지 만든 이야기를 번호순으로 정리했습니다.</p>
