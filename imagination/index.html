@@ -33,18 +33,22 @@
     }
 
     .imagination-page .topbar{
-      background:rgba(7,16,36,.86);
-      border-bottom:1px solid var(--im-line);
+      background:rgba(248,244,238,.94);
+      border-bottom:1px solid rgba(190,173,156,.34);
+      backdrop-filter:saturate(140%) blur(10px);
     }
     .imagination-page .brand,
-    .imagination-page .nav a{color:var(--im-text)}
-    .imagination-page .nav a:hover{
-      background:rgba(155,124,255,.16);
-      color:#fff;
+    .imagination-page .nav a{color:#746153}
+    .imagination-page .nav a:hover,
+    .imagination-page .nav a.is-active{
+      background:#efe7de;
+      color:#3f342b;
     }
+    .imagination-page .nav a.is-active{font-weight:800}
     .imagination-page .brand-mark{
-      background:linear-gradient(145deg,var(--im-purple),var(--im-cyan));
-      box-shadow:0 10px 28px rgba(87,217,255,.18);
+      background:linear-gradient(145deg,#b47a48,#8f5b34);
+      box-shadow:none;
+      color:#fff;
     }
 
     .imagination-hero-note{
@@ -227,10 +231,11 @@
 <body class="imagination-page">
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="../index.html"><div class="brand-mark">둥</div><div>아이의 상상 이야기</div></a>
+      <a class="brand" href="https://haruki40-sys.github.io/dungdung_essay/"><div class="brand-mark">둥</div><div>둥둥이의 이야기 보관함</div></a>
       <nav class="nav">
-        <a href="../index.html">홈</a>
-        <a href="../index.html#essay-collection">주인님의 에세이</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님의 에세이</a>
+        <a class="is-active" href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상 이야기</a>
+        <a href="https://haruki40-sys.github.io/dungdung-court/">둥둥이 AI 재판</a>
       </nav>
     </div>
   </header>
@@ -243,7 +248,7 @@
           <h1>아이의 한마디가<br>하나의 세계가 되는 곳</h1>
           <p>아이의 한마디에서 시작된 엉뚱한 전생과 게임 같은 상상을 한 편씩 이야기로 묶었습니다. 제목이 마음에 드는 이야기부터 자유롭게 골라 읽어보세요.</p>
           <div class="hero-actions">
-            <a class="btn owner-essay-btn" href="../index.html#essay-collection">주인님의 에세이 보러가기 →</a>
+            <a class="btn owner-essay-btn" href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님의 에세이 보러가기 →</a>
           </div>
         </div>
         <div class="hero-visual">
