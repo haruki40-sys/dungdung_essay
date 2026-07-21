@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비가 그친 뒤 이상한 냄새</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    :root{
+      --im-bg:#081226;
+      --im-bg2:#111b3d;
+      --im-text:#f7f8ff;
+      --im-muted:#b9c3df;
+      --im-line:rgba(154,172,255,.18);
+      --im-purple:#9b7cff;
+      --im-cyan:#57d9ff;
+    }
+    body.imagination-page{
+      color:var(--im-text);
+      background:
+        radial-gradient(circle at 12% 12%,rgba(87,217,255,.16),transparent 25%),
+        radial-gradient(circle at 88% 18%,rgba(155,124,255,.18),transparent 28%),
+        linear-gradient(180deg,var(--im-bg) 0%,var(--im-bg2) 100%);
+      min-height:100vh;
+    }
+    .imagination-page .topbar{
+      background:rgba(248,244,238,.94);
+      border-bottom:1px solid rgba(190,173,156,.34);
+      backdrop-filter:saturate(140%) blur(10px);
+    }
+    .imagination-page .brand,
+    .imagination-page .nav a{color:#746153}
+    .imagination-page .nav a:hover,
+    .imagination-page .nav a.is-active{
+      background:#efe7de;
+      color:#3f342b;
+    }
+    .imagination-page .nav a.is-active{font-weight:800}
+    .imagination-page .brand-mark{
+      background:linear-gradient(145deg,#b47a48,#8f5b34);
+      color:#fff;
+      box-shadow:none;
+    }
+    .story-shell{padding:34px 0 44px}
+    .story-article{
+      background:linear-gradient(145deg,rgba(20,32,72,.96),rgba(12,25,54,.96));
+      border:1px solid var(--im-line);
+      box-shadow:0 24px 70px rgba(0,0,0,.34);
+      border-radius:34px;
+      overflow:hidden;
+      position:relative;
+    }
+    .story-number{
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      background:linear-gradient(135deg,rgba(155,124,255,.24),rgba(87,217,255,.18));
+      border:1px solid rgba(164,188,255,.20);
+      color:#dcd5ff;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+    .story-top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .story-chip{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(174,157,255,.22);
+      background:rgba(155,124,255,.16);
+      color:#d8d0ff;
+      font-size:13px;
+      font-weight:800;
+    }
+    .story-chip.alt{
+      background:rgba(87,217,255,.13);
+      border-color:rgba(87,217,255,.20);
+      color:#aeeeff;
+    }
+    .story-title{color:#fff;margin-bottom:26px}
+    .story-body{display:grid;gap:16px}
+    .story-body p{margin:0;color:#ebefff;font-size:17px;line-height:1.95}
+    .story-divider{
+      height:1px;
+      border:none;
+      background:linear-gradient(90deg,rgba(87,217,255,.28),rgba(155,124,255,.22),transparent);
+      margin:28px 0 20px;
+    }
+    .story-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:26px}
+    .story-nav a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 16px;
+      border-radius:16px;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .nav-ghost{background:rgba(255,255,255,.04);border:1px solid var(--im-line);color:#dce5ff}
+    .nav-primary{background:linear-gradient(135deg,var(--im-purple),#6f8cff);color:#fff!important}
+    .imagination-page footer{color:var(--im-muted)}
+    .imagination-page .footer-box{
+      background:rgba(12,24,54,.72);
+      border:1px solid var(--im-line);
+      box-shadow:none;
+    }
+    @media(max-width:760px){
+      .story-shell{padding:22px 0 34px}
+      .story-article{padding:24px}
+      .story-body p{font-size:16px}
+      .story-nav{flex-direction:column}
+      .story-nav a{width:100%}
+    }
+  </style>
+</head>
+<body class="imagination-page">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="https://haruki40-sys.github.io/dungdung_essay/">
+        <div class="brand-mark">둥</div><div>둥둥이의 이야기 보관함</div>
+      </a>
+      <nav class="nav">
+        <a href="https://haruki40-sys.github.io/dungdung_essay/">주인님의 에세이</a>
+        <a class="is-active" href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상 이야기</a>
+        <a href="https://haruki40-sys.github.io/dungdung-court/">둥둥이 AI 재판</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap story-shell">
+    <article class="article story-article">
+      <span class="story-number">새 상상 이야기 01</span>
+      <div class="story-top">
+        <span class="story-chip">비 오는 날 상상</span>
+        <span class="story-chip alt">아이의 상상 이야기</span>
+      </div>
+      <h1 class="story-title">비가 그친 뒤 이상한 냄새</h1>
+
+      <div class="story-body">
+        <p>수업이 거의 끝나가는데 비가 엄청 많이 왔다.</p>
+        <p>창문에 빗방울이 계속 부딪혔고, 가끔 천둥도 쳤다. 나는 집에 갈 때 운동화가 다 젖을까 봐 걱정됐다. 우산이 뒤집히거나 바지가 젖을 것 같기도 했다.</p>
+        <p>속으로는 길이 물에 잠겨서 배를 타고 집에 가야 하는 장면까지 상상했다. 물론 진짜로 그럴 리는 없었지만, 창밖을 보고 있으면 조금 가능할 것 같았다.</p>
+        <p>그런데 하교 종이 울리고 밖으로 나갈 때쯤 비가 거의 그쳤다.</p>
+        <p>아까까지 엄청 어두웠는데 구름 사이로 햇빛도 조금 나왔다. 학교 밖으로 나오자 공기가 시원했다. 비 냄새와 풀 냄새가 섞여 있었는데, 나는 그 냄새가 박하사탕 같다고 생각했다.</p>
+        <p>나뭇잎에는 물방울이 맺혀 있었고, 바닥도 반짝거렸다. 비가 온 뒤의 길은 평소에 보던 길인데도 조금 다르게 보였다.</p>
+        <p>나는 웅덩이를 피해 걸었다. 어떤 웅덩이는 뛰어넘고, 어떤 웅덩이는 그냥 밟았다. 운동화에 물이 조금 들어갔지만 생각보다 기분이 나쁘지는 않았다.</p>
+        <p>그런데 학교 담장을 지나 골목으로 들어가자 갑자기 이상한 냄새가 났다.</p>
+        <p>“으악, 이게 무슨 냄새야?”</p>
+        <p>나는 바로 코를 막았다.</p>
+        <p>조금 전까지 나던 시원한 냄새는 사라지고, 아주 진한 똥냄새가 났다. 주변을 둘러봤지만 똥은 보이지 않았다. 쓰레기봉투도 없었고, 강아지도 없었다.</p>
+        <p>나는 걸으면서 냄새가 어디서 나는지 생각했다.</p>
+        <p>혹시 하늘에서 비를 뿌리던 요정이 방귀를 뀌고 간 것은 아닐까?</p>
+        <p>예쁜 요정이라고 항상 향기로운 냄새만 나는 것은 아닐 것이다. 요정도 너무 급하면 방귀를 뀔 수 있다.</p>
+        <p>아니면 비를 많이 마신 땅이 트림을 한 것일 수도 있다.</p>
+        <p>비가 땅속으로 계속 들어갔으니까, 땅이 배가 불러서 “꺼억” 하고 트림을 했을지도 모른다.</p>
+        <p>나는 코를 막은 채로 혼자 웃었다.</p>
+        <p>요정의 방귀인지 땅의 트림인지 진지하게 생각하는 내가 조금 웃겼다.</p>
+        <p>골목을 빠져나오자 다시 풀 냄새가 났다. 나는 코에서 손을 떼고 크게 숨을 쉬었다.</p>
+        <p>결국 그 냄새가 어디서 났는지는 알아내지 못했다.</p>
+        <p>하지만 집에 가는 길은 생각보다 재미있었다. 수업이 끝나기 전에는 비 때문에 걱정만 했는데, 막상 밖에 나오니 반짝이는 길도 보고 이상한 냄새도 맡고 엉뚱한 상상도 했다.</p>
+        <p>다음에 비가 많이 오면 운동화가 젖을 걱정부터 하겠지만, 비가 그친 뒤에는 또 어떤 냄새가 날지 조금 궁금할 것 같다.</p>
+      </div>
+
+      <hr class="story-divider">
+
+      <div class="story-nav">
+        <a class="nav-ghost" href="../index.html">← 목록으로 돌아가기</a>
+        <a class="nav-primary" href="../index.html#series-list">전생 시리즈도 보기 →</a>
+      </div>
+    </article>
+  </main>
+
+  <footer><div class="wrap footer-box">아이의 상상 이야기 · 새 상상 이야기</div></footer>
+</body>
+</html>
