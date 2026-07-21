@@ -7,213 +7,30 @@
   <link rel="stylesheet" href="../../style.css">
 
   <style>
-    :root{
-      --im-bg:#081226;
-      --im-bg2:#111b3d;
-      --im-card:#111b36;
-      --im-card2:#18234a;
-      --im-text:#f7f8ff;
-      --im-muted:#b9c3df;
-      --im-line:rgba(154,172,255,.18);
-      --im-purple:#9b7cff;
-      --im-cyan:#57d9ff;
-      --im-pink:#ff7fd1;
-      --im-yellow:#ffd86b;
-    }
-    body.imagination-page{
-      color:var(--im-text);
-      background:
-        radial-gradient(circle at 12% 12%,rgba(87,217,255,.16),transparent 25%),
-        radial-gradient(circle at 88% 18%,rgba(155,124,255,.18),transparent 28%),
-        radial-gradient(circle at 50% 90%,rgba(255,127,209,.10),transparent 34%),
-        linear-gradient(180deg,var(--im-bg) 0%,var(--im-bg2) 100%);
-      min-height:100vh;
-    }
-    .imagination-page .topbar{
-      background:rgba(7,16,36,.86);
-      border-bottom:1px solid var(--im-line);
-    }
-    .imagination-page .brand,
-    .imagination-page .nav a{color:var(--im-text)}
-    .imagination-page .nav a:hover{
-      background:rgba(155,124,255,.16);
-      color:#fff;
-    }
-    .imagination-page .brand-mark{
-      background:linear-gradient(145deg,var(--im-purple),var(--im-cyan));
-      box-shadow:0 10px 28px rgba(87,217,255,.18);
-    }
-
+    :root{--im-bg:#081226;--im-bg2:#111b3d;--im-text:#f7f8ff;--im-muted:#b9c3df;--im-line:rgba(154,172,255,.18);--im-purple:#9b7cff;--im-cyan:#57d9ff}
+    body.imagination-page{color:var(--im-text);background:radial-gradient(circle at 12% 12%,rgba(87,217,255,.16),transparent 25%),radial-gradient(circle at 88% 18%,rgba(155,124,255,.18),transparent 28%),linear-gradient(180deg,var(--im-bg) 0%,var(--im-bg2) 100%);min-height:100vh}
+    .imagination-page .topbar{background:rgba(7,16,36,.86);border-bottom:1px solid var(--im-line)}
+    .imagination-page .brand,.imagination-page .nav a{color:var(--im-text)}
+    .imagination-page .brand-mark{background:linear-gradient(145deg,var(--im-purple),var(--im-cyan))}
     .story-shell{padding:34px 0 44px}
-    .story-article{
-      background:
-        linear-gradient(145deg,rgba(20,32,72,.96),rgba(12,25,54,.96));
-      border:1px solid var(--im-line);
-      box-shadow:0 24px 70px rgba(0,0,0,.34);
-      border-radius:34px;
-      overflow:hidden;
-      position:relative;
-    }
-    .story-article::before{
-      content:"";
-      position:absolute;
-      width:420px;
-      height:420px;
-      right:-140px;
-      top:-150px;
-      border-radius:50%;
-      background:radial-gradient(circle,rgba(87,217,255,.10),transparent 68%);
-      pointer-events:none;
-    }
-    .story-article::after{
-      content:"";
-      position:absolute;
-      width:320px;
-      height:320px;
-      left:-110px;
-      bottom:-120px;
-      border-radius:50%;
-      background:radial-gradient(circle,rgba(155,124,255,.12),transparent 70%);
-      pointer-events:none;
-    }
-
-    .story-number{
-      display:inline-flex;
-      padding:8px 14px;
-      border-radius:999px;
-      background:linear-gradient(135deg,rgba(155,124,255,.24),rgba(87,217,255,.18));
-      border:1px solid rgba(164,188,255,.20);
-      color:#dcd5ff;
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.02em;
-      margin-bottom:18px;
-    }
-    .story-top{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:14px;
-      position:relative;
-      z-index:1;
-    }
-    .story-chip{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(174,157,255,.22);
-      background:rgba(155,124,255,.16);
-      color:#d8d0ff;
-      font-size:13px;
-      font-weight:800;
-    }
-    .story-chip.alt{
-      background:rgba(87,217,255,.13);
-      border-color:rgba(87,217,255,.20);
-      color:#aeeeff;
-    }
-    .story-title{
-      color:#fff;
-      margin-bottom:14px;
-      position:relative;
-      z-index:1;
-    }
-    .story-lead{
-      color:var(--im-muted);
-      margin-top:0;
-      margin-bottom:28px;
-      max-width:760px;
-      position:relative;
-      z-index:1;
-    }
-    .story-body{
-      position:relative;
-      z-index:1;
-      display:grid;
-      gap:16px;
-    }
-    .story-body p{
-      margin:0;
-      color:#ebefff;
-      font-size:17px;
-      line-height:1.95;
-      padding:0 2px;
-    }
-    .story-divider{
-      height:1px;
-      border:none;
-      background:linear-gradient(90deg,rgba(87,217,255,.28),rgba(155,124,255,.22),transparent);
-      margin:26px 0 20px;
-    }
-
-    .story-nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      margin-top:26px;
-      position:relative;
-      z-index:1;
-    }
-    .story-nav-group{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .story-nav a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:48px;
-      padding:12px 16px;
-      border-radius:16px;
-      font-weight:800;
-      text-decoration:none;
-      transition:.2s;
-    }
-    .nav-ghost{
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--im-line);
-      color:#dce5ff;
-    }
-    .nav-ghost:hover{
-      background:rgba(255,255,255,.07);
-      color:#fff;
-      transform:translateY(-1px);
-    }
-    .nav-primary{
-      background:linear-gradient(135deg,var(--im-purple),#6f8cff);
-      color:#fff !important;
-      box-shadow:0 14px 34px rgba(123,104,255,.28);
-    }
-    .nav-primary:hover{
-      transform:translateY(-1px);
-      box-shadow:0 18px 42px rgba(87,217,255,.24);
-    }
-
-    .story-side-note{
-      margin-top:18px;
-      color:var(--im-muted);
-      font-size:14px;
-      position:relative;
-      z-index:1;
-    }
-
+    .story-article{background:linear-gradient(145deg,rgba(20,32,72,.96),rgba(12,25,54,.96));border:1px solid var(--im-line);box-shadow:0 24px 70px rgba(0,0,0,.34);border-radius:34px;overflow:hidden;position:relative}
+    .story-number{display:inline-flex;padding:8px 14px;border-radius:999px;background:linear-gradient(135deg,rgba(155,124,255,.24),rgba(87,217,255,.18));border:1px solid rgba(164,188,255,.20);color:#dcd5ff;font-size:13px;font-weight:800;margin-bottom:18px}
+    .story-top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .story-chip{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(174,157,255,.22);background:rgba(155,124,255,.16);color:#d8d0ff;font-size:13px;font-weight:800}
+    .story-chip.alt{background:rgba(87,217,255,.13);border-color:rgba(87,217,255,.20);color:#aeeeff}
+    .story-title{color:#fff;margin-bottom:26px}
+    .story-body{display:grid;gap:16px}
+    .story-body p{margin:0;color:#ebefff;font-size:17px;line-height:1.95}
+    .story-divider{height:1px;border:none;background:linear-gradient(90deg,rgba(87,217,255,.28),rgba(155,124,255,.22),transparent);margin:28px 0 20px}
+    .story-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:26px}
+    .story-nav-group{display:flex;gap:10px;flex-wrap:wrap}
+    .story-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border-radius:16px;font-weight:800;text-decoration:none}
+    .nav-ghost{background:rgba(255,255,255,.04);border:1px solid var(--im-line);color:#dce5ff}
+    .nav-primary{background:linear-gradient(135deg,var(--im-purple),#6f8cff);color:#fff!important}
+    .story-side-note{margin-top:18px;color:var(--im-muted);font-size:14px}
     .imagination-page footer{color:var(--im-muted)}
-    .imagination-page .footer-box{
-      background:rgba(12,24,54,.72);
-      border:1px solid var(--im-line);
-      box-shadow:none;
-    }
-
-    @media(max-width:760px){
-      .story-shell{padding:22px 0 34px}
-      .story-article{padding:24px}
-      .story-body p{font-size:16px}
-      .story-nav{flex-direction:column}
-      .story-nav-group{width:100%}
-      .story-nav a{width:100%}
-    }
+    .imagination-page .footer-box{background:rgba(12,24,54,.72);border:1px solid var(--im-line);box-shadow:none}
+    @media(max-width:760px){.story-shell{padding:22px 0 34px}.story-article{padding:24px}.story-body p{font-size:16px}.story-nav{flex-direction:column}.story-nav-group{width:100%}.story-nav a{width:100%}}
   </style>
 
 </head>
@@ -221,13 +38,9 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="../../index.html"><div class="brand-mark">둥</div><div>아이의 상상 이야기</div></a>
-      <nav class="nav">
-        <a href="../../index.html">홈</a>
-        <a href="../index.html">상상 이야기 목록</a>
-      </nav>
+      <nav class="nav"><a href="../../index.html">홈</a><a href="../index.html">상상 이야기 목록</a></nav>
     </div>
   </header>
-
   <main class="wrap story-shell">
     <article class="article story-article">
       <span class="story-number">전생 시리즈 05</span>
@@ -236,28 +49,15 @@
         <span class="story-chip alt">아이의 상상 이야기</span>
       </div>
       <h1 class="story-title">전생했더니 사라졌다</h1>
-      <p class="lead story-lead">몸도 이름도 없어진 채, 존재한다는 일의 소중함을 조용히 바라보게 되는 이야기.</p>
-
-      <div class="story-body">
-        <p>전생했더니 사라졌다.</p><p>눈을 떴다. 그런데 손도 없고, 발도 없고, 목소리도 없었다. 나는 어디에도 없었지만, 이상하게 세상은 느껴졌다.</p><p>처음에는 무서웠다. 아무 흔적도 남길 수 없고, 아무도 나를 부르지 못한다는 것은 죽음보다도 더 조용한 일이었다.</p><p>그래도 한참 세상을 바라보다 보니, 살아 있을 때 당연하게 여겼던 것들이 떠올랐다. 이름을 불러주는 사람, 손으로 잡을 수 있는 컵, 내가 들어오면 조금 달라지는 방의 공기.</p><p>존재한다는 것은 거창한 일이 아니었다. 아주 사소하게 주변을 바꾸는 일이었다.</p><p>나는 완전히 사라졌지만, 한때 내가 웃게 했던 사람, 내가 건넨 말 하나쯤은 어딘가에 남아 있을지도 모른다고 생각했다.</p><p>전생했더니 사라졌다. 하지만 어쩌면 사라진다는 것은 완전히 없어지는 일이 아니라, 더 이상 내가 확인할 수 없는 방식으로 남는 일인지도 모른다.</p>
-      </div>
-
+      <div class="story-body"><p>전생했더니 사라졌다.</p><p>눈을 떴다.</p><p>아무것도 없었다.</p><p>정확히는, 내가 없었다.</p><p>손을 들려고 했지만 손이 없었고, 숨을 쉬려고 했지만 폐도 없었다. 눈을 떴다고 생각했지만 눈도 없었다. 그런데도 이상하게 주변은 느껴졌다. 빛도 아니고 소리도 아닌 어떤 방식으로, 나는 세상을 알고 있었다.</p><p>그리고 곧 알았다.</p><p>전생은 했지만, 존재하지 않았다.</p><p>이름도 없고, 몸도 없고, 발자국도 없었다. 누군가 나를 부를 수도 없었고, 내가 누군가를 부를 수도 없었다. 전생 전의 기억만 희미하게 남아 있었다. 가족의 얼굴, 자주 걷던 길, 익숙한 방, 식탁 위의 작은 물건들.</p><p>그 모든 것이 있었고, 나는 없었다.</p><p>처음에는 공포가 밀려왔다.</p><p>사라진다는 것은 죽는 것보다 더 조용했다. 죽음에는 적어도 끝이라는 모양이 있지만, 사라짐에는 아무 모양도 없었다. 끝났다는 사실조차 누구에게도 전달되지 않았다. 세상은 멈추지 않았고, 아무도 하늘을 올려다보며 내 부재를 알아채지 않았다.</p><p>나는 무언가 흔적을 남기고 싶었다.</p><p>벽을 두드리고 싶었고, 바람을 흔들고 싶었고, 누군가의 꿈에 나타나고 싶었다. 하지만 아무것도 할 수 없었다. 나는 영향이 없는 존재였다. 아니, 영향조차 없는 무언가였다.</p><p>그때 비로소 이상한 생각이 들었다.</p><p>나는 살아 있을 때 얼마나 많은 것을 당연하게 여겼을까.</p><p>손으로 컵을 들 수 있다는 것. 이름을 부르면 누군가 돌아본다는 것. 내가 방에 들어가면 공기가 조금 달라진다는 것. 웃으면 누군가 따라 웃고, 화를 내면 분위기가 무거워진다는 것.</p><p>존재한다는 것은 그 자체로 주변을 바꾸는 일이었다.</p><p>나는 늘 더 큰 흔적을 남기고 싶어 했다. 더 잘 기억되고 싶었고, 더 인정받고 싶었고, 내가 있었다는 증거를 크게 만들고 싶었다. 그런데 막상 완전히 사라지고 나니, 거창한 흔적은 필요 없었다.</p><p>식탁에 놓인 내 컵 하나면 됐다.</p><p>아무도 치우지 않은 의자 하나면 됐다.</p><p>누군가가 무심코 “이건 그 사람이 좋아했지”라고 말해주는 것만으로도 충분했다.</p><p>하지만 그런 장면조차 내가 직접 볼 수 있는 것은 아니었다. 나는 어디에도 없었으니까.</p><p>시간이 흘렀다.</p><p>얼마나 흘렀는지는 알 수 없었다. 몸이 없으니 하루도, 계절도, 나이도 의미가 없었다. 다만 기억은 조금씩 옅어졌다. 가족의 얼굴도 흐려졌고, 내 이름도 희미해졌다.</p><p>처음에는 그게 두려웠다.</p><p>기억마저 사라지면 나는 정말 아무것도 아니게 될 것 같았다.</p><p>하지만 어느 순간부터 붙잡는 일을 멈췄다.</p><p>사라짐은 패배가 아니었다. 모든 존재가 언젠가 지나가는 방식일 뿐이었다. 사람은 이름을 남기기도 하고, 물건을 남기기도 하고, 누군가의 습관 속에 남기도 한다. 하지만 결국 대부분은 흐려진다.</p><p>그렇다고 살아 있었던 시간이 무효가 되는 것은 아니다.</p><p>파도가 사라졌다고 바다가 움직이지 않았던 것은 아니다.</p><p>꽃이 졌다고 피지 않았던 것은 아니다.</p><p>나는 사라졌지만, 내가 웃게 했던 사람의 하루는 한 번쯤 가벼웠을 것이다. 내가 건넨 말 하나가 누군가의 선택을 조금 바꿨을지도 모른다. 내가 닿았던 것들은 이미 다음 장면으로 이어졌을 것이다.</p><p>그걸로 충분했다.</p><p>전생했더니 사라졌다.</p><p>처음에는 아무것도 남지 않았다고 생각했다.</p><p>하지만 어쩌면 사라진다는 것은 완전히 없어지는 일이 아니라, 더 이상 내가 확인할 수 없는 방식으로 남는 일인지도 모른다.</p><p>나는 이제 나를 기억하지 못한다.</p><p>그래도 한때 내가 있었다는 사실까지 사라진 것은 아니다.</p><p>누군가의 하루 한쪽에서, 아주 잠깐이라도.</p></div>
       <hr class="story-divider">
-
       <div class="story-nav">
-        <div class="story-nav-group">
-          <a class="nav-ghost" href="../index.html">← 목록으로 돌아가기</a>
-          <a class="nav-ghost" href="story-04-reincarnated.html">← 이전 이야기</a>
-        </div>
-        <div class="story-nav-group">
-          <a class="nav-primary" href="story-06-geometry-dash-icon.html">다음 이야기 →</a>
-        </div>
+        <div class="story-nav-group"><a class="nav-ghost" href="../index.html">← 목록으로 돌아가기</a><a class="nav-ghost" href="story-04-reincarnated.html">← 이전 이야기</a></div>
+        <div class="story-nav-group"><a class="nav-primary" href="story-06-geometry-dash-icon.html">다음 이야기 →</a></div>
       </div>
-
       <p class="story-side-note">전생 시리즈는 번호순으로 이어 읽어도 좋고, 제목이 끌리는 이야기부터 골라 읽어도 좋아요.</p>
     </article>
   </main>
-
   <footer><div class="wrap footer-box">아이의 상상 이야기 · 전생 시리즈</div></footer>
 </body>
 </html>
