@@ -1,0 +1,25 @@
+[GitHub 저장소를 완전히 정리하는 방법]
+
+1. 기존 dungdung_essay 저장소에서 파일과 폴더를 모두 삭제합니다.
+   단, 현재 사용 중인 mp3 파일은 먼저 PC에 백업하세요.
+
+2. 이 ZIP을 PC에서 압축 해제합니다.
+
+3. 압축을 푼 dungdung_essay_complete_site 폴더 자체가 아니라,
+   그 안에 있는 파일과 폴더를 GitHub 저장소 최상단(root)에 올립니다.
+
+4. GitHub 저장소 최상단에서 아래 구조가 바로 보여야 합니다.
+
+   index.html
+   style.css
+   .nojekyll
+   assets/
+   essays/
+   imagination/
+
+5. Commit changes를 한 번만 누릅니다.
+
+6. Actions에서 pages build and deployment가 초록색으로 완료된 뒤
+   사이트를 Ctrl+F5로 새로고침합니다.
+
+주의: imagination/index.html을 root의 index.html 자리에 올리면 안 됩니다.
