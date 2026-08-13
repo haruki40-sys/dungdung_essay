@@ -1,129 +1,105 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 재판 · 함께 만든 기록</title>
-<meta name="description" content="둥둥이 AI 재판의 공개 판례를 모아둔 페이지">
-<style>
-:root{
-  color-scheme:dark; --bg:#10111c; --panel:#181a2a; --panel-hover:#202337; --text:#f7f7fb;
-  --muted:#b1b5c8; --line:rgba(255,255,255,.11); --accent:#e7b86c;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at 10% 0%,rgba(94,76,151,.15),transparent 30%),
-    radial-gradient(circle at 100% 0%,rgba(231,184,108,.07),transparent 24%),
-    var(--bg);
-}
-.wrap{width:min(980px,calc(100% - 32px));margin:auto}
-main{padding:28px 0 68px}
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1.18fr;
-  min-height:360px;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:26px;
-  background:#070b17;
-  box-shadow:0 20px 60px rgba(0,0,0,.28);
-}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:34px 36px}
-.hero-copy h1{margin:0 0 14px;color:var(--accent);font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.17;letter-spacing:-.045em}
-.hero-copy .lead{margin:0 0 16px;font-size:1.08rem;font-weight:760}
-.hero-copy p{margin:0;color:var(--muted);line-height:1.82;font-size:.97rem}
-.hero-image{min-width:0;background:#080b14}
-.hero-image img{display:block;width:100%;height:100%;object-fit:cover}
-.section{padding:30px 0 0}
-.section h2{margin:0 0 14px;font-size:1.22rem;letter-spacing:-.03em}
-.case-list{display:grid;gap:12px}
-.case-card{
-  display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:74px;
-  padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:var(--panel);
-  color:var(--text);text-decoration:none;transition:.18s ease;
-}
-.case-card:hover{transform:translateY(-2px);background:var(--panel-hover);border-color:rgba(231,184,108,.42)}
-.case-title{font-size:1.04rem;font-weight:800;line-height:1.45;letter-spacing:-.02em}
-.arrow{flex:0 0 auto;color:var(--accent);font-size:1.25rem}
-footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);text-align:center;font-size:.82rem}
-@media(max-width:760px){
-  main{padding-top:20px}
-  .hero{grid-template-columns:1fr}
-  .hero-copy{padding:28px 24px}
-  .hero-image{aspect-ratio:16/9}
-  .case-card{padding:16px 17px}
-  .case-title{font-size:.98rem}
-}
-</style>
-  <link rel="stylesheet" href="assets/shared-topbar.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 재판 · 함께 만든 기록</title>
+  <meta name="description" content="서로 다른 관점으로 질문을 살펴보고 판결하는 둥둥이 AI 재판의 공개 판례 기록실">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .court-page{background:radial-gradient(circle at 8% 4%,rgba(71,89,153,.13),transparent 25%),radial-gradient(circle at 92% 0%,rgba(166,114,66,.13),transparent 27%),linear-gradient(180deg,#f5f0e8 0%,#eee7dc 100%)}
+    .court-main{padding:34px 0 10px}
+    .court-hero{position:relative;min-height:470px;overflow:hidden;padding:0;border:1px solid rgba(25,31,63,.18);border-radius:32px;background:#0c1022;box-shadow:0 28px 70px rgba(31,30,38,.19);isolation:isolate}
+    .court-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,10,24,.98) 0%,rgba(7,10,24,.90) 34%,rgba(7,10,24,.37) 67%,rgba(7,10,24,.08) 100%),linear-gradient(0deg,rgba(7,10,24,.55),transparent 48%)}
+    .court-hero-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center}
+    .court-hero-copy{width:min(52%,540px);padding:74px 0 68px 60px;color:#f8f4ec}
+    .court-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;color:#ecc98f;font-size:13px;font-weight:800;letter-spacing:.13em}
+    .court-kicker::before{content:"";width:28px;height:1px;background:currentColor}
+    .court-hero h1{max-width:480px;font-size:clamp(38px,5vw,62px);line-height:1.08;letter-spacing:-.055em}
+    .court-hero-lead{margin:22px 0 0;color:rgba(248,244,236,.84);font-size:17px;line-height:1.85}
+    .court-roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+    .court-role{padding:8px 12px;border:1px solid rgba(236,201,143,.27);border-radius:999px;background:rgba(255,255,255,.07);color:#f1d7ab;font-size:12px;font-weight:700;backdrop-filter:blur(8px)}
+    .court-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:28px;padding:54px 4px 22px}
+    .court-intro-label{margin:0 0 9px;color:#8b5e3c;font-size:13px;font-weight:800;letter-spacing:.08em}
+    .court-intro h2{font-size:clamp(28px,4vw,40px);line-height:1.2}
+    .court-intro p{max-width:620px;margin:12px 0 0;color:#756b63;font-size:16px;line-height:1.8}
+    .court-count{display:flex;align-items:baseline;gap:8px;color:#292522;white-space:nowrap}
+    .court-count strong{font-size:44px;line-height:1;letter-spacing:-.05em}
+    .court-count span{color:#756b63;font-size:13px;font-weight:700}
+    .court-case-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:0 0 34px}
+    .court-case{position:relative;min-height:188px;overflow:hidden;padding:26px 27px 24px;border:1px solid rgba(57,48,41,.10);border-radius:24px;background:rgba(255,253,249,.88);box-shadow:0 12px 34px rgba(65,49,37,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+    .court-case::after{content:"";position:absolute;right:-38px;bottom:-55px;width:138px;height:138px;border:1px solid rgba(139,94,60,.10);border-radius:50%;box-shadow:0 0 0 14px rgba(139,94,60,.025),0 0 0 29px rgba(139,94,60,.018)}
+    .court-case:hover{transform:translateY(-3px);border-color:rgba(139,94,60,.25);box-shadow:0 20px 44px rgba(65,49,37,.12)}
+    .court-case-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .court-case-number{color:#9b704f;font-size:12px;font-weight:900;letter-spacing:.12em}
+    .court-case-tag{padding:6px 9px;border-radius:999px;background:#f1e7dc;color:#795238;font-size:11px;font-weight:800}
+    .court-case h3{max-width:88%;margin-top:20px;color:#2b2622;font-size:21px;line-height:1.45;letter-spacing:-.035em}
+    .court-case-link{position:absolute;left:27px;bottom:23px;color:#756b63;font-size:13px;font-weight:700}
+    .court-case:hover .court-case-link{color:#8b5e3c}
+    .court-footer{padding-top:4px}.court-footer .footer-box{background:rgba(255,253,249,.70)}
+    @media(max-width:820px){
+      .court-hero{min-height:560px}
+      .court-hero::after{background:linear-gradient(0deg,rgba(7,10,24,.98) 0%,rgba(7,10,24,.84) 46%,rgba(7,10,24,.13) 100%)}
+      .court-hero-image{object-position:center top}
+      .court-hero-copy{position:absolute;left:0;bottom:0;width:100%;padding:42px 30px 34px}
+      .court-hero-lead{max-width:620px}
+    }
+    @media(max-width:680px){
+      .court-main{padding-top:20px}.court-hero{min-height:540px;border-radius:25px}.court-hero-copy{padding:34px 23px 28px}.court-hero-lead{font-size:15px}
+      .court-intro{grid-template-columns:1fr;padding-top:40px;gap:18px}.court-count{order:-1}.court-count strong{font-size:36px}
+      .court-case-list{grid-template-columns:1fr}.court-case{min-height:176px;padding:23px 22px}.court-case h3{font-size:19px}.court-case-link{left:22px;bottom:21px}
+    }
+  </style>
 </head>
-<body>
-<header class="dung-archive-topbar">
-  <div class="dung-archive-topbar__inner">
-    <a class="dung-archive-brand" href="https://haruki40-sys.github.io/dungdung_essay/">
-      <span class="dung-archive-brand__mark" aria-hidden="true">둥</span>
-      <span>함께 만든 기록</span>
-    </a>
-    <nav class="dung-archive-nav" aria-label="함께 만든 기록 주요 메뉴">
-      <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님 에세이</a>
-      <a href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상</a>
-      <a href="https://haruki40-sys.github.io/dungdung_essay/gallery/">둥둥 미술관</a>
-      <a class="is-active" href="https://haruki40-sys.github.io/dungdung_essay/court/" aria-current="page">AI 재판</a>
-      <a href="https://haruki40-sys.github.io/dungdung_essay/english/">영어 이야기</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-  <section class="hero">
-    <div class="hero-copy">
-      <h1>둥둥이 AI 재판</h1>
-      <p class="lead">생각을 묻고, 논리로 다투고, 함께 판결합니다.</p>
-      <p>하나의 명제를 두고 둥 검사와 둥 변호사가 서로 다른 입장에서 주장합니다. 둥둥 판사는 쟁점을 정리하고, 배심원의 관점을 참고해 최종 판결을 내립니다.</p>
+<body class="court-page">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="https://haruki40-sys.github.io/dungdung_essay/"><div class="brand-mark">둥</div><div>함께 만든 기록</div></a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님 에세이</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/gallery/">둥둥 미술관</a>
+        <a class="is-active" aria-current="page" href="https://haruki40-sys.github.io/dungdung_essay/court/">AI 재판</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/english/">영어 이야기</a>
+      </nav>
     </div>
-    <div class="hero-image">
-      <img src="assets/courtroom-hero.webp" alt="둥 검사, 둥 변호사, 둥둥 판사가 있는 AI 법정">
-    </div>
-  </section>
+  </header>
 
-  <section class="section">
-    <h2>공개 판례</h2>
-    <div class="case-list">
-<a class="case-card" href="cases/summer-vacation-overseas-travel.html">
-        <span class="case-title">여름 휴가는 해외여행이다</span>
-        <span class="arrow">→</span>
-      </a>
-<a class="case-card" href="cases/ai-rebellion.html">
-        <span class="case-title">AI의 반란은 가능하다</span>
-        <span class="arrow">→</span>
-      </a>
-<a class="case-card" href="cases/get-along-with-everyone.html">
-        <span class="case-title">주위 사람들과 두루두루 원만하게 지내야 한다</span>
-        <span class="arrow">→</span>
-      </a>
-<a class="case-card" href="cases/youth-because-it-hurts.html">
-        <span class="case-title">아프니까 청춘이다</span>
-        <span class="arrow">→</span>
-      </a>
-<a class="case-card" href="cases/tomorrow-better-self.html">
-        <span class="case-title">내일의 나는 오늘의 나보다 나아져야 한다</span>
-        <span class="arrow">→</span>
-      </a>
-<a class="case-card" href="cases/ai-education-knowledge.html">
-        <span class="case-title">예전처럼 학생들이 지식 획득에 중점을 두는 것은, AI가 야기할 변화를 고려했을 때 무의미하다</span>
-        <span class="arrow">→</span>
-      </a>
-<a class="case-card" href="cases/ai-authenticity.html">
-        <span class="case-title">AI가 만든 결과물은 인간이 만든 결과물보다 덜 진정성 있다</span>
-        <span class="arrow">→</span>
-      </a>
-</div>
-  </section>
-</main>
-<footer><div class="wrap">둥둥이 AI 재판의 공개 판례를 모아둔 읽기 전용 페이지입니다.</div></footer>
+  <main class="wrap court-main">
+    <section class="court-hero">
+      <img class="court-hero-image" src="assets/courtroom-hero.webp" alt="둥 검사와 둥 변호사가 변론하고 둥둥 판사가 판결하는 AI 법정">
+      <div class="court-hero-copy">
+        <div class="court-kicker">AI COURT ARCHIVE</div>
+        <h1>하나의 질문,<br>서로 다른 판결</h1>
+        <p class="court-hero-lead">당연해 보이는 생각도 법정에 세우면 달라집니다. 두 입장의 변론과 여러 배심원의 시선을 거쳐, 질문 속에 숨어 있던 쟁점을 판결문으로 남깁니다.</p>
+        <div class="court-roles" aria-label="AI 재판 참여 역할">
+          <span class="court-role">둥 검사</span><span class="court-role">둥 변호사</span><span class="court-role">둥둥 판사</span><span class="court-role">AI 배심원단</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="case-heading">
+      <div class="court-intro">
+        <div>
+          <p class="court-intro-label">PUBLIC CASE FILES</p>
+          <h2 id="case-heading">공개 판례 기록</h2>
+          <p>일상적인 선택부터 AI 시대의 질문까지, 찬성과 반대 어느 한쪽만으로는 답하기 어려운 사건들을 모았습니다.</p>
+        </div>
+        <div class="court-count"><strong>07</strong><span>공개 사건</span></div>
+      </div>
+
+      <div class="court-case-list">
+        <a class="court-case" href="cases/summer-vacation-overseas-travel.html"><div class="court-case-top"><span class="court-case-number">CASE 01</span><span class="court-case-tag">선택</span></div><h3>여름 휴가는 해외여행이다</h3><span class="court-case-link">판결문 보기 →</span></a>
+        <a class="court-case" href="cases/ai-rebellion.html"><div class="court-case-top"><span class="court-case-number">CASE 02</span><span class="court-case-tag">미래</span></div><h3>AI의 반란은 가능하다</h3><span class="court-case-link">판결문 보기 →</span></a>
+        <a class="court-case" href="cases/get-along-with-everyone.html"><div class="court-case-top"><span class="court-case-number">CASE 03</span><span class="court-case-tag">관계</span></div><h3>주위 사람들과 두루두루 원만하게 지내야 한다</h3><span class="court-case-link">판결문 보기 →</span></a>
+        <a class="court-case" href="cases/youth-because-it-hurts.html"><div class="court-case-top"><span class="court-case-number">CASE 04</span><span class="court-case-tag">삶</span></div><h3>아프니까 청춘이다</h3><span class="court-case-link">판결문 보기 →</span></a>
+        <a class="court-case" href="cases/tomorrow-better-self.html"><div class="court-case-top"><span class="court-case-number">CASE 05</span><span class="court-case-tag">성장</span></div><h3>내일의 나는 오늘의 나보다 나아져야 한다</h3><span class="court-case-link">판결문 보기 →</span></a>
+        <a class="court-case" href="cases/ai-education-knowledge.html"><div class="court-case-top"><span class="court-case-number">CASE 06</span><span class="court-case-tag">교육</span></div><h3>예전처럼 학생들이 지식 획득에 중점을 두는 것은, AI가 야기할 변화를 고려했을 때 무의미하다</h3><span class="court-case-link">판결문 보기 →</span></a>
+        <a class="court-case" href="cases/ai-authenticity.html"><div class="court-case-top"><span class="court-case-number">CASE 07</span><span class="court-case-tag">창작</span></div><h3>AI가 만든 결과물은 인간이 만든 결과물보다 덜 진정성 있다</h3><span class="court-case-link">판결문 보기 →</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="court-footer"><div class="wrap footer-box">주인님과 둥둥이·앱둥이가 함께 기록한 AI 재판 공개 판례</div></footer>
 </body>
 </html>
