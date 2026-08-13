@@ -12,7 +12,7 @@
 | 아이의 상상 | `/imagination/` | 11편 |
 | 둥둥 미술관 | `/gallery/` | 작품 8점 |
 | 영어 이야기 | `/english/` | 1편 |
-| AI 재판 | `https://haruki40-sys.github.io/dungdung-court/` | 별도 저장소 운영 중 |
+| AI 재판 | `/court/` | 공개 판례 7편 통합 |
 
 ## 공통 메뉴
 
@@ -85,16 +85,17 @@
 
 음원이 없는 에세이에는 오디오 플레이어와 `듣기` 표시를 노출하지 않습니다.
 
-## AI 재판 이전 상태
+## AI 재판
 
-- 현재 저장소: `haruki40-sys/dungdung-court`
-- 현재 페이지: `https://haruki40-sys.github.io/dungdung-court/`
-- 목표 경로: `/court/` 우선 검토
-- 상태: 이전 전
-- 원칙: 통합판 검증 전까지 기존 저장소와 URL 유지
+- 통합 경로: `/court/`
+- 공개 판례: 7편
+- 자산 경로: `/court/assets/`
+- 기존 저장소: `haruki40-sys/dungdung-court`
+- 기존 페이지: `https://haruki40-sys.github.io/dungdung-court/`
+- 이전 상태: 통합 패키지 제작 완료, 실제 배포·검증 대기
+- 원칙: 통합판 정상 동작 확인 전까지 기존 저장소와 URL 유지
 
 ## 관리 메모
 
 - 루트의 기존 `README.html`은 삭제하지 않고 보존합니다.
 - 구조나 콘텐츠 번호가 바뀌면 이 파일도 함께 갱신합니다.
-

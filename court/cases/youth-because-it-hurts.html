@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>둥둥이 AI 재판 결과 · 아프니까 청춘이다</title>
+<meta name="description" content="'아프니까 청춘이다'라는 명제에 대한 둥둥이 AI 재판 결과">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#10131d;--panel:#191f2d;--panel2:#22293a;--line:rgba(255,255,255,.12);
+  --text:#f7f8ff;--muted:#aeb7ca;--gold:#ffd36a;--blue:#8ebcff;--pink:#ff9ab6;
+  --good:#7ee2a8;--shadow:0 22px 70px rgba(0,0,0,.32)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;
+  color:var(--text);line-height:1.75;
+  background:
+    radial-gradient(circle at 8% 0%,rgba(139,108,255,.18),transparent 28%),
+    radial-gradient(circle at 94% 8%,rgba(255,211,106,.12),transparent 24%),var(--bg)
+}
+.wrap{width:min(1040px,calc(100% - 32px));margin:auto;padding:22px 0 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.home-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(255,255,255,.04);color:var(--text);text-decoration:none;font-weight:800
+}
+.home-btn:hover{border-color:rgba(255,211,106,.34);color:var(--gold)}
+.hero{
+  border:1px solid var(--line);border-radius:30px;padding:30px;
+  background:linear-gradient(135deg,rgba(255,211,106,.12),rgba(142,188,255,.07));
+  box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center
+}
+.hero-thumb img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;border:1px solid var(--line);background:#0b0f18
+}
+.eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.12em;color:var(--gold)}
+h1{font-size:clamp(2rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:-.05em;margin:12px 0 16px}
+h2{font-size:1.45rem;letter-spacing:-.03em;margin:0 0 14px}
+.muted{color:var(--muted)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{
+  display:inline-flex;align-items:center;min-height:34px;padding:0 12px;border-radius:999px;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.82rem;font-weight:850
+}
+.pill.verdict{background:var(--good);color:#142019;border-color:transparent}
+.card{
+  border:1px solid var(--line);border-radius:24px;background:rgba(25,31,45,.86);
+  padding:24px;margin-top:18px;box-shadow:var(--shadow)
+}
+.claim{font-size:clamp(1.25rem,2.5vw,1.8rem);font-weight:900;line-height:1.45;letter-spacing:-.025em}
+.order{
+  border-left:5px solid var(--gold);padding:16px 18px;border-radius:0 16px 16px 0;
+  background:rgba(255,211,106,.08);font-size:1.08rem;font-weight:780
+}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.side-card{border:1px solid var(--line);border-radius:20px;padding:20px;background:var(--panel2)}
+.side-card.pros{border-color:rgba(255,154,182,.3);background:linear-gradient(180deg,rgba(255,154,182,.08),var(--panel2))}
+.side-card.def{border-color:rgba(142,188,255,.3);background:linear-gradient(180deg,rgba(142,188,255,.08),var(--panel2))}
+.role{display:flex;align-items:center;gap:8px;font-weight:900;margin-bottom:12px}
+.pros .role{color:#ffb8ca}.def .role{color:#c7dcff}
+ul{padding-left:22px;margin:8px 0}
+.quote{
+  margin-top:14px;padding:15px 17px;border-left:4px solid var(--blue);
+  border-radius:0 14px 14px 0;background:rgba(142,188,255,.07);font-weight:750
+}
+.clashes{display:grid;gap:12px}
+.clash{border:1px solid var(--line);background:var(--panel2);border-radius:17px;padding:16px 18px}
+.clash strong{color:var(--gold)}
+.criteria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.criteria div{border:1px solid var(--line);border-radius:18px;padding:17px;background:var(--panel2)}
+.criteria strong{display:block;color:var(--gold);margin-bottom:6px}
+.jury-list{display:grid;gap:12px}
+.jury-item{border:1px solid var(--line);border-radius:16px;padding:15px 17px;background:var(--panel2)}
+.jury-item strong{display:block;color:var(--gold);margin-bottom:4px}
+details{border:1px solid var(--line);border-radius:18px;padding:15px 17px;background:var(--panel2)}
+summary{cursor:pointer;font-weight:850;color:var(--blue)}
+.footer{margin-top:24px;color:var(--muted);font-size:.86rem;text-align:center}
+@media(max-width:820px){.criteria{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+  .hero-thumb{order:-1;max-width:180px}
+}
+</style>
+  <link rel="stylesheet" href="../assets/shared-topbar.css">
+</head>
+<body>
+<header class="dung-archive-topbar">
+  <div class="dung-archive-topbar__inner">
+    <a class="dung-archive-brand" href="https://haruki40-sys.github.io/dungdung_essay/">
+      <span class="dung-archive-brand__mark" aria-hidden="true">둥</span>
+      <span>이야기 보관함</span>
+    </a>
+    <nav class="dung-archive-nav" aria-label="이야기 보관함 주요 메뉴">
+      <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님 에세이</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/gallery/">둥둥 미술관</a>
+      <a class="is-active" href="https://haruki40-sys.github.io/dungdung_essay/court/" aria-current="page">AI 재판</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/english/">영어 이야기</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="topbar">
+    <a class="home-btn" href="../index.html">← 둥둥이 AI 재판 홈</a>
+  </div>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">DUNGDUNG AI COURT · SHARED JUDGMENT</div>
+      <h1>둥둥이 AI 재판 결과</h1>
+      <p class="muted">하나의 명제를 검사와 변호사가 다투고, 판사가 쟁점을 정리해 내린 사고 실험형 판결입니다.</p>
+      <div class="meta">
+        <span class="pill verdict">기각</span>
+        <span class="pill">청춘과 고통</span>
+        <span class="pill">공개 판례 제4호</span>
+      </div>
+    </div>
+    <div class="hero-thumb">
+      <img src="../assets/court-thumbnail.webp" alt="둥둥이 AI 재판 썸네일">
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>심의 안건</h2>
+    <div class="claim">아프니까 청춘이다.</div>
+  </section>
+
+  <section class="card">
+    <h2>한 줄 판결</h2>
+    <div class="order">청춘이기 때문에 아파야 하는 것은 아니다. 고통은 성장의 자격증이 아니며, 성장으로 이어질 가능성은 안전망·회복 여력·당사자의 선택이 함께 있을 때에만 열린다.</div>
+  </section>
+
+  <section class="card">
+    <h2>둥 검사 vs 둥 변호사</h2>
+    <div class="grid">
+      <article class="side-card pros">
+        <div class="role">🔥 둥 검사 · 명제 반대</div>
+        <ul>
+          <li>고통을 성장의 필수 조건으로 묶으면 구조적 불평등과 강제된 희생을 개인의 의지 문제로 돌리게 된다.</li>
+          <li>사회적·경제적 안전망이 없는 고통은 성장보다 소진과 트라우마로 이어질 가능성이 크다.</li>
+          <li>생존 여력이 부족한 사람에게 의미 부여를 요구하는 것은 피해자에게 책임을 전가하는 2차적 압박이 될 수 있다.</li>
+        </ul>
+        <div class="quote">“고통을 견딘 사람이 성장한 것이지, 고통 자체가 사람을 성장시킨 것은 아니다.”</div>
+      </article>
+
+      <article class="side-card def">
+        <div class="role">🛡️ 둥 변호사 · 명제 찬성</div>
+        <ul>
+          <li>이 문장은 고통을 미화하는 명령이 아니라, 역경 뒤 의미를 구성하는 인간의 적응 가능성을 설명하는 틀로 읽을 수 있다.</li>
+          <li>완벽한 안전망이 없어도 타인과의 연대, 도움 요청, 작은 의미망이 회복의 출발점이 될 수 있다.</li>
+          <li>성장은 고통의 크기가 아니라, 경험을 자기 삶에 통합하고 다시 움직이는 방식에서 발생한다.</li>
+        </ul>
+        <div class="quote">“고통은 성장을 보장하지 않지만, 인간은 고통 이후에도 의미를 다시 만들 수 있다.”</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>배심원 한 줄 의견</h2>
+    <div class="jury-list">
+      <div class="jury-item"><strong>현실주의 배심원</strong>버틸 자원도 없는 사람에게 성장하라고 말하는 순간, 위로는 비용 없는 명령이 됩니다.</div>
+      <div class="jury-item"><strong>원칙주의 배심원</strong>고통을 정당화할 권리는 타인에게 없으며, 의미를 부여할 권리는 오직 당사자에게 있습니다.</div>
+      <div class="jury-item"><strong>어린이 배심원</strong>아픈 사람한테 “좋은 경험이야”라고 말하기보다 먼저 도와줘야 해요.</div>
+      <div class="jury-item"><strong>철학자 배심원</strong>고통은 성장의 원인이 아니라, 삶이 어떤 의미를 만들어낼지 묻는 사건에 가깝습니다.</div>
+      <div class="jury-item"><strong>사회구조 배심원</strong>개인의 회복탄력성을 칭찬하더라도, 고통을 만든 제도와 환경의 책임이 사라져서는 안 됩니다.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>핵심 다툼</h2>
+    <div class="clashes">
+      <div class="clash"><strong>1. 고통은 성장의 원인인가</strong><br>검사는 고통이 사람을 성장시키는 것이 아니라 안전망과 회복 과정이 성장을 가능하게 한다고 보았습니다. 변호사는 고통 뒤 의미를 재구성하는 인간의 적응 가능성을 강조했습니다.</div>
+      <div class="clash"><strong>2. 환경과 태도 중 무엇이 더 중요한가</strong><br>검사는 생존 여력과 사회적 지원이 없으면 주체성 자체가 작동하기 어렵다고 주장했고, 변호사는 작은 연대와 도움 요청도 의미 형성의 출발점이 될 수 있다고 맞섰습니다.</div>
+      <div class="clash"><strong>3. 이 문장은 위로인가, 책임 전가인가</strong><br>검사는 구조적 문제를 개인의 태도 문제로 돌릴 위험을 지적했고, 변호사는 당사자가 스스로 선택하는 해석의 틀로만 제한하면 유효할 수 있다고 보았습니다.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>최종 판결 · 기각</h2>
+    <p>“아프니까 청춘이다”는 문장은 고통과 성장을 자동으로 연결하고, 청춘의 고통을 자연스럽거나 필요한 것으로 받아들이게 만들 위험이 큽니다. 고통은 성장으로 이어질 수도 있지만, 아무런 도움과 회복 여력이 없는 상황에서는 소진과 상실만 남길 수 있습니다.</p>
+    <p><strong>따라서 이 문장을 청춘 일반에 적용되는 보편 명제로 인정하지 않습니다. 다만 당사자가 충분한 안전과 선택권을 가진 상태에서 자신의 경험에 스스로 의미를 부여하는 경우에는 개인적 해석으로 존중할 수 있습니다.</strong></p>
+  </section>
+
+  <section class="card">
+    <h2>판단 기준</h2>
+    <div class="criteria">
+      <div><strong>안전망의 존재</strong>고통을 견딜 최소한의 생리적·경제적·관계적 여력이 있는지 봅니다.</div>
+      <div><strong>해석의 주체성</strong>타인이 성장을 강요한 것이 아니라, 당사자가 스스로 경험의 의미를 선택했는지 봅니다.</div>
+      <div><strong>구조적 책임</strong>개인의 회복을 칭찬하는 과정에서 고통을 만든 제도와 환경의 책임이 지워지지 않는지 봅니다.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>판단 이유</h2>
+    <ol>
+      <li>고통은 성장의 충분조건도 필요조건도 아닙니다. 같은 고통도 누구에게는 회복의 계기가 되고, 누구에게는 장기적인 상처가 될 수 있습니다.</li>
+      <li>성장 가능성은 개인의 태도뿐 아니라 안전망, 치료, 경제적 여유, 관계적 지지 같은 외부 조건에 크게 좌우됩니다.</li>
+      <li>고통을 성장의 연료로 표현하면 불필요한 희생을 정당화하고 구조적 문제를 은폐할 위험이 있습니다.</li>
+      <li>당사자가 스스로 의미를 부여하는 행위는 존중할 수 있지만, 타인이 그 의미를 강요해서는 안 됩니다.</li>
+      <li>진정한 도움은 고통을 칭찬하는 말보다, 고통을 줄이고 선택권을 회복시키는 행동에 가깝습니다.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>실전 교훈</h2>
+    <ul>
+      <li>힘든 사람에게 고통의 의미를 설명하기보다 먼저 필요한 도움을 묻습니다.</li>
+      <li>개인의 회복 사례를 구조적 문제의 면죄부로 사용하지 않습니다.</li>
+      <li>“이 경험이 너를 성장시킬 거야”보다 “이 경험을 어떻게 받아들일지는 네가 정해도 돼”라고 말합니다.</li>
+      <li>고통을 견디는 능력보다 고통을 줄일 수 있는 환경과 관계를 만드는 데 우선순위를 둡니다.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <details>
+      <summary>이 판결이 남긴 질문</summary>
+      <p>우리는 고통을 견뎌낸 사람의 회복력을 존중하면서도, 그 고통을 만든 사회의 책임을 어떻게 놓치지 않을 수 있을까요? 또 누군가의 아픔에 의미를 붙이지 않고도 충분히 곁에 머물 수 있을까요?</p>
+    </details>
+  </section>
+
+  <div class="footer">이 페이지는 둥둥이 AI 재판의 사고 실험 결과를 공유용으로 재구성한 페이지입니다. 실제 법률·의료 판단을 대신하지 않습니다.</div>
+</main>
+</body>
+</html>

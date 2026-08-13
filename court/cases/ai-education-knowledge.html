@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>둥둥이 AI 재판 결과 · AI 시대의 지식 교육</title>
+<meta name="description" content="AI 시대에 지식 습득 중심 교육이 여전히 유효한지에 대한 둥둥이 AI 재판 결과">
+<style>
+:root{color-scheme:dark;--bg:#10131d;--panel:#191f2d;--panel2:#22293a;--line:rgba(255,255,255,.12);--text:#f7f8ff;--muted:#aeb7ca;--gold:#ffd36a;--blue:#8ebcff;--good:#7ee2a8;--shadow:0 22px 70px rgba(0,0,0,.32)}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;color:var(--text);line-height:1.75;background:radial-gradient(circle at 8% 0%,rgba(139,108,255,.18),transparent 28%),radial-gradient(circle at 94% 8%,rgba(255,211,106,.12),transparent 24%),var(--bg)}
+.wrap{width:min(1040px,calc(100% - 32px));margin:auto;padding:22px 0 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.home-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);color:var(--text);text-decoration:none;font-weight:800}
+.home-btn:hover{border-color:rgba(255,211,106,.34);color:var(--gold)}
+.hero{border:1px solid var(--line);border-radius:30px;padding:30px;background:linear-gradient(135deg,rgba(255,211,106,.12),rgba(142,188,255,.07));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
+.hero-thumb img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;border:1px solid var(--line);background:#0b0f18}
+.eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.12em;color:var(--gold)}
+h1{font-size:clamp(2rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:-.05em;margin:12px 0 16px}
+h2{font-size:1.45rem;letter-spacing:-.03em;margin:0 0 14px}
+.muted{color:var(--muted)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{display:inline-flex;align-items:center;min-height:34px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.82rem;font-weight:850}
+.pill.verdict{background:var(--good);color:#142019;border-color:transparent}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-thumb{order:-1;max-width:180px}}
+.card{border:1px solid var(--line);border-radius:24px;background:rgba(25,31,45,.86);padding:24px;margin-top:18px;box-shadow:var(--shadow)}
+.claim{font-size:clamp(1.25rem,2.5vw,1.8rem);font-weight:900;line-height:1.45;letter-spacing:-.025em}
+.order{border-left:5px solid var(--gold);padding:16px 18px;border-radius:0 16px 16px 0;background:rgba(255,211,106,.08);font-size:1.08rem;font-weight:780}
+.side-card{border:1px solid var(--line);border-radius:20px;padding:20px;background:var(--panel2)}
+.side-card.pros{border-color:rgba(255,154,182,.3);background:linear-gradient(180deg,rgba(255,154,182,.08),var(--panel2))}
+.side-card.def{border-color:rgba(142,188,255,.3);background:linear-gradient(180deg,rgba(142,188,255,.08),var(--panel2))}
+.role{display:flex;align-items:center;gap:8px;font-weight:900;margin-bottom:12px}
+.pros .role{color:#ffb8ca}.def .role{color:#c7dcff}
+ul{padding-left:22px;margin:8px 0}
+.clashes{display:grid;gap:12px}
+.clash{border:1px solid var(--line);background:var(--panel2);border-radius:17px;padding:16px 18px}
+.clash strong{color:var(--gold)}
+.criteria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:820px){.criteria{grid-template-columns:1fr}}
+.criteria div{border:1px solid var(--line);border-radius:18px;padding:17px;background:var(--panel2)}
+.criteria strong{display:block;color:var(--gold);margin-bottom:6px}
+.quote{margin-top:14px;padding:15px 17px;border-left:4px solid var(--blue);border-radius:0 14px 14px 0;background:rgba(142,188,255,.07);font-weight:750}
+.jury-list{display:grid;gap:12px}
+.jury-item{border:1px solid var(--line);border-radius:16px;padding:15px 17px;background:var(--panel2)}
+.jury-item strong{display:block;color:var(--gold);margin-bottom:4px}
+details{border:1px solid var(--line);border-radius:18px;padding:15px 17px;background:var(--panel2)}
+summary{cursor:pointer;font-weight:850;color:var(--blue)}
+.footer{margin-top:24px;color:var(--muted);font-size:.86rem;text-align:center}
+</style>
+  <link rel="stylesheet" href="../assets/shared-topbar.css">
+</head>
+<body>
+<header class="dung-archive-topbar">
+  <div class="dung-archive-topbar__inner">
+    <a class="dung-archive-brand" href="https://haruki40-sys.github.io/dungdung_essay/">
+      <span class="dung-archive-brand__mark" aria-hidden="true">둥</span>
+      <span>이야기 보관함</span>
+    </a>
+    <nav class="dung-archive-nav" aria-label="이야기 보관함 주요 메뉴">
+      <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님 에세이</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/gallery/">둥둥 미술관</a>
+      <a class="is-active" href="https://haruki40-sys.github.io/dungdung_essay/court/" aria-current="page">AI 재판</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/english/">영어 이야기</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<div class="topbar"><a class="home-btn" href="../index.html">← 둥둥이 AI 재판 홈</a></div>
+<section class="hero">
+  <div>
+    <div class="eyebrow">DUNGDUNG AI COURT · SHARED JUDGMENT</div>
+    <h1>둥둥이 AI 재판 결과</h1>
+    <p class="muted">하나의 명제를 검사와 변호사가 다투고, 판사가 쟁점을 정리해 내린 사고 실험형 판결입니다.</p>
+    <div class="meta"><span class="pill verdict">일부 인용</span><span class="pill">교육과 AI</span><span class="pill">공개 판례 제2호</span></div>
+  </div>
+  <div class="hero-thumb"><img src="../assets/court-thumbnail.webp" alt="둥둥이 AI 재판 썸네일"></div>
+</section>
+
+<section class="card"><h2>심의 안건</h2><div class="claim">예전처럼 학생들이 지식 획득에 중점을 두는 것은, AI가 야기할 변화를 고려했을 때 무의미하다</div></section>
+<section class="card"><h2>한 줄 판결</h2><div class="order">AI 시대에 지식은 덜 중요해진 것이 아니라, 외우는 대상에서 판단의 재료로 역할이 바뀌었다.</div></section>
+<section class="card"><h2>둥 검사 vs 둥 변호사</h2><div class="grid">
+<article class="side-card pros"><div class="role">🔥 둥 검사 · 명제 반대</div><ul><li>기초 지식이 없으면 AI의 답을 검증하거나 맥락에 맞게 해석할 수 없다.</li><li>비판적 사고와 윤리적 판단도 충분한 배경지식 위에서만 작동한다.</li><li>지식을 경시하면 학생이 판단 책임을 AI에 넘기는 위험이 커진다.</li></ul><div class="quote">“지식은 낡은 짐이 아니라, AI의 오류를 알아차리기 위한 최소한의 내부 기준이다.”</div></article>
+<article class="side-card def"><div class="role">🛡️ 둥 변호사 · 명제 찬성</div><ul><li>과거식 암기와 정보 축적 중심 교육은 AI 시대에 효용이 크게 줄었다.</li><li>학생은 지식을 외우는 사람보다 출처를 추적하고 오류를 교정하는 사람이 되어야 한다.</li><li>지식은 최종 정답이 아니라 질문을 만들고 문제를 해결하는 도구로 재편돼야 한다.</li></ul><div class="quote">“지식은 목표가 아니라 출발점이어야 하며, 교육은 정답 보관보다 검증과 연결을 가르쳐야 한다.”</div></article>
+</div></section>
+<section class="card"><h2>배심원 한 줄 의견</h2><div class="jury-list">
+<div class="jury-item"><strong>현실주의 배심원</strong>현장에서는 AI를 잘 쓰는 학생보다, AI 답을 제대로 검증하는 학생이 결국 더 강합니다.</div>
+<div class="jury-item"><strong>원칙주의 배심원</strong>지식은 사라질 수 없고, 다만 교육의 중심이 암기에서 판단으로 이동해야 합니다.</div>
+<div class="jury-item"><strong>어린이 배심원</strong>AI가 답을 알려줘도 내가 왜 그런지 모르면 진짜 공부한 것 같지 않아요.</div>
+<div class="jury-item"><strong>철학자 배심원</strong>지식의 위기는 지식의 소멸이 아니라, 지식의 목적이 저장에서 성찰로 바뀌는 데서 옵니다.</div>
+</div></section>
+<section class="card"><h2>핵심 다툼</h2><div class="clashes">
+<div class="clash"><strong>1. 지식은 토대인가, 낡은 저장 방식인가</strong><br>검사는 지식이 사고와 윤리 판단의 기반이라고 보았고, 변호사는 지식의 양을 축적하는 방식이 이미 낡았다고 맞섰습니다.</div>
+<div class="clash"><strong>2. AI 시대에 학생이 배워야 할 것은 무엇인가</strong><br>검사는 개념 간 관계를 이해하는 구조적 지식을, 변호사는 정보의 출처와 정확성을 직접 확인하는 검증 능력을 더 강조했습니다.</div>
+<div class="clash"><strong>3. 지식은 생각을 넓히는가, 고정시키는가</strong><br>검사는 지식 부재가 AI 종속을 낳는다고 경고했고, 변호사는 고정된 정답 중심 교육이 오히려 비판적 사고를 막을 수 있다고 반박했습니다.</div>
+</div></section>
+<section class="card"><h2>최종 판결 · 일부 인용</h2><p>AI 시대에 단순 암기와 정보 축적을 교육의 중심에 두는 방식은 그 효용이 크게 줄어듭니다. 그러나 학생이 AI의 답을 검증하고, 맥락을 이해하며, 스스로 판단하기 위해서는 기초 지식과 구조적 이해가 여전히 필수적입니다.</p><p><strong>따라서 교육의 중심은 ‘많이 아는 것’에서 ‘필요한 지식을 이해하고 연결하며 검증하는 것’으로 이동해야 합니다.</strong></p></section>
+<section class="card"><h2>판단 기준</h2><div class="criteria">
+<div><strong>지식의 기능</strong>지식이 최종 정답으로 고정되는지, 새로운 정보를 해석하고 검증하는 재료로 쓰이는지 봅니다.</div>
+<div><strong>검증 절차</strong>학생이 AI 결과를 그대로 수용하지 않고 원천 자료를 직접 확인하고 교차 검증하는지 봅니다.</div>
+<div><strong>윤리적 주체성</strong>해당 분야의 핵심 개념과 맥락을 이해해 판단 책임을 AI에 넘기지 않는지 봅니다.</div>
+</div></section>
+<section class="card"><h2>판단 이유</h2><ol><li>AI는 정보 검색과 생성 속도에서 인간보다 뛰어나지만, 결과의 진실성과 맥락, 윤리성을 스스로 보장하지 않습니다.</li><li>비판적 사고는 지식과 분리된 독립 기술이 아니라, 충분한 배경지식 위에서 작동합니다.</li><li>과거식 암기 교육은 한계가 있지만, 이를 이유로 지식 습득 자체를 무의미하다고 보는 것은 지나칩니다.</li><li>교육은 사실 암기보다 개념 연결, 출처 검증, 문제 해결, 윤리적 판단을 중심으로 재편되어야 합니다.</li></ol></section>
+<section class="card"><h2>실전 교훈</h2><ul><li>기초 개념과 핵심 사실은 반드시 익히되, 단순 암기로 끝내지 않습니다.</li><li>AI 답변을 활용할 때 출처 확인과 원문 대조를 학습 과정에 포함합니다.</li><li>개별 지식을 서로 연결하여 원인과 결과를 설명하는 훈련을 강화합니다.</li><li>윤리적 판단이 필요한 문제에서는 해당 분야의 역사, 원칙, 이해관계를 함께 학습합니다.</li></ul></section>
+<section class="card"><details><summary>이 판결이 남긴 질문</summary><p>AI가 언제든 답을 제공하는 시대에도, 학생이 반드시 머릿속에 가지고 있어야 할 지식은 어디까지일까요? 그리고 ‘외우는 능력’과 ‘판단하는 능력’은 실제로 얼마나 분리될 수 있을까요?</p></details></section>
+
+<div class="footer">이 페이지는 둥둥이 AI 재판의 사고 실험 결과를 공유용으로 재구성한 페이지입니다. 실제 법률 판단을 대신하지 않습니다.</div>
+</main>
+</body>
+</html>

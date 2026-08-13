@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>둥둥이 AI 재판 결과 · AI 창작과 진정성</title>
+<meta name="description" content="AI가 만든 결과물은 인간이 만든 결과물보다 덜 진정성 있는지에 대한 둥둥이 AI 재판 결과">
+<style>
+:root{color-scheme:dark;--bg:#10131d;--panel:#191f2d;--panel2:#22293a;--line:rgba(255,255,255,.12);--text:#f7f8ff;--muted:#aeb7ca;--gold:#ffd36a;--blue:#8ebcff;--good:#7ee2a8;--shadow:0 22px 70px rgba(0,0,0,.32)}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;color:var(--text);line-height:1.75;background:radial-gradient(circle at 8% 0%,rgba(139,108,255,.18),transparent 28%),radial-gradient(circle at 94% 8%,rgba(255,211,106,.12),transparent 24%),var(--bg)}
+.wrap{width:min(1040px,calc(100% - 32px));margin:auto;padding:22px 0 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.home-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);color:var(--text);text-decoration:none;font-weight:800}
+.home-btn:hover{border-color:rgba(255,211,106,.34);color:var(--gold)}
+.hero{border:1px solid var(--line);border-radius:30px;padding:30px;background:linear-gradient(135deg,rgba(255,211,106,.12),rgba(142,188,255,.07));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
+.hero-thumb img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;border:1px solid var(--line);background:#0b0f18}
+.eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.12em;color:var(--gold)}
+h1{font-size:clamp(2rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:-.05em;margin:12px 0 16px}
+h2{font-size:1.45rem;letter-spacing:-.03em;margin:0 0 14px}
+.muted{color:var(--muted)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{display:inline-flex;align-items:center;min-height:34px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.82rem;font-weight:850}
+.pill.verdict{background:var(--good);color:#142019;border-color:transparent}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-thumb{order:-1;max-width:180px}}
+.card{border:1px solid var(--line);border-radius:24px;background:rgba(25,31,45,.86);padding:24px;margin-top:18px;box-shadow:var(--shadow)}
+.claim{font-size:clamp(1.25rem,2.5vw,1.8rem);font-weight:900;line-height:1.45;letter-spacing:-.025em}
+.order{border-left:5px solid var(--gold);padding:16px 18px;border-radius:0 16px 16px 0;background:rgba(255,211,106,.08);font-size:1.08rem;font-weight:780}
+.side-card{border:1px solid var(--line);border-radius:20px;padding:20px;background:var(--panel2)}
+.side-card.pros{border-color:rgba(255,154,182,.3);background:linear-gradient(180deg,rgba(255,154,182,.08),var(--panel2))}
+.side-card.def{border-color:rgba(142,188,255,.3);background:linear-gradient(180deg,rgba(142,188,255,.08),var(--panel2))}
+.role{display:flex;align-items:center;gap:8px;font-weight:900;margin-bottom:12px}
+.pros .role{color:#ffb8ca}.def .role{color:#c7dcff}
+ul{padding-left:22px;margin:8px 0}
+.clashes{display:grid;gap:12px}
+.clash{border:1px solid var(--line);background:var(--panel2);border-radius:17px;padding:16px 18px}
+.clash strong{color:var(--gold)}
+.criteria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:820px){.criteria{grid-template-columns:1fr}}
+.criteria div{border:1px solid var(--line);border-radius:18px;padding:17px;background:var(--panel2)}
+.criteria strong{display:block;color:var(--gold);margin-bottom:6px}
+.quote{margin-top:14px;padding:15px 17px;border-left:4px solid var(--blue);border-radius:0 14px 14px 0;background:rgba(142,188,255,.07);font-weight:750}
+.jury-list{display:grid;gap:12px}
+.jury-item{border:1px solid var(--line);border-radius:16px;padding:15px 17px;background:var(--panel2)}
+.jury-item strong{display:block;color:var(--gold);margin-bottom:4px}
+details{border:1px solid var(--line);border-radius:18px;padding:15px 17px;background:var(--panel2)}
+summary{cursor:pointer;font-weight:850;color:var(--blue)}
+.footer{margin-top:24px;color:var(--muted);font-size:.86rem;text-align:center}
+</style>
+  <link rel="stylesheet" href="../assets/shared-topbar.css">
+</head>
+<body>
+<header class="dung-archive-topbar">
+  <div class="dung-archive-topbar__inner">
+    <a class="dung-archive-brand" href="https://haruki40-sys.github.io/dungdung_essay/">
+      <span class="dung-archive-brand__mark" aria-hidden="true">둥</span>
+      <span>이야기 보관함</span>
+    </a>
+    <nav class="dung-archive-nav" aria-label="이야기 보관함 주요 메뉴">
+      <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님 에세이</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/gallery/">둥둥 미술관</a>
+      <a class="is-active" href="https://haruki40-sys.github.io/dungdung_essay/court/" aria-current="page">AI 재판</a>
+      <a href="https://haruki40-sys.github.io/dungdung_essay/english/">영어 이야기</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<div class="topbar"><a class="home-btn" href="../index.html">← 둥둥이 AI 재판 홈</a></div>
+<section class="hero">
+  <div>
+    <div class="eyebrow">DUNGDUNG AI COURT · SHARED JUDGMENT</div>
+    <h1>둥둥이 AI 재판 결과</h1>
+    <p class="muted">하나의 명제를 검사와 변호사가 다투고, 판사가 쟁점을 정리해 내린 사고 실험형 판결입니다.</p>
+    <div class="meta"><span class="pill verdict">일부 인용</span><span class="pill">AI와 창작</span><span class="pill">공개 판례 제1호</span></div>
+  </div>
+  <div class="hero-thumb"><img src="../assets/court-thumbnail.webp" alt="둥둥이 AI 재판 썸네일"></div>
+</section>
+
+<section class="card"><h2>심의 안건</h2><div class="claim">AI가 만든 결과물은 인간이 만든 결과물보다 덜 진정성 있다</div></section>
+<section class="card"><h2>한 줄 판결</h2><div class="order">AI 단독 생성물은 진정성의 원천이 약할 수 있지만, 인간이 의미를 선택하고 수정하며 결과에 책임지는 AI 보조 창작물은 충분한 진정성을 가질 수 있다.</div></section>
+<section class="card"><h2>둥 검사 vs 둥 변호사</h2><div class="grid">
+<article class="side-card pros"><div class="role">🔥 둥 검사 · 명제 반대</div><ul><li>인간이 만들었다는 사실만으로 결과물에 진정성이 자동으로 생기는 것은 아니다.</li><li>대필, 관성적 글쓰기, 책임 없는 상업 문구도 모두 인간이 만든 결과물일 수 있다.</li><li>사람이 문제를 정하고, 결과를 고르고, 수정하고, 공개 결과에 책임진다면 AI는 하나의 창작 도구가 된다.</li></ul><div class="quote">“진정성은 제작 도구보다, 누가 의미를 선택하고 결과에 책임졌는지에서 갈린다.”</div></article>
+<article class="side-card def"><div class="role">🛡️ 둥 변호사 · 명제 찬성</div><ul><li>진정성은 창작자의 체험, 고뇌, 의도처럼 인간 내부의 과정에서 강하게 발생한다.</li><li>AI는 스스로 삶의 맥락이나 책임을 갖지 못하므로 인간과 같은 창작 주체로 보기 어렵다.</li><li>결과물이 감동을 줬다는 사실만으로 창작 과정의 빈자리까지 사라지는 것은 아니다.</li></ul><div class="quote">“감동이 있었다는 사실과, 그 결과물이 진정성 있게 만들어졌다는 평가는 같은 말이 아니다.”</div></article>
+</div></section>
+<section class="card"><h2>배심원 한 줄 의견</h2><div class="jury-list">
+<div class="jury-item"><strong>현실주의 배심원</strong>실무에서는 AI 사용 여부보다 누가 책임지고 결과를 다듬었는지가 더 중요합니다.</div>
+<div class="jury-item"><strong>원칙주의 배심원</strong>창작 과정의 투명성과 책임 주체가 분명해야 진정성 논의도 정당해집니다.</div>
+<div class="jury-item"><strong>어린이 배심원</strong>AI가 도와줘도 마지막에 사람이 마음을 담아 고치면 그건 사람 작품 같아요.</div>
+<div class="jury-item"><strong>철학자 배심원</strong>진정성은 도구의 순수성보다, 창작자가 자기 표현을 얼마나 스스로 인수했는가에 달려 있습니다.</div>
+</div></section>
+<section class="card"><h2>핵심 다툼</h2><div class="clashes">
+<div class="clash"><strong>1. 진정성은 어디에서 시작되는가</strong><br>변호사는 창작자의 실제 경험과 고뇌를 중심에 두었고, 검사는 인간의 선택과 수정, 책임 그리고 수용자의 실제 경험도 진정성의 원천이 될 수 있다고 맞섰습니다.</div>
+<div class="clash"><strong>2. AI는 도구인가, 창작자인가</strong><br>검사는 인간이 주도권과 책임을 갖는다면 AI는 붓이나 악기와 같은 도구라고 보았고, 변호사는 AI가 스스로 의도와 책임을 갖지 못한다는 점을 강조했습니다.</div>
+<div class="clash"><strong>3. 감동은 진정성의 증거가 될 수 있는가</strong><br>검사는 실제 위로와 통찰이라는 수용 효과를 중시했고, 변호사는 감동은 결과일 뿐 과정의 투명성과 책임을 대신할 수 없다고 반박했습니다.</div>
+</div></section>
+<section class="card"><h2>최종 판결 · 일부 인용</h2><p>AI가 단독으로 생성한 결과물은 인간의 체험과 책임이라는 진정성의 원천이 약할 수 있습니다. 그러나 인간이 문제의식을 세우고, 여러 결과 중 하나를 선택하고, 수정하며, 세상에 내놓은 결과에 책임한다면 AI는 창작 주체라기보다 도구로 기능합니다.</p><p><strong>따라서 진정성은 AI 사용 여부만으로 판단할 수 없으며, 인간의 의도·선택·수정·책임이 실제로 존재했는지를 중심으로 판단해야 합니다.</strong></p></section>
+<section class="card"><h2>판단 기준</h2><div class="criteria">
+<div><strong>인간의 문제의식</strong>무엇을 말하려는지, 왜 만들려는지 사람이 분명히 결정했는지 봅니다.</div>
+<div><strong>선택과 수정</strong>생성 결과를 그대로 사용하지 않고 인간의 판단과 편집을 거쳤는지 봅니다.</div>
+<div><strong>책임과 투명성</strong>AI 사용 범위와 인간의 기여를 설명할 수 있고, 오류와 영향에 책임지는 주체가 있는지 봅니다.</div>
+</div></section>
+<section class="card"><h2>판단 이유</h2><ol><li>인간이 만들었다는 사실만으로 진정성이 보장되지는 않습니다. 인간이 만든 결과물도 의도와 책임이 없다면 공허할 수 있습니다.</li><li>AI 사용 여부보다 인간이 창작 과정에 얼마나 깊이 개입했는지가 더 중요합니다.</li><li>AI를 활용한 결과물이 누군가에게 실제 위로와 통찰을 주었다면 그 수용 경험 역시 현실입니다.</li><li>다만 감동을 일으켰다는 사실만으로 창작 과정의 투명성과 책임 문제가 사라지는 것은 아닙니다.</li></ol></section>
+<section class="card"><h2>실전 교훈</h2><ul><li>AI 결과물을 그대로 제출하기보다, 사람이 선택하고 고친 흔적을 남깁니다.</li><li>AI가 어디까지 관여했고 인간이 무엇을 결정했는지 설명합니다.</li><li>결과물의 오류와 영향에 책임질 주체를 분명히 합니다.</li><li>“AI라서 가짜” 또는 “감동적이어서 진짜”라는 단일 기준을 피합니다.</li></ul></section>
+<section class="card"><details><summary>이 판결이 남긴 질문</summary><p>창작자의 실제 경험이 없더라도 수용자가 깊은 의미를 얻었다면, 그 작품의 진정성은 누구의 것일까요? 또 인간이 AI를 이용해 의미를 선택했다면, 창작자는 인간일까요, 아니면 인간과 AI의 관계일까요?</p></details></section>
+
+<div class="footer">이 페이지는 둥둥이 AI 재판의 사고 실험 결과를 공유용으로 재구성한 페이지입니다. 실제 법률 판단을 대신하지 않습니다.</div>
+</main>
+</body>
+</html>
