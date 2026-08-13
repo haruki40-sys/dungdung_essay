@@ -1,0 +1,25 @@
+.topbar .nav a{white-space:nowrap}
+.topbar .nav a.is-active{background:#efe7de;color:#3f342b;font-weight:800}
+.gallery-main{padding-top:48px;padding-bottom:72px}
+.gallery-intro{text-align:center;margin:22px auto 46px}
+.gallery-intro .eyebrow{color:#8b6c52;font-size:.76rem;font-weight:800;letter-spacing:.18em}
+.gallery-intro h1{font-size:clamp(2.2rem,6vw,4.2rem);margin:8px 0 10px;color:#302821;letter-spacing:-.05em}
+.gallery-intro p{margin:0;color:#786c62;font-size:1.05rem}
+.gallery-grid{columns:3 280px;column-gap:24px}
+.artwork{break-inside:avoid;margin:0 0 28px}
+.artwork button{display:block;width:100%;padding:0;border:0;background:#fff;border-radius:14px;box-shadow:0 8px 28px rgba(56,42,31,.10);cursor:zoom-in;overflow:hidden}
+.artwork img{display:block;width:100%;height:auto;transition:transform .35s ease,filter .35s ease}
+.artwork button:hover img{transform:scale(1.018);filter:saturate(1.04)}
+.artwork figcaption{padding:10px 4px 0;color:#675d54;font-size:.84rem;letter-spacing:-.02em}
+.lightbox[hidden]{display:none}
+.lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:28px 74px;background:rgba(19,17,15,.92);backdrop-filter:blur(10px)}
+.lightbox figure{margin:0;max-width:min(1200px,88vw);max-height:92vh;text-align:center}
+.lightbox figure img{display:block;max-width:100%;max-height:84vh;margin:auto;object-fit:contain;border-radius:5px;box-shadow:0 18px 70px rgba(0,0,0,.45)}
+.lightbox figure figcaption{margin-top:12px;color:#f4eee9;font-size:.9rem}
+.lightbox-close,.lightbox-nav{position:absolute;border:0;background:rgba(255,255,255,.12);color:white;cursor:pointer;border-radius:999px}
+.lightbox-close{top:20px;right:22px;width:44px;height:44px;font-size:30px;line-height:1}
+.lightbox-nav{top:50%;width:48px;height:48px;transform:translateY(-50%);font-size:38px;line-height:.9}
+.lightbox-prev{left:18px}.lightbox-next{right:18px}
+body.has-lightbox{overflow:hidden}
+@media(max-width:760px){.topbar .nav{gap:8px;flex-wrap:wrap;justify-content:flex-end}.gallery-main{padding-top:24px}.gallery-intro{margin-bottom:30px}.gallery-grid{columns:2 145px;column-gap:14px}.artwork{margin-bottom:20px}.artwork figcaption{font-size:.78rem}.lightbox{padding:62px 12px 72px}.lightbox figure{max-width:100%}.lightbox-nav{top:auto;bottom:14px;transform:none}.lightbox-prev{left:calc(50% - 62px)}.lightbox-next{right:calc(50% - 62px)}}
+@media(prefers-reduced-motion:reduce){.artwork img{transition:none}}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="주인님이 찍은 순간을 둥둥이의 그림으로 다시 담은 작은 미술관">
+  <title>둥둥 미술관</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../"><div class="brand-mark">둥</div><div>둥둥이의 이야기 보관함</div></a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../#essay-collection">주인님의 에세이</a>
+        <a href="../imagination/">아이의 상상 이야기</a>
+        <a class="is-active" href="./" aria-current="page">둥둥 미술관</a>
+        <a href="https://haruki40-sys.github.io/dungdung-court/">둥둥이 AI 재판</a>
+        <a href="../english/">영어로 읽는 이야기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap gallery-main">
+    <section class="gallery-intro">
+      <div class="eyebrow">DUNGDUNG ART GALLERY</div>
+      <h1>둥둥 미술관</h1>
+      <p>지나간 순간을, 그림으로 한 번 더 바라봅니다.</p>
+    </section>
+
+    <section class="gallery-grid" aria-label="작품 목록">
+      <figure class="artwork"><button type="button" data-index="0" aria-label="구름이 열린 오후 크게 보기"><img src="assets/images/01-1000046402.webp" alt="아파트 사이로 햇빛을 받은 거대한 구름이 펼쳐진 그림" loading="eager"></button><figcaption>구름이 열린 오후</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="1" aria-label="손바닥 위 작은 둥지 크게 보기"><img src="assets/images/02-1000046400.webp" alt="손바닥 위 둥지 모양 디저트를 들고 있는 그림" loading="lazy"></button><figcaption>손바닥 위 작은 둥지</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="2" aria-label="세 사람의 여름 크게 보기"><img src="assets/images/03-1000046142.webp" alt="푸른 하늘 아래 가족 세 사람이 함께 찍은 그림" loading="lazy"></button><figcaption>세 사람의 여름</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="3" aria-label="진흙 범벅 가족 크게 보기"><img src="assets/images/04-1000046139.webp" alt="진흙 축제에서 가족 세 사람이 웃는 그림" loading="lazy"></button><figcaption>진흙 범벅 가족</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="4" aria-label="물고기의 화려한 변신 크게 보기"><img src="assets/images/05-1000046129.webp" alt="물고기가 회 한 접시로 변신한 전후를 유쾌하게 표현한 만화" loading="lazy"></button><figcaption>물고기의 화려한 변신</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="5" aria-label="폴리와 하트 크게 보기"><img src="assets/images/06-1000046043.webp" alt="폴리를 안고 두 사람이 하트 모양을 만드는 그림" loading="lazy"></button><figcaption>폴리와 하트</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="6" aria-label="여름 풀숲의 발견 크게 보기"><img src="assets/images/07-1000046044.webp" alt="여름 풀숲에서 강아지풀을 발견하고 놀라는 모습의 그림" loading="lazy"></button><figcaption>여름 풀숲의 발견</figcaption></figure>
+      <figure class="artwork"><button type="button" data-index="7" aria-label="노을빛 산책길 크게 보기"><img src="assets/images/08-1000045854.webp" alt="노을빛 하늘 아래 강과 산책길이 펼쳐진 수채화" loading="lazy"></button><figcaption>노을빛 산책길</figcaption></figure>
+    </section>
+  </main>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="작품 크게 보기" hidden>
+    <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 작품">‹</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="다음 작품">›</button>
+  </div>
+
+  <footer><div class="wrap footer-box">둥둥 미술관 · 주인님이 찍고, 둥둥이가 그린 순간들</div></footer>
+  <script src="gallery.js"></script>
+</body>
+</html>
