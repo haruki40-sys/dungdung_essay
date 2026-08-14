@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="성과를 측정하는 대시보드가 사람의 행동까지 바꿀 수 있을까? 영어 학습과 생각의 확장을 위한 창작 지문.">
+  <title>The Dashboard That Everyone Trusted · 영어로 읽는 이야기</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../english.css">
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --text: #202532;
+      --muted: #687084;
+      --line: #e4e8f0;
+      --accent: #2f6fed;
+      --soft: #eef4ff;
+      --warm: #fff7ea;
+      --shadow: 0 18px 48px rgba(28, 40, 72, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+      line-height: 1.78;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 52px 22px 80px;
+    }
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      color: var(--accent);
+    }
+    h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+      margin: 14px 0 12px;
+      max-width: 800px;
+    }
+    .ko-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    figure {
+      margin: 0 0 46px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    figcaption {
+      padding: 12px 16px 15px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 30px;
+      margin: 20px 0;
+      box-shadow: 0 7px 24px rgba(28, 40, 72, .04);
+    }
+    h2 {
+      font-size: 25px;
+      letter-spacing: -.02em;
+      margin: 0 0 18px;
+    }
+    h2 span {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-left: 8px;
+    }
+    .story p, .translation p { margin: 0 0 15px; }
+    .story p:last-child, .translation p:last-child { margin-bottom: 0; }
+    .expressions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .expression {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+    .expression b { display: block; margin-bottom: 2px; }
+    .nutshell { background: var(--warm); }
+    ol { padding-left: 22px; margin-bottom: 0; }
+    details {
+      border-top: 1px solid var(--line);
+      padding-top: 4px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 750;
+      padding: 14px 0;
+    }
+    .footer-note {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 34px;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    @media (max-width: 700px) {
+      main { padding-top: 36px; }
+      section { padding: 22px 20px; border-radius: 16px; }
+      .expressions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="english-page">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="https://haruki40-sys.github.io/dungdung_essay/"><div class="brand-mark">둥</div><div>함께 만든 기록</div></a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="https://haruki40-sys.github.io/dungdung_essay/#essay-collection">주인님 에세이</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/imagination/">아이의 상상</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/gallery/">둥둥 미술관</a>
+        <a href="https://haruki40-sys.github.io/dungdung_essay/court/">AI 재판</a>
+        <a class="is-active" aria-current="page" href="https://haruki40-sys.github.io/dungdung_essay/english/">영어 이야기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="eyebrow">STORY 02 · DATA &amp; BEHAVIOR</div>
+    <h1>The Dashboard That Everyone Trusted</h1>
+    <div class="ko-title">모두가 믿었던 대시보드</div>
+
+    <div class="meta">
+      <span class="chip">중급+</span>
+      <span class="chip">읽기 약 6분</span>
+      <span class="chip">데이터 · 측정 · 행동 · 생산성</span>
+    </div>
+
+    <figure>
+      <img src="../../assets/images/story-02-dashboard.png" alt="성과 대시보드를 바라보는 직원들과, 작은 업무는 선택되고 복잡한 업무는 뒤로 밀리는 모습을 표현한 일러스트">
+      <figcaption>숫자는 행동을 기록할 뿐일까, 아니면 행동의 방향까지 바꿀까.</figcaption>
+    </figure>
+
+    <section class="story">
+      <h2>Read the story <span>영어로 읽기</span></h2>
+      <p>When a new performance dashboard was introduced at a mid-sized company, most employees welcomed it.</p>
+<p>For years, managers had complained that reports were inconsistent. Different teams used different definitions, some figures were updated manually, and meetings often turned into arguments about which numbers were correct. The new dashboard promised to solve all of that.</p>
+<p>It collected data automatically from several internal systems and displayed a simple set of indicators. Revenue growth, project completion rates, customer satisfaction scores, and employee productivity were all shown on one screen.</p>
+<p>At first, the dashboard seemed to work beautifully.</p>
+<p>Meetings became shorter. Managers spent less time debating the numbers and more time discussing what actions to take. Senior executives liked the dashboard because it gave them a quick overview of the company. Employees also appreciated the clarity. For the first time, everyone appeared to be looking at the same version of reality.</p>
+<p>Six months later, however, a problem appeared.</p>
+<p>One department had consistently ranked near the bottom in productivity. Its manager, Mina, argued that the dashboard did not reflect the type of work her team actually performed. Her employees handled complicated client problems that often required several days of investigation. Other departments handled simpler requests that could be completed much faster.</p>
+<p>The dashboard measured productivity mainly by the number of completed tasks.</p>
+<p>According to the system, Mina’s team was inefficient.</p>
+<p>According to Mina, the team was simply working on harder problems.</p>
+<p>The analytics team reviewed the formula. Technically, nothing was wrong. The data had been collected correctly, and the productivity calculation matched the definition approved by management.</p>
+<p>Still, one analyst noticed something interesting.</p>
+<p>Teams that performed well on the dashboard had gradually changed their behavior. Employees were choosing smaller tasks whenever possible because those tasks improved their productivity score. More difficult cases were sometimes delayed or passed to other teams.</p>
+<p>Nobody had instructed them to do this.</p>
+<p>They were simply responding to the measurement system.</p>
+<p>The company now faced an uncomfortable question.</p>
+<p>Should it change the dashboard?</p>
+<p>Changing the formula might make the measurement more accurate, but it would also make comparisons with previous months difficult. Employees might also begin questioning other indicators.</p>
+<p>On the other hand, keeping the current system could encourage behavior that improved the numbers without necessarily improving the company.</p>
+<p>The dashboard had originally been designed to remove arguments from meetings.</p>
+<p>Instead, it had revealed a deeper problem.</p>
+<p>Data could describe what people were doing.</p>
+<p>But once people knew how they were being measured, the measurement itself could change what they chose to do.</p>
+<p>Perhaps the dashboard was not just measuring performance anymore.</p>
+<p>Perhaps it was quietly creating it.</p>
+    </section>
+
+    <section>
+      <h2>Key expressions <span>핵심 표현</span></h2>
+      <div class="expressions">
+        <div class="expression"><b>turn into arguments</b>논쟁으로 바뀌다</div>
+        <div class="expression"><b>what actions to take</b>어떤 조치를 취할지</div>
+        <div class="expression"><b>reflect the type of work</b>업무의 특성을 반영하다</div>
+        <div class="expression"><b>whenever possible</b>가능할 때마다 / 가능하면</div>
+        <div class="expression"><b>respond to the measurement system</b>측정 시스템에 반응하다</div>
+        <div class="expression"><b>maintain comparisons</b>비교 가능성을 유지하다</div>
+        <div class="expression"><b>encourage behavior</b>특정 행동을 유도하다</div>
+        <div class="expression"><b>quietly create performance</b>조용히 성과의 모습을 만들어내다</div>
+      </div>
+    </section>
+
+    <section class="nutshell">
+      <h2>In a nutshell <span>한국어로 내용 잡기</span></h2>
+      <p>
+        한 회사는 서로 다른 보고 기준과 숫자 논쟁을 줄이기 위해 생산성 대시보드를 도입합니다.
+        처음에는 모두가 같은 숫자를 보게 되면서 회의도 효율적으로 바뀝니다.
+        하지만 생산성을 ‘완료한 업무 수’로 측정하자, 직원들은 점수를 높이기 위해 더 작고 쉬운 업무를 선택하기 시작합니다.
+        데이터는 정확했지만, 그 데이터가 만들어내는 행동까지 바람직한 것은 아니었습니다.
+        이 이야기는 측정 기준이 현실을 단순히 보여주는 데서 끝나지 않고, 사람들이 어떤 행동을 선택할지까지 바꿀 수 있다는 점을 다룹니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>Think about it <span>생각해 볼 질문</span></h2>
+      <ol>
+        <li>Why could a technically correct productivity metric still lead to a misleading conclusion?</li>
+        <li>정확성과 기간 간 일관성이 충돌한다면, 기존 지표를 유지하면서 정성 정보를 함께 보여주는 방식은 좋은 타협일까요?</li>
+      </ol>
+    </section>
+
+    <section class="translation">
+      <h2>Full translation <span>전체 해석</span></h2>
+      <details>
+        <summary>필요할 때만 한국어 해석 펼쳐보기</summary>
+        <p>중견 기업에 새로운 성과 대시보드가 도입되었을 때, 대부분의 직원은 이를 반겼다.</p>
+<p>수년 동안 관리자들은 보고서가 일관되지 않다고 불평해 왔다. 팀마다 서로 다른 정의를 사용했고, 일부 수치는 수작업으로 업데이트되었으며, 회의는 종종 어떤 숫자가 맞는지를 두고 벌이는 논쟁으로 바뀌곤 했다. 새 대시보드는 이 모든 문제를 해결하겠다고 약속했다.</p>
+<p>대시보드는 여러 내부 시스템에서 데이터를 자동으로 수집해 간단한 지표 세트를 보여주었다. 매출 성장률, 프로젝트 완료율, 고객 만족도, 직원 생산성이 모두 한 화면에 표시되었다.</p>
+<p>처음에는 대시보드가 훌륭하게 작동하는 듯했다.</p>
+<p>회의는 짧아졌다. 관리자들은 숫자를 두고 논쟁하는 데 쓰는 시간은 줄이고, 어떤 조치를 취할지 논의하는 데 더 많은 시간을 썼다. 고위 경영진은 회사 전체를 빠르게 파악할 수 있다는 점에서 대시보드를 좋아했다. 직원들도 명확함을 반겼다. 처음으로 모두가 같은 현실을 보고 있는 듯했다.</p>
+<p>하지만 6개월 뒤 문제가 나타났다.</p>
+<p>한 부서는 생산성 순위에서 계속 하위권에 머물렀다. 그 부서의 관리자 미나는 대시보드가 자신의 팀이 실제로 수행하는 업무의 특성을 제대로 반영하지 못한다고 주장했다. 그녀의 직원들은 며칠간의 조사가 필요한 복잡한 고객 문제를 다뤘다. 다른 부서들은 훨씬 빨리 끝낼 수 있는 단순한 요청을 처리했다.</p>
+<p>대시보드는 주로 완료된 업무의 개수로 생산성을 측정했다.</p>
+<p>시스템에 따르면 미나의 팀은 비효율적이었다.</p>
+<p>미나에 따르면 그 팀은 단지 더 어려운 문제를 다루고 있을 뿐이었다.</p>
+<p>분석팀은 계산식을 검토했다. 기술적으로는 아무 문제가 없었다. 데이터는 정확하게 수집되었고, 생산성 계산 방식도 경영진이 승인한 정의와 일치했다.</p>
+<p>그럼에도 한 분석가는 흥미로운 점을 발견했다.</p>
+<p>대시보드에서 좋은 성과를 내는 팀들은 점차 행동 방식을 바꾸고 있었다. 직원들은 가능할 때마다 더 작은 업무를 선택했는데, 그런 업무가 생산성 점수를 높여주었기 때문이다. 더 어려운 건은 때때로 미뤄지거나 다른 팀으로 넘겨졌다.</p>
+<p>누구도 직원들에게 그렇게 하라고 지시하지 않았다.</p>
+<p>그들은 단지 측정 시스템에 반응하고 있었을 뿐이었다.</p>
+<p>회사는 이제 불편한 질문과 마주했다.</p>
+<p>대시보드를 바꿔야 할까?</p>
+<p>계산식을 바꾸면 측정이 더 정확해질 수 있지만, 이전 달과의 비교는 어려워질 수 있었다. 직원들이 다른 지표들까지 의심하기 시작할 수도 있었다.</p>
+<p>반대로 현재 시스템을 유지하면 회사 자체가 좋아지지 않더라도 숫자만 좋아 보이게 만드는 행동을 부추길 수 있었다.</p>
+<p>원래 대시보드는 회의에서의 논쟁을 없애기 위해 설계되었다.</p>
+<p>하지만 오히려 더 깊은 문제를 드러냈다.</p>
+<p>데이터는 사람들이 무엇을 하고 있는지 설명할 수 있었다.</p>
+<p>하지만 사람들이 자신이 어떻게 측정되는지 알게 되는 순간, 그 측정 자체가 사람들이 무엇을 선택할지를 바꿀 수 있었다.</p>
+<p>어쩌면 대시보드는 더 이상 성과를 단순히 측정하고 있는 것이 아니었을지도 모른다.</p>
+<p>어쩌면 조용히 성과의 모습을 만들어내고 있었는지도 모른다.</p>
+      </details>
+    </section>
+
+    <div class="footer-note">
+      이 글은 영어 학습과 생각의 확장을 위해 주인님과 AI 둥둥이가 함께 만든 창작 지문입니다.
+    </div>
+
+    <a class="back" href="../">← 영어 이야기 목록으로</a>
+  </main>
+  <footer><div class="wrap footer-box">주인님과 둥둥이·앱둥이가 함께 만든 콘텐츠 아카이브</div></footer>
+</body>
+</html>

@@ -11,7 +11,7 @@
 | 주인님 에세이 | `/essays/` | 15편 |
 | 아이의 상상 | `/imagination/` | 11편 |
 | 둥둥 미술관 | `/gallery/` | 작품 8점 |
-| 영어 이야기 | `/english/` | 1편 |
+| 영어 이야기 | `/english/` | 2편 |
 | AI 재판 | `/court/` | 공개 판례 8편 통합 |
 
 ## 공통 메뉴
@@ -61,6 +61,10 @@
 1. The Color That Was Never There
    - 본문: `/english/stories/story-01-color.html`
    - 음원: `/english/assets/audio/the-color-that-was-never-there.mp3`
+2. The Dashboard That Everyone Trusted
+   - 본문: `/english/stories/story-02-dashboard.html`
+   - 이미지: `/assets/images/story-02-dashboard.png`
+   - 음원: 없음
 
 ## 둥둥 미술관
 
