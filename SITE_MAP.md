@@ -66,6 +66,10 @@
    - 본문: `/english/stories/story-02-dashboard.html`
    - 이미지: `/assets/images/story-02-dashboard.png`
    - 음원: 없음
+3. Why Some People Pay to Sleep in Complete Darkness
+   - 본문: `/english/stories/story-03-darkness.html`
+   - 이미지: `/assets/images/story-03-darkness-retreat.webp`
+   - 음원: 없음
 
 ## 둥둥 미술관
 
@@ -114,5 +118,7 @@
 
 - 루트의 기존 `README.html`은 삭제하지 않고 보존합니다.
 - 구조나 콘텐츠 번호가 바뀌면 이 파일도 함께 갱신합니다.
+
+
 
 
