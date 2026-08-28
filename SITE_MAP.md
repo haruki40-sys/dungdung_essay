@@ -11,7 +11,7 @@
 | 주인님 에세이 | `/essays/` | 17편 |
 | 아이의 상상 | `/imagination/` | 11편 |
 | 둥둥 미술관 | `/gallery/` | 작품 14점 |
-| 영어 이야기 | `/english/` | 3편 |
+| 영어 이야기 | `/english/` | 4편 |
 | AI 재판 | `/court/` | 공개 판례 8편 통합 |
 
 ## 공통 메뉴
@@ -71,6 +71,10 @@
    - 본문: `/english/stories/story-03-darkness.html`
    - 이미지: `/assets/images/story-03-darkness-retreat.webp`
    - 음원: 없음
+4. The Lake That Can Turn Animals Into Stone
+   - 본문: `/english/stories/story-04-lake-natron.html`
+   - 이미지: `/assets/images/story-04-lake-natron.webp`
+   - 음원: 없음
 
 ## 둥둥 미술관
 
@@ -125,6 +129,8 @@
 
 - 루트의 기존 `README.html`은 삭제하지 않고 보존합니다.
 - 구조나 콘텐츠 번호가 바뀌면 이 파일도 함께 갱신합니다.
+
+
 
 
 
