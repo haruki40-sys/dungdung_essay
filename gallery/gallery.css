@@ -3,7 +3,7 @@
 .gallery-main{padding-top:48px;padding-bottom:72px}
 .gallery-intro{text-align:center;margin:22px auto 46px}
 .gallery-intro .eyebrow{color:#8b6c52;font-size:.76rem;font-weight:800;letter-spacing:.18em}
-.gallery-intro h1{font-size:clamp(2.2rem,6vw,4.2rem);margin:8px 0 10px;color:#302821;letter-spacing:-.05em}
+.gallery-intro h1{font-size:clamp(2.2rem,6vw,4.2rem);margin:8px auto 10px;color:#302821;letter-spacing:-.05em}
 .gallery-intro p{margin:0;color:#786c62;font-size:1.05rem}
 .gallery-grid{columns:3 280px;column-gap:24px}
 .artwork{break-inside:avoid;margin:0 0 28px}
