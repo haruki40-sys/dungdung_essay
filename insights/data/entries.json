@@ -1,0 +1,93 @@
+[
+  {
+    "id": "insight-20260907-001",
+    "quote": "디지털은 오프라인을 죽이지 않았다. 대신 오프라인이 왜 필요한지를 훨씬 냉정하게 물었다.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-07",
+    "source": {
+      "publisher": "한국개발연구원(KDI)",
+      "title": "온라인 유통의 성장과 유통시장 정책 개선 방향",
+      "url": "https://www.kdi.re.kr/research/focusView?pub_no=19221",
+      "publishedAt": "2026-06-30"
+    },
+    "context": "온라인 소비 확대가 업태별로 다른 영향을 미쳤다는 분석을, 오프라인이 제공하는 고유한 가치를 다시 묻는 관점으로 재구성한 한줄평이다."
+  },
+  {
+    "id": "insight-20260906-001",
+    "quote": "큰 자산을 보유하는 것과 그 자산을 잘 활용하는 것은 완전히 다른 능력이다.",
+    "category": "투자",
+    "writtenAt": "2026-09-06",
+    "source": {
+      "publisher": "자본시장연구원(KCMI)",
+      "title": "초고령사회 다층노후소득을 위한 퇴직연금제도 개편",
+      "url": "https://www.kcmi.re.kr/report/report_view?report_no=2327",
+      "publishedAt": "2026-09-04"
+    },
+    "context": "보고서는 퇴직연금 적립금이 501조원을 넘어섰음에도 원리금보장상품 편중과 낮은 장기 운용효율 때문에 노후소득보장 기능이 충분하지 않다고 진단한다. 한줄평은 ‘자산 규모의 증가’와 ‘자산이 만들어내는 실질적 성과’를 구분해야 한다는 의미로 재구성한 것이다."
+  },
+  {
+    "id": "insight-20260905-001",
+    "quote": "좋은 경영은 어려운 시장을 탓하는 데서 끝나지 않고, 시장이 바뀔 때 내가 가진 역량을 어디로 옮길지 결정하는 것이다.",
+    "category": "경영",
+    "writtenAt": "2026-09-05",
+    "source": {
+      "publisher": "산업연구원(KIET)",
+      "title": "K-배터리, 위기인가 전환기인가: ESS를 중심으로 본 새로운 성장축의 모색",
+      "url": "https://www.kiet.re.kr/communicate/medataList?medata_no=1019",
+      "publishedAt": "2026-08-27"
+    },
+    "context": "산업연구원은 K-배터리 부진을 EV 수요 둔화만으로 설명하지 않고 기존 성장구조와 경쟁력의 문제를 함께 지적하면서, 기존 배터리 역량을 ESS라는 새로운 수요시장으로 확장할 필요성을 제시한다. 한줄평은 이를 ‘환경 탓’과 ‘전략적 역량 재배치’의 차이로 일반화한 것이다."
+  },
+  {
+    "id": "insight-20260904-001",
+    "quote": "자회사의 성장이 좋은 소식이 되려면, 그 성장의 가치가 모회사 주주에게도 돌아가는 구조여야 한다.",
+    "category": "경영",
+    "writtenAt": "2026-09-04",
+    "source": {
+      "publisher": "한국금융연구원(KIF), 금융브리프 35권 17호",
+      "title": "모자회사 중복상장 규제 도입 및 과제",
+      "url": "https://vwserver.kif.re.kr/flexer/viewer.jsp?cno=366258&dir=km&fk=2026009489TD&ft=0&ftype=pdf&mid=20",
+      "publishedAt": "2026-08-22"
+    },
+    "context": "보고서는 모자회사 중복상장이 일반주주의 이익을 훼손할 수 있다는 문제와 동시에, 지나친 규제가 기업의 건전한 자금조달을 위축시킬 수 있다는 문제를 함께 다룬다. 기존 한줄평은 여기서 ‘자회사 성장의 가치가 누구에게 귀속되는가’라는 질문을 뽑아 자회사 관리 전반으로 확장한 것이다."
+  },
+  {
+    "id": "insight-20260903-001",
+    "quote": "산업 호황의 진짜 크기는 그 산업이 얼마를 버느냐뿐 아니라, 늘어난 소득이 소비와 내수로 얼마나 확산되느냐에서 드러난다.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-03",
+    "source": {
+      "publisher": "한국은행",
+      "title": "반도체 수혜지역의 소비는 어떻게 될까: 지역 미시데이터로 살펴본 파급효과",
+      "url": "https://www.bok.or.kr/portal/bbs/P0002353/view.do?depth=201150&menuNo=200433&nttId=11064279&oldMenuNo=201150&pageIndex=1&pageUnit=10&programType=newsData&searchCnd=1&searchKwd=",
+      "publishedAt": "2026-08-31"
+    },
+    "context": "한국은행은 반도체 기업의 성과급 증가가 이천·화성·청주 등 반도체 종사자 비중이 높은 지역의 소비, 특히 고가 재량소비로 얼마나 이어졌는지를 분석했다. 보고서의 핵심은 산업 호황이 기업이익에 머무르지 않고 가계소득과 소비로 확산되는 ‘소비경로’를 확인하는 데 있다."
+  },
+  {
+    "id": "insight-20260902-001",
+    "quote": "좋은 위험관리는 미래를 정확히 맞히는 시스템이 아니라, 위험이 변했을 때 행동이 자동으로 달라지는 시스템이다.",
+    "category": "리스크",
+    "writtenAt": "2026-09-02",
+    "source": {
+      "publisher": "AQR Capital Management",
+      "title": "Risk Parity, Risk Management and the Real World",
+      "url": "https://www.aqr.com/Insights/Research/White-Papers/Risk-Parity-Risk-Management-and-the-Real-World",
+      "publishedAt": "2011-04-01"
+    },
+    "context": "변화하는 위험을 지속적으로 측정하고 포지션을 조정하는 동적 위험관리의 논리를 투자 이외의 위험관리에도 적용하도록 재구성한 한줄평이다."
+  },
+  {
+    "id": "insight-20260901-001",
+    "quote": "한국에 온 외국인을 관광객으로 보지 말고, 한국에서 처음 만난 글로벌 소비자로 보라.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-01",
+    "source": {
+      "publisher": "삼정KPMG 경제연구원",
+      "title": "도약하는 K-관광, 진화하는 인바운드 소비 트렌드",
+      "url": "https://kpmg.com/kr/ko/insights/eri/2026/issuemonitor-0713.html",
+      "publishedAt": "2026-07-13"
+    },
+    "context": "보고서는 외국인 소비가 단순 관광·면세점 쇼핑에서 한국인의 일상과 라이프스타일 체험으로 확장되고, 소비 여정도 방한 전부터 귀국 후 재구매까지 길어지고 있다고 분석한다. 한줄평은 이를 기업 입장에서 ‘일회성 관광객’보다 ‘장기 글로벌 고객’으로 보자는 관점으로 재구성한 것이다."
+  }
+]

@@ -1,0 +1,56 @@
+/* Page styles are scoped; common header, footer and menu belong to ../style.css. */
+.insights-page .insights-main{padding-top:34px;padding-bottom:8px;word-break:keep-all;overflow-wrap:anywhere}
+.insights-page .insights-intro{padding:28px 32px;margin-bottom:28px;background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
+.insights-page .insights-intro .eyebrow{font-size:12px;padding:5px 11px;margin-bottom:12px}
+.insights-page .insights-intro h1{margin:0;font-size:clamp(32px,5vw,46px);line-height:1.2;letter-spacing:-.05em}
+.insights-page .insights-subtitle{margin:9px 0 0;color:var(--muted);font-size:17px}
+.insights-page .insights-section{padding:0}
+.insights-page .insights-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.insights-page .insights-filters{display:flex;flex-wrap:wrap;gap:8px}
+.insights-page .insights-filter-button{font:inherit;font-size:14px;font-weight:700;padding:7px 15px;border:1px solid var(--line);border-radius:99px;background:var(--paper);color:var(--muted);cursor:pointer}
+.insights-page .insights-filter-button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.insights-page .insights-count{font-size:13px;color:var(--muted);white-space:nowrap}
+.insights-page .insights-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.insights-page .insights-quote-card{display:grid;grid-template-columns:minmax(0,1fr) 52px;grid-template-rows:auto 1fr auto;column-gap:12px;padding:24px 28px 22px;border-radius:var(--radius);background:#e3f3ed;color:#123f3b;border:1px solid #cce3da;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.insights-page .insights-quote-card[data-category=리스크]{background:#173f5f;color:#fff;border-color:#173f5f}
+.insights-page .insights-quote-card[data-category=경영]{background:#fff9ee;color:#4c3924;border-color:#e9deca}
+.insights-page .insights-quote-card[data-category=투자]{background:#f1edf8;color:#443657;border-color:#dfd5ea}
+.insights-page .insights-quote-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px #412f251a}
+.insights-page .insights-quote-card:focus-visible,.insights-page .insights-filter-button:focus-visible{outline:3px solid #b05b24;outline-offset:4px}
+.insights-page .insights-card-top{grid-column:1;grid-row:1;display:flex;align-items:center;gap:12px;font-size:13px}
+.insights-page .insights-category{border:1px solid currentColor;border-radius:99px;padding:3px 11px}
+.insights-page .insights-icon{grid-column:2;grid-row:1;text-align:right;font:48px/1.15 "Segoe UI Emoji","Apple Color Emoji",sans-serif;transform:rotate(-8deg)}
+.insights-page .insights-quote{grid-column:1/-1;font-size:clamp(24px,2.7vw,30px);line-height:1.5;letter-spacing:-.045em;font-weight:750;margin:16px 0 22px}
+.insights-page .insights-accent{color:#087466}
+.insights-page .insights-quote-card[data-category=리스크] .insights-accent{color:#9be3d0}
+.insights-page .insights-quote-card[data-category=경영] .insights-accent{color:#8b542b}
+.insights-page .insights-quote-card[data-category=투자] .insights-accent{color:#73509b}
+.insights-page .insights-card-bottom{grid-column:1/-1;align-self:end;margin-top:auto;padding-top:14px;border-top:1px solid #123f3b26;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px}
+.insights-page .insights-quote-card[data-category=리스크] .insights-card-bottom{border-color:#ffffff30}
+.insights-page .insights-source{display:flex;flex-direction:column;gap:2px;min-width:0}
+.insights-page .insights-source time{font-size:12px;opacity:.8}
+.insights-page .insights-open{white-space:nowrap;display:flex;align-items:center;gap:8px}
+.insights-page .insights-arrow{display:grid;place-items:center;border-radius:50%;width:32px;height:32px;background:#ffffff85;color:#173f5f;font-size:20px}
+.insights-page .insights-quote-card[data-category=리스크] .insights-arrow{background:#ffffff18;color:white}
+.insights-page .insights-note{text-align:center;font-size:13px;color:var(--muted);margin:22px 0 0}
+.insights-page .insights-empty{text-align:center;padding:50px 20px;color:var(--muted);grid-column:1/-1}
+.insights-page .insights-quote-card[hidden]{display:none}
+@media(max-width:760px){
+.insights-page .insights-main{padding-top:24px}
+.insights-page .insights-intro{padding:22px;margin-bottom:22px;border-radius:22px}
+.insights-page .insights-subtitle{font-size:15px}
+.insights-page .insights-cards{grid-template-columns:1fr;gap:16px}
+.insights-page .insights-quote-card{padding:20px;grid-template-columns:minmax(0,1fr) 44px;column-gap:8px}
+.insights-page .insights-quote{font-size:26px;margin:14px 0 20px}
+.insights-page .insights-icon{font-size:40px}
+.insights-page .insights-card-top{gap:8px}
+.insights-page .insights-toolbar{align-items:flex-start;flex-direction:column;gap:9px}
+.insights-page .insights-filter-button{padding:7px 12px}
+}
+@media(prefers-reduced-motion:reduce){.insights-page .insights-quote-card{transition:none}.insights-page .insights-quote-card:hover{transform:none}}
+
+/* Proud Dungdung: artwork fills the existing intro space without increasing desktop height. */
+.insights-page .insights-intro{position:relative;padding-right:310px}
+.insights-page .insights-mascot{position:absolute;right:18px;top:50%;transform:translateY(-50%);display:block;width:280px;height:186px;object-fit:contain;mix-blend-mode:multiply;border-radius:20px}
+@media(max-width:760px){.insights-page .insights-intro{padding-right:200px}.insights-page .insights-mascot{right:8px;width:190px;height:145px}}
+@media(max-width:480px){.insights-page .insights-intro{padding-right:112px}.insights-page .insights-intro .eyebrow{font-size:10px;letter-spacing:0}.insights-page .insights-intro h1{font-size:28px}.insights-page .insights-mascot{right:2px;width:108px;height:125px}}
