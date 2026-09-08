@@ -3,75 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="학습지 35개 한자성어의 독음·겉뜻·속뜻·예문, 중복 없는 랜덤 퀴즈와 문장 만들기 연습">
+<meta name="description" content="35개 한자성어를 1/35부터 끝까지 풀고, 독음·겉뜻·속뜻·예문을 오답노트로 복습하세요.">
 <meta name="theme-color" content="#03c75a">
 <meta name="robots" content="noindex,nofollow">
-<title>한자성어 35 · 퀴즈와 사전</title>
+<title>한자성어 35 · 랜덤 퀴즈와 오답노트</title>
 <style>
 :root{--green:#03c75a;--dark:#087b3b;--ink:#18232b;--muted:#637079;--line:#e3e9e6;--soft:#f4f7f5;--yellow:#fff9df}
-*{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.6}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #107bca;outline-offset:3px}[hidden]{display:none!important}.wrap{max-width:780px;min-height:100vh;margin:auto;background:#fff}header{background:#fff;padding:20px 22px 0;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.logo{font-size:26px;font-weight:900;color:var(--dark);letter-spacing:-1px}.sub{font-size:15px;color:var(--muted)}.version{margin-left:auto;font-size:12px;color:var(--dark);background:#eefbf3;border:1px solid #caead7;border-radius:6px;padding:2px 7px}.intro{font-size:14px;margin:8px 0 14px;color:var(--muted)}nav{display:flex;gap:4px}nav button{flex:1;background:none;border:0;border-bottom:3px solid transparent;padding:12px 5px;font-size:15px;font-weight:800;color:var(--muted)}nav button[aria-selected="true"]{color:var(--dark);border-color:var(--green)}main{padding:20px 22px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}.pill{font-size:12px;font-weight:800;color:var(--dark);background:#effaf3;border:1px solid #d0edda;padding:5px 10px;border-radius:20px}.progress-text{font-size:13px;color:var(--muted)}progress{display:block;width:100%;height:7px;accent-color:var(--green);margin-bottom:9px;border:0;border-radius:5px;overflow:hidden}progress::-webkit-progress-bar{background:#edf2ef}progress::-webkit-progress-value{background:var(--green)}.small{font-size:13px;color:var(--muted)}.card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:16px;box-shadow:0 4px 18px #102c1805}.card-head{padding:21px;background:#fafcfb}.label{font-size:13px;color:var(--muted)}.hanja{font-family:"Noto Serif KR","Batang","Songti SC",serif;text-align:center;font-weight:700;font-size:clamp(36px,9vw,54px);letter-spacing:.14em;padding:24px 0 17px;margin:0}.prompt{text-align:center;font-size:14px;margin:0;color:var(--muted)}.answer{padding:16px 20px;border-top:1px solid var(--line)}.guide{background:#f1f9f4;color:#42674f;padding:9px 12px;border-radius:8px;font-size:12px;margin-bottom:6px}.row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #edf0ee}.row:last-child{border:0}.key{font-size:14px;font-weight:800;color:#41564a}.value{overflow-wrap:anywhere;font-size:15px}.reading{font-size:22px;font-weight:800;color:var(--dark)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.button{border:1px solid transparent;border-radius:9px;padding:13px 10px;font-weight:800;font-size:15px;min-height:48px}.primary{background:var(--green);color:#073d20}.secondary{background:#eef2f0;color:var(--ink)}.good{color:#087439;background:#eaf8ef;border-color:#c7e8d3}.bad{color:#a33929;background:#fff1ec;border-color:#efd3ca}.full{grid-column:1/-1}details{margin-top:12px}summary{cursor:pointer;color:var(--dark);font-size:14px;font-weight:700;padding:7px 0}.example{background:#f6f8f6;padding:12px;border-radius:8px;margin:7px 0 0;font-size:14px;overflow-wrap:anywhere}.result{padding:23px;border:1px solid var(--line);border-radius:14px;background:#fafcfb}.result h2{margin:0;font-size:23px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px 4px;text-align:center;font-size:12px}.stat strong{display:block;font-size:28px;color:var(--dark)}.view-title{font-size:21px;margin:0 0 5px}.search-field{width:100%;border:2px solid var(--green);border-radius:10px;padding:12px 14px;background:#fff;min-width:0;margin:12px 0;font-size:16px}.coverage{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}.coverage span{font-size:12px;color:#41634c;background:#f1f7f3;border-radius:5px;padding:3px 7px}.entry{border:1px solid var(--line);border-radius:12px;padding:18px;margin:12px 0}.entry-title{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}.entry-number{color:var(--muted);font-size:12px}.entry h3{font-size:25px;margin:0;font-family:"Batang","Noto Serif KR",serif}.entry-reading{font-size:17px;color:var(--dark);font-weight:800}.entry .row{font-size:14px}.empty{padding:30px;text-align:center;color:var(--muted)}.writing-tools{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.writing-tools .button{font-size:13px;padding:9px 12px}.writing-card{border:1px solid #eadfac;background:var(--yellow);padding:20px;border-radius:13px;margin-top:16px}.writing-card h3{font-size:31px;font-family:"Batang","Noto Serif KR",serif;letter-spacing:.05em;margin:4px 0 10px}.writing-card label{display:block;font-size:14px;font-weight:800;margin:16px 0 8px}textarea{display:block;width:100%;min-height:110px;resize:vertical;border:1px solid #d4d9cc;border-radius:9px;padding:12px;background:#fff;color:var(--ink);font-size:16px;line-height:1.7}.save-state{min-height:1.6em;margin-top:4px;font-size:12px;color:#6b704d}.feedback{font-size:13px;margin:8px 0 0;color:var(--dark)}.feedback.warn{color:#a04723}.writing-hint{margin-top:7px}.writing-hint[open]{background:#fff9;padding:0 12px 8px;border-radius:8px}.done-banner{background:#eaf8ef;border:1px solid #c9e9d5;border-radius:9px;padding:12px 14px;margin-bottom:16px;color:var(--dark);font-size:14px}.note{margin-top:16px;font-size:12px;color:var(--muted);line-height:1.8}footer{text-align:center;border-top:1px solid var(--line);margin-top:26px;padding:18px 16px 28px;font-size:12px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.status{min-height:1.6em;font-size:12px;color:var(--dark);margin:6px 0 10px}
-@media(max-width:400px){header{padding:15px 15px 0}main{padding:16px 15px}.logo{font-size:23px}.sub{font-size:13px}.version{font-size:11px}nav button{font-size:14px}.card-head{padding:17px 13px}.answer,.writing-card,.entry{padding:15px}.row{grid-template-columns:49px minmax(0,1fr);gap:8px}.value{font-size:14px}.button{font-size:14px}.entry-title{gap:8px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--soft);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.65}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #107bca;outline-offset:3px}.wrap{max-width:780px;min-height:100vh;margin:auto;background:#fff}header{padding:20px 22px 0;border-bottom:1px solid var(--line);background:#fff}.brand{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.logo{font-size:26px;font-weight:900;color:var(--dark);letter-spacing:-1px}.sub{font-size:14px;color:var(--muted)}.version{margin-left:auto;font-size:12px;color:var(--dark);background:#eefbf3;border-radius:6px;padding:2px 7px}.intro{font-size:13px;margin:8px 0 13px;color:var(--muted)}nav{display:flex}nav button{flex:1;min-width:0;background:none;border:0;border-bottom:3px solid transparent;padding:12px 3px;font-size:14px;font-weight:800;color:var(--muted)}nav button[aria-selected="true"]{color:var(--dark);border-color:var(--green)}main{padding:22px}.pill{display:inline-block;font-size:12px;font-weight:800;color:var(--dark);background:#effaf3;border:1px solid #d0edda;padding:4px 10px;border-radius:20px}.small,.label{font-size:13px;color:var(--muted)}.counter-box{border:1px solid #d0e9d9;border-radius:14px;background:#f7fcf9;padding:17px 20px}.counter-line{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0}.progress-text{font-size:50px;line-height:1.15;font-weight:900;letter-spacing:-2px;color:var(--dark);font-variant-numeric:tabular-nums}.progress-text small{font-size:26px;color:#6d8876;font-weight:600;letter-spacing:-1px}.counter-line .small{text-align:right;font-size:12px}progress{display:block;width:100%;height:8px;accent-color:var(--green);border:0;border-radius:5px;overflow:hidden;margin:14px 0 8px}progress::-webkit-progress-bar{background:#e5efe8}progress::-webkit-progress-value{background:var(--green)}.card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:16px}.card-head{padding:19px;background:#fafcfb}.hanja{font-family:"Noto Serif KR","Batang","Songti SC",serif;text-align:center;font-weight:700;font-size:clamp(38px,9vw,56px);letter-spacing:.12em;padding:22px 0 16px;margin:0}.prompt{text-align:center;font-size:14px;margin:0;color:var(--muted)}.answer{padding:16px 20px;border-top:1px solid var(--line)}.guide{background:#f1f9f4;color:#42674f;padding:9px 12px;border-radius:8px;font-size:12px;margin-bottom:6px}.row{display:grid;grid-template-columns:58px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #edf0ee}.row:last-child{border:0}.key{font-size:14px;font-weight:800;color:#41564a}.value{overflow-wrap:anywhere;font-size:15px}.reading{font-size:22px;font-weight:800;color:var(--dark)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.button{border:1px solid transparent;border-radius:9px;padding:13px 10px;font-weight:800;font-size:14px;min-height:48px}.primary{background:var(--green);color:#073d20}.secondary{background:#eef2f0;color:var(--ink)}.good{color:#087439;background:#eaf8ef;border-color:#c7e8d3}.bad{color:#a33929;background:#fff1ec;border-color:#efd3ca}.full{grid-column:1/-1}details{margin-top:12px}summary{cursor:pointer;color:var(--dark);font-size:14px;font-weight:700;padding:7px 0}.example{background:#f6f8f6;padding:12px;border-radius:8px;margin:7px 0 0;font-size:14px;overflow-wrap:anywhere}.result{padding:22px;border:1px solid #cee7d7;border-radius:14px;background:#f6fcf8}.result h2{margin:0;font-size:23px}.complete-count{font-size:38px;font-weight:900;color:var(--dark);letter-spacing:-1px;line-height:1.3}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 4px;text-align:center;font-size:12px}.stat strong{display:block;font-size:27px;color:var(--dark)}.view-title{font-size:22px;margin:0 0 5px}.search-field{width:100%;border:2px solid var(--green);border-radius:10px;padding:12px 14px;background:#fff;margin:12px 0;font-size:16px}.coverage{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}.coverage span{font-size:12px;color:#41634c;background:#f1f7f3;border-radius:5px;padding:3px 7px}.entry{border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}.entry-title{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:7px 0}.entry-number{color:var(--muted);font-size:12px}.entry h3{font-size:27px;margin:0;font-family:"Batang","Noto Serif KR",serif}.entry-reading{font-size:18px;color:var(--dark);font-weight:800}.empty{padding:28px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px;margin-top:16px}.empty strong{display:block;color:var(--dark);font-size:20px;margin-bottom:8px}.writing-tools{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.writing-tools .button{font-size:13px;padding:9px 12px}.writing-card{border:1px solid #eadfac;background:var(--yellow);padding:20px;border-radius:13px;margin-top:16px}.writing-card h3{font-size:31px;font-family:"Batang","Noto Serif KR",serif;letter-spacing:.05em;margin:4px 0 10px}label.text-label{display:block;font-size:13px;font-weight:800;margin:14px 0 7px}textarea{display:block;width:100%;min-height:104px;resize:vertical;border:1px solid #d4d9cc;border-radius:9px;padding:12px;background:#fff;color:var(--ink);font-size:16px;line-height:1.7}.memo{min-height:76px}.save-state{min-height:1.6em;margin-top:4px;font-size:12px;color:#6b704d}.feedback{font-size:13px;margin:8px 0 0;color:var(--dark)}.feedback.warn{color:#a04723}.writing-hint[open]{background:#fff9;padding:0 12px 8px;border-radius:8px}.done-banner{background:#eaf8ef;border:1px solid #c9e9d5;border-radius:9px;padding:12px 14px;margin:14px 0;color:var(--dark);font-size:13px}.note{margin-top:16px;font-size:12px;color:var(--muted);line-height:1.8}.status{min-height:1.5em;font-size:12px;color:var(--dark);margin:7px 0}.entry-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.review-state{font-size:12px;border-radius:6px;padding:3px 7px;background:#fff2ed;color:#9e4832}.mastered{background:#f9fcfa;border-color:#c8e8d3}.mastered .review-state{color:var(--dark);background:#e8f7ed}.notebook-label{margin:24px 0 3px;font-size:19px}.notebook-meta{margin:0 0 14px;color:var(--muted);font-size:13px}.badge{display:inline-block;min-width:18px;border-radius:10px;background:#edf4ef;color:var(--dark);font-size:11px;margin-left:3px}footer{text-align:center;border-top:1px solid var(--line);margin-top:26px;padding:18px 16px 28px;font-size:12px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:400px){header{padding:15px 14px 0}main{padding:16px 14px}.logo{font-size:23px}.sub{font-size:12px}.version{font-size:11px}nav button{font-size:12px}.card-head{padding:16px 12px}.answer,.writing-card,.entry,.result{padding:15px}.row{grid-template-columns:46px minmax(0,1fr);gap:8px}.value{font-size:14px}.button{font-size:13px}.counter-box{padding:14px}.progress-text{font-size:46px}.badge{font-size:10px;margin-left:2px}.entry-title{gap:8px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <div class="brand"><span class="logo">한자사전</span><span class="sub">35개 한자성어 연습</span><span class="version">v2.0</span></div>
-  <p class="intro">한자 읽기 → 겉뜻·속뜻 말하기 → 문장 만들기</p>
-  <nav role="tablist" aria-label="학습 메뉴">
-    <button id="tab-quiz" role="tab" aria-selected="true" aria-controls="quizView" data-view="quiz">랜덤 퀴즈</button>
-    <button id="tab-study" role="tab" aria-selected="false" aria-controls="studyView" data-view="study">전체 35개</button>
-    <button id="tab-writing" role="tab" aria-selected="false" aria-controls="writingView" data-view="writing">문장 만들기</button>
-  </nav>
+<div class="brand"><span class="logo">한자사전</span><span class="sub">35개 한자성어 연습</span><span class="version">v3.0</span></div>
+<p class="intro">35문제 완주 → 나만의 오답노트 → 문장 만들기</p>
+<nav role="tablist" aria-label="학습 메뉴">
+<button id="tab-quiz" role="tab" aria-selected="true" aria-controls="quizView" data-view="quiz">랜덤 퀴즈</button>
+<button id="tab-notebook" role="tab" aria-selected="false" aria-controls="notebookView" data-view="notebook">오답노트<span id="noteBadge" class="badge" hidden></span></button>
+<button id="tab-study" role="tab" aria-selected="false" aria-controls="studyView" data-view="study">전체 35개</button>
+<button id="tab-writing" role="tab" aria-selected="false" aria-controls="writingView" data-view="writing">문장 만들기</button>
+</nav>
 </header>
 <main>
 <noscript>퀴즈를 실행하려면 브라우저에서 자바스크립트를 허용해 주세요.</noscript>
 <section id="quizView" role="tabpanel" aria-labelledby="tab-quiz">
-  <div id="quizArea">
-    <div class="toolbar"><span id="quizMode" class="pill">35개 전부 · 중복 없이 랜덤</span><span id="progress" class="progress-text"></span></div>
-    <progress id="progressBar" max="35" value="0" aria-label="답한 문제 수"></progress>
-    <div id="countLine" class="small"></div>
-    <p id="quizNotice" class="status" role="status"></p>
-    <section class="card" aria-label="현재 문제">
-      <div class="card-head"><div class="label">독음 · 겉뜻 · 속뜻을 떠올려 보세요.</div><h1 class="hanja" id="hanja"></h1><p class="prompt">먼저 소리 내어 답하고, 아래에서 정답을 확인하세요.</p></div>
-      <div id="answer" class="answer" hidden aria-live="polite">
-        <div class="guide">겉뜻은 한자를 풀어 쓴 뜻, 속뜻은 실제로 쓰이는 뜻이에요.</div>
-        <div class="row"><div class="key">독음</div><div class="value reading" id="reading"></div></div>
-        <div class="row"><div class="key">겉뜻</div><div class="value" id="literalMeaning"></div></div>
-        <div class="row"><div class="key">속뜻</div><div class="value" id="meaning"></div></div>
-        <details id="quizExample"><summary>활용 예문 보기</summary><p class="example" id="example"></p></details>
-        <p class="small" id="sourceNumber"></p>
-      </div>
-    </section>
-    <div class="actions" id="mainActions"><button class="button primary" id="revealBtn">정답 보기</button><button class="button secondary" id="shuffleBtn">나중에 풀기</button></div>
-    <div class="actions" id="gradeActions" hidden><button class="button good" id="correctBtn">맞았어요 ✓</button><button class="button bad" id="wrongBtn">헷갈렸어요</button></div>
-    <p class="note">독음·겉뜻·속뜻을 직접 비교해 표시하는 자기 채점이에요. ‘나중에 풀기’를 눌러도 그 문제는 빠지지 않고 뒤에 다시 나와요.</p>
-  </div>
-  <section id="scorebox" class="result" hidden>
-    <h2>퀴즈 한 바퀴 완료!</h2><p id="resultSubtitle" class="small"></p>
-    <div class="stats"><div class="stat"><strong id="correctStat"></strong>맞았어요</div><div class="stat"><strong id="wrongStat"></strong>헷갈렸어요</div><div class="stat"><strong id="totalStat"></strong>전체 문제</div></div>
-    <p id="wrongList" class="small"></p>
-    <div class="actions"><button class="button good" id="reviewBtn">헷갈린 문제만 다시</button><button class="button secondary" id="restartBtn">전체 35개 다시</button><button class="button primary full" id="missionBtn">마지막 미션 · 문장 2개 만들기</button></div>
-  </section>
+<div id="quizArea">
+<div class="counter-box">
+<span id="quizMode" class="pill">35개 전부 · 중복 없이 랜덤</span>
+<div class="counter-line"><div id="progress" class="progress-text" aria-live="polite" aria-atomic="true"><span id="currentNumber">1</span><small id="totalNumber">/35</small></div><span class="small">지금 풀고 있는 문제<br><b id="remainingText">끝까지 한 문제씩!</b></span></div>
+<progress id="progressBar" max="35" value="0" aria-label="답한 문제 수"></progress>
+<div id="countLine" class="small"></div>
+</div>
+<p id="quizNotice" class="status" role="status"></p>
+<section class="card" aria-label="현재 문제">
+<div class="card-head"><div class="label">독음 · 겉뜻 · 속뜻을 떠올려 보세요.</div><h1 class="hanja" id="hanja"></h1><p class="prompt">먼저 소리 내어 답하고, 정답을 확인하세요.</p></div>
+<div id="answer" class="answer" hidden aria-live="polite">
+<div class="guide">겉뜻은 한자를 풀어 쓴 뜻, 속뜻은 실제로 쓰이는 뜻이에요.</div>
+<div class="row"><div class="key">독음</div><div class="value reading" id="reading"></div></div>
+<div class="row"><div class="key">겉뜻</div><div class="value" id="literalMeaning"></div></div>
+<div class="row"><div class="key">속뜻</div><div class="value" id="meaning"></div></div>
+<details id="quizExample"><summary>활용 예문 보기</summary><p class="example" id="example"></p></details>
+<p class="small" id="sourceNumber"></p>
+</div>
+</section>
+<div class="actions" id="mainActions"><button class="button primary" id="revealBtn">정답 보기</button><button class="button secondary" id="shuffleBtn">나중에 풀기</button></div>
+<div class="actions" id="gradeActions" hidden><button class="button good" id="correctBtn">맞았어요 ✓</button><button class="button bad" id="wrongBtn">틀림 · 헷갈림</button></div>
+<p class="note">직접 비교하는 자기 채점이에요. ‘틀림 · 헷갈림’으로 표시한 성어는 끝나면 오답노트에 모여요. ‘나중에 풀기’를 눌러도 그 문제는 빠지지 않고 뒤에 다시 나와요.</p>
+</div>
+<section id="quizComplete" class="result" hidden><h2>이번 퀴즈를 마쳤어요!</h2><p id="quizCompleteText" class="small"></p><button class="button primary" id="openNotebookBtn">결과 · 오답노트 보기</button></section>
+</section>
+<section id="notebookView" role="tabpanel" aria-labelledby="tab-notebook" hidden>
+<div id="noNotebook" class="empty"><strong>아직 오답노트가 없어요.</strong>35문제를 끝까지 풀면 틀린 성어가 여기에 모여요.</div>
+<div id="notebookContent" hidden>
+<section class="result">
+<div class="label">최근 완료한 전체 퀴즈</div><div id="completedCount" class="complete-count">35/35 완료</div>
+<h2>나의 오답노트</h2>
+<div class="stats"><div class="stat"><strong id="correctStat"></strong>맞았어요</div><div class="stat"><strong id="wrongStat"></strong>틀림 · 헷갈림</div><div class="stat"><strong id="masteredStat"></strong>오답 복습 통과</div></div>
+<div id="reviewSummary" class="done-banner" hidden></div>
+<div class="actions"><button class="button good full" id="reviewBtn">오답만 다시 풀기</button><button class="button secondary" id="restartBtn">전체 35개 다시</button><button class="button primary" id="missionBtn">문장 2개 만들기</button></div>
+</section>
+<h3 class="notebook-label">다시 기억할 성어</h3><p id="notebookMeta" class="notebook-meta"></p>
+<div id="notebookList"></div>
+<p id="notebookStorage" class="note"></p>
+</div>
 </section>
 <section id="studyView" role="tabpanel" aria-labelledby="tab-study" hidden>
-  <h2 class="view-title">학습지 전체 35개</h2><p class="small">학습지 순서대로 모두 담았어요. 퀴즈 도중 확인해도 풀이 순서는 유지돼요.</p>
-  <div class="coverage"><span>독음 35 / 35</span><span>겉뜻 35 / 35</span><span>속뜻 35 / 35</span><span>예문 35 / 35</span></div>
-  <label for="studySearch" class="sr-only">한자성어 또는 뜻 검색</label><input id="studySearch" class="search-field" type="search" placeholder="한자, 독음 또는 뜻을 검색하세요" autocomplete="off">
-  <p id="searchCount" class="small" role="status"></p><div id="studyList"></div>
+<h2 class="view-title">학습지 전체 35개</h2><p class="small">학습지 순서대로 모두 담았어요. 퀴즈 도중 확인해도 풀이 순서는 유지돼요.</p>
+<div class="coverage"><span>독음 35/35</span><span>겉뜻 35/35</span><span>속뜻 35/35</span><span>예문 35/35</span></div>
+<label for="studySearch" class="sr-only">한자성어 또는 뜻 검색</label><input id="studySearch" class="search-field" type="search" placeholder="한자, 독음 또는 뜻을 검색하세요" autocomplete="off">
+<p id="searchCount" class="small" role="status"></p><div id="studyList"></div>
 </section>
 <section id="writingView" role="tabpanel" aria-labelledby="tab-writing" hidden>
-  <div id="doneBanner" class="done-banner" hidden></div>
-  <h2 class="view-title">마지막 미션 · 문장 만들기</h2><p class="small">두 성어를 각각 넣어 자연스러운 문장을 하나씩 써 보세요.</p>
-  <div class="writing-tools"><button class="button good" id="randomSentenceBtn">랜덤 2개 다시 뽑기</button><button class="button secondary" id="worksheetBtn">학습지 지정 2개</button></div>
-  <p id="sentenceMode" class="small" role="status"></p>
-  <div id="writingCards"></div>
-  <button class="button primary" id="checkWritingBtn" style="width:100%;margin-top:16px">작성 내용 확인</button>
-  <p class="note">‘작성 내용 확인’은 빈칸과 성어 포함 여부만 확인해요. 문장의 뜻과 자연스러움은 예문과 비교하거나 보호자·선생님과 함께 확인하세요. 입력한 문장은 이 브라우저에만 저장되며, 사이트에서 서버로 전송하지 않아요.</p>
+<h2 class="view-title">마지막 미션 · 문장 만들기</h2><p class="small">두 성어를 각각 넣어 자연스러운 문장을 하나씩 써 보세요.</p>
+<div class="writing-tools"><button class="button good" id="randomSentenceBtn">랜덤 2개 다시 뽑기</button><button class="button secondary" id="worksheetBtn">학습지 지정 2개</button></div>
+<p id="sentenceMode" class="small" role="status"></p><div id="writingCards"></div>
+<button class="button primary" id="checkWritingBtn" style="width:100%;margin-top:16px">작성 내용 확인</button>
+<p class="note">‘작성 내용 확인’은 빈칸과 성어 포함 여부만 확인해요. 뜻과 자연스러움은 예문과 비교하거나 보호자·선생님과 함께 확인하세요. 입력한 문장은 이 브라우저에만 저장되며 사이트에서 서버로 전송하지 않아요.</p>
 </section>
 </main>
-<footer>학습지 35개 대조 완료 · v2.0<br>별도의 개인 학습용 페이지이며 네이버 공식 서비스가 아닙니다.</footer>
+<footer>독음 · 겉뜻 · 속뜻 · 예문 35개 수록 · v3.0<br>별도의 개인 학습용 페이지이며 네이버 공식 서비스가 아닙니다.</footer>
 </div>
 <script>
 'use strict';
@@ -79,67 +90,95 @@ const DATA = [{"hanja":"竹馬故友","reading":"죽마고우","meaning":"어릴
 const $ = id => document.getElementById(id);
 const byId = new Map(DATA.map(d => [d.id,d]));
 const ALL = DATA.map(d => d.id);
+const VIEWS = ['quiz','notebook','study','writing'];
 const STORAGE_KEY = 'dungdung-hanja-writing-v2';
-let state, missionIds = [], drafts = {}, storageOK = true;
-try { const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); if(parsed && typeof parsed === 'object' && !Array.isArray(parsed)) drafts = parsed; localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts)); } catch (_) { storageOK = false; }
-function shuffle(values) {
-  const a = [...values];
-  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
-  return a;
+const NOTEBOOK_KEY = 'dungdung-hanja-notebook-v3';
+let state, missionIds = [], drafts = {}, notebook = null, storageOK = true;
+// Keep all storage local and allow learning even when browser storage is unavailable.
+function readLocal(key){try{return JSON.parse(localStorage.getItem(key)||'null');}catch(_){return null;}}
+function storeLocal(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch(_){storageOK=false;return false;}}
+function validIds(ids){return Array.isArray(ids)&&ids.every(id=>Number.isInteger(id)&&byId.has(id))&&new Set(ids).size===ids.length;}
+function restoreNotebook(value){
+  if(!value||!validIds(value.order)||value.order.length!==35||!validIds(value.wrong)||!validIds(value.mastered)||!value.mastered.every(id=>value.wrong.includes(id)))return null;
+  const notes={};for(const id of value.wrong){if(value.notes&&typeof value.notes[id]==='string')notes[id]=value.notes[id].slice(0,500);}
+  return {order:value.order,wrong:value.wrong,mastered:value.mastered,notes,reviewSummary:typeof value.reviewSummary==='string'?value.reviewSummary.slice(0,200):''};
 }
+const savedDrafts=readLocal(STORAGE_KEY);
+if(savedDrafts&&typeof savedDrafts==='object'&&!Array.isArray(savedDrafts)){for(const id of ALL){if(typeof savedDrafts[id]==='string')drafts[id]=savedDrafts[id].slice(0,400);}}
+storeLocal(STORAGE_KEY,drafts);notebook=restoreNotebook(readLocal(NOTEBOOK_KEY));
+function shuffle(values){const a=[...values];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function showView(view){
-  ['quiz','study','writing'].forEach(name=>{
-    $(name+'View').hidden=name!==view;
-    const tab=$('tab-'+name);tab.setAttribute('aria-selected',String(name===view));tab.tabIndex=name===view?0:-1;
-  });
-}
+function showView(view){VIEWS.forEach(name=>{$(name+'View').hidden=name!==view;const tab=$('tab-'+name);tab.setAttribute('aria-selected',String(name===view));tab.tabIndex=name===view?0:-1;});}
 function startSession(ids=ALL,mode='all'){
-  state={order:shuffle(ids),index:0,marks:{},revealed:false,mode};
-  $('scorebox').hidden=true;$('quizArea').hidden=false;$('doneBanner').hidden=true;
-  $('quizNotice').textContent='';renderQuestion();showView('quiz');
+  if(!validIds(ids)||!ids.length)return;
+  state={order:shuffle(ids),index:0,marks:{},revealed:false,mode,finished:false};
+  $('quizComplete').hidden=true;$('quizArea').hidden=false;$('quizNotice').textContent='';renderQuestion();showView('quiz');window.scrollTo(0,0);
+}
+function requestSession(ids=ALL,mode='all'){
+  if(state&&!state.finished&&(state.index>0||state.revealed)&&!window.confirm('진행 중인 퀴즈를 종료하고 새로 시작할까요? 저장된 오답노트는 유지돼요.'))return;
+  startSession(ids,mode);
 }
 function renderQuestion(){
-  if(state.index===state.order.length){finish();return;}
+  if(state.index>=state.order.length){finish();return;}
   const item=byId.get(state.order[state.index]);state.revealed=false;
-  $('hanja').textContent=item.hanja;
-  $('reading').textContent=item.reading;$('literalMeaning').textContent=item.literalMeaning;$('meaning').textContent=item.meaning;$('example').textContent=item.example;
-  $('sourceNumber').textContent='학습지 '+item.id+'번';
-  $('answer').hidden=true;$('quizExample').open=false;$('mainActions').hidden=false;$('gradeActions').hidden=true;
-  $('progress').textContent=(state.index+1)+' / '+state.order.length;
+  $('hanja').textContent=item.hanja;$('reading').textContent=item.reading;$('literalMeaning').textContent=item.literalMeaning;$('meaning').textContent=item.meaning;$('example').textContent=item.example;
+  $('sourceNumber').textContent='학습지 '+item.id+'번';$('answer').hidden=true;$('quizExample').open=false;$('mainActions').hidden=false;$('gradeActions').hidden=true;
+  $('currentNumber').textContent=state.index+1;$('totalNumber').textContent='/'+state.order.length;
+  $('progress').setAttribute('aria-label','전체 '+state.order.length+'문제 중 '+(state.index+1)+'번째 문제');
   $('progressBar').max=state.order.length;$('progressBar').value=state.index;
   const good=Object.values(state.marks).filter(Boolean).length;
-  $('countLine').textContent='답한 문제 '+state.index+'개 · 맞았어요 '+good+'개 · 헷갈렸어요 '+(state.index-good)+'개';
-  $('quizMode').textContent=state.mode==='all'?'35개 전부 · 중복 없이 랜덤':'헷갈린 '+state.order.length+'개 · 다시 연습';
+  $('countLine').textContent='푼 문제 '+state.index+'개 · 정답 '+good+'개 · 오답 '+(state.index-good)+'개';
+  $('remainingText').textContent=state.index===state.order.length-1?'마지막 문제!':'남은 문제 '+(state.order.length-state.index)+'개';
+  $('quizMode').textContent=state.mode==='all'?'35개 전부 · 중복 없이 랜덤':'오답 '+state.order.length+'개 · 복습 퀴즈';
   $('shuffleBtn').disabled=state.index===state.order.length-1;
 }
-function reveal(){
-  if(state.index>=state.order.length||state.revealed)return;
-  state.revealed=true;$('answer').hidden=false;$('mainActions').hidden=true;$('gradeActions').hidden=false;$('quizNotice').textContent='';
-}
+function reveal(){if(state.finished||state.revealed)return;state.revealed=true;$('answer').hidden=false;$('mainActions').hidden=true;$('gradeActions').hidden=false;$('quizNotice').textContent='';}
 function grade(correct){
-  if(!state.revealed||state.index>=state.order.length)return;
+  if(!state.revealed||state.finished)return;
   state.marks[state.order[state.index]]=correct;state.index++;state.revealed=false;$('quizNotice').textContent='';renderQuestion();
+  if(!state.finished)window.scrollTo(0,0);
 }
-function postpone(){
-  if(state.revealed||state.index>=state.order.length-1)return;
-  const [id]=state.order.splice(state.index,1);state.order.push(id);
-  renderQuestion();$('quizNotice').textContent='이 문제를 맨 뒤로 옮겼어요. 빠지지 않고 다시 나와요.';
-}
+function postpone(){if(state.revealed||state.finished||state.index>=state.order.length-1)return;const [id]=state.order.splice(state.index,1);state.order.push(id);renderQuestion();$('quizNotice').textContent='이 문제를 맨 뒤로 옮겼어요. 빠지지 않고 다시 나와요.';}
 function finish(){
-  const wrong=state.order.filter(id=>!state.marks[id]);
-  $('quizArea').hidden=true;$('scorebox').hidden=false;
-  $('correctStat').textContent=state.order.length-wrong.length;$('wrongStat').textContent=wrong.length;$('totalStat').textContent=state.order.length;
-  $('resultSubtitle').textContent=state.mode==='all'?'35개를 빠짐없이 한 번씩 풀었어요.':'헷갈린 문제 복습을 마쳤어요.';
-  $('wrongList').textContent=wrong.length?'다시 볼 성어: '+wrong.map(id=>byId.get(id).reading).join(' · '):'이번 회차는 모두 맞았어요.';
-  $('reviewBtn').disabled=wrong.length===0;
-  pickSentences('random');
-  $('doneBanner').textContent='퀴즈 완료 '+state.order.length+' / '+state.order.length+' · 맞았어요 '+(state.order.length-wrong.length)+'개 · 헷갈렸어요 '+wrong.length+'개. 이제 문장 2개에 도전하세요.';
-  $('doneBanner').hidden=false;showView('writing');window.scrollTo(0,0);
+  if(state.finished)return;state.finished=true;
+  const wrong=state.order.filter(id=>state.marks[id]===false);
+  if(state.mode==='all'){
+    const oldNotes=notebook?notebook.notes:{};notebook={order:[...state.order],wrong,mastered:[],notes:{},reviewSummary:''};
+    wrong.forEach(id=>{if(typeof oldNotes[id]==='string')notebook.notes[id]=oldNotes[id];});pickSentences('random');
+  }else if(notebook){
+    const mastered=new Set(notebook.mastered);
+    state.order.forEach(id=>{if(state.marks[id])mastered.add(id);else mastered.delete(id);});
+    notebook.mastered=[...mastered];notebook.reviewSummary='오답 복습 '+state.order.length+'/'+state.order.length+' 완료 · 맞았어요 '+(state.order.length-wrong.length)+'개 · 다시 연습 '+wrong.length+'개';
+  }
+  if(notebook)storeLocal(NOTEBOOK_KEY,notebook);
+  $('quizArea').hidden=true;$('quizComplete').hidden=false;$('progressBar').value=state.order.length;
+  $('quizCompleteText').textContent=state.order.length+'/'+state.order.length+' 완료 · 정답 '+(state.order.length-wrong.length)+'개 · 오답 '+wrong.length+'개';
+  renderNotebook();showView('notebook');window.scrollTo(0,0);
 }
-function definitionRows(d,includeReading=false){
-  return (includeReading?'<div class="row"><div class="key">독음</div><div class="value reading">'+escapeHTML(d.reading)+'</div></div>':'')+
-    '<div class="row"><div class="key">겉뜻</div><div class="value">'+escapeHTML(d.literalMeaning)+'</div></div><div class="row"><div class="key">속뜻</div><div class="value">'+escapeHTML(d.meaning)+'</div></div>';
+function definitionRows(d,includeReading=false){return (includeReading?'<div class="row"><div class="key">독음</div><div class="value reading">'+escapeHTML(d.reading)+'</div></div>':'')+'<div class="row"><div class="key">겉뜻</div><div class="value">'+escapeHTML(d.literalMeaning)+'</div></div><div class="row"><div class="key">속뜻</div><div class="value">'+escapeHTML(d.meaning)+'</div></div>';}
+function notebookStorageMessage(){
+  $('notebookStorage').textContent=storageOK?'최근 완료한 전체 퀴즈의 오답노트를 이 브라우저에 저장해요. 새 전체 퀴즈를 완료하면 노트가 갱신되며, 다른 기기·브라우저와 동기화되지 않아요. 복습을 통과해도 기존 오답과 메모는 남아요.':'브라우저 저장을 사용할 수 없어 오답노트와 메모는 현재 페이지에서만 유지돼요. 페이지를 닫기 전에 필요한 내용을 따로 기록해 주세요.';
+}
+function renderNotebook(){
+  $('noNotebook').hidden=!!notebook;$('notebookContent').hidden=!notebook;
+  $('noteBadge').hidden=!notebook||!notebook.wrong.length;$('noteBadge').textContent=notebook?notebook.wrong.length:'';
+  if(!notebook)return;
+  $('completedCount').textContent=notebook.order.length+'/'+notebook.order.length+' 완료';
+  $('correctStat').textContent=notebook.order.length-notebook.wrong.length;$('wrongStat').textContent=notebook.wrong.length;$('masteredStat').textContent=notebook.mastered.length;
+  $('reviewSummary').hidden=!notebook.reviewSummary;$('reviewSummary').textContent=notebook.reviewSummary;
+  const pending=notebook.wrong.filter(id=>!notebook.mastered.includes(id));
+  $('reviewBtn').disabled=notebook.wrong.length===0;
+  $('reviewBtn').textContent=pending.length?'남은 오답 '+pending.length+'개 다시 풀기':notebook.wrong.length?'오답 '+notebook.wrong.length+'개 전체 다시 풀기':'오답 없이 모두 맞았어요 ✓';
+  $('notebookMeta').textContent=notebook.wrong.length?'처음 틀린 '+notebook.wrong.length+'개 · 복습 통과 '+notebook.mastered.length+'개 · 남은 오답 '+pending.length+'개':'35문제 모두 맞았어요. 이번 회차의 오답노트는 비어 있어요.';
+  $('notebookList').innerHTML=notebook.wrong.length?notebook.wrong.map(id=>{
+    const d=byId.get(id),mastered=notebook.mastered.includes(id),position=notebook.order.indexOf(id)+1;
+    return '<article class="entry notebook-entry'+(mastered?' mastered':'')+'" data-id="'+id+'"><div class="entry-meta"><span class="entry-number">처음 퀴즈 '+position+'/35 · 학습지 '+id+'번</span><span class="review-state">'+(mastered?'복습 통과 ✓':'다시 연습')+'</span></div><div class="entry-title"><h3>'+escapeHTML(d.hanja)+'</h3><span class="entry-reading">'+escapeHTML(d.reading)+'</span></div>'+definitionRows(d)+'<div class="row"><div class="key">예문</div><div class="value">'+escapeHTML(d.example)+'</div></div><label class="text-label" for="memo-'+id+'">나의 기억 메모 (선택)</label><textarea class="memo" id="memo-'+id+'" maxlength="500" placeholder="헷갈린 부분이나 기억할 방법을 적어 보세요."></textarea><div class="save-state" id="memoSave-'+id+'"></div></article>';
+  }).join(''):'<div class="empty"><strong>35/35, 완주했어요!</strong>문장 만들기로 배운 성어를 직접 써 보세요.</div>';
+  notebook.wrong.forEach(id=>{
+    const field=$('memo-'+id);field.value=notebook.notes[id]||'';
+    $('memoSave-'+id).textContent=storageOK?'입력하면 이 브라우저에 저장돼요.':'이 페이지에서만 유지돼요.';
+    field.addEventListener('input',()=>{notebook.notes[id]=field.value;const saved=storeLocal(NOTEBOOK_KEY,notebook);$('memoSave-'+id).textContent=saved?'메모를 저장했어요.':'저장할 수 없어 현재 페이지에서만 유지돼요.';notebookStorageMessage();});
+  });notebookStorageMessage();
 }
 function renderStudy(){
   const q=$('studySearch').value.trim().normalize('NFC').replace(/\s+/g,'').toLowerCase();
@@ -150,49 +189,21 @@ function renderStudy(){
 function pickSentences(mode){
   missionIds=mode==='worksheet'?[14,30]:shuffle(ALL.filter(id=>!missionIds.includes(id))).slice(0,2);
   $('sentenceMode').textContent=mode==='worksheet'?'학습지 지정 성어 · 새옹지마 / 와신상담':'35개 중 서로 다른 성어 2개를 무작위로 골랐어요.';
-  $('worksheetBtn').setAttribute('aria-pressed',String(mode==='worksheet'));
-  $('randomSentenceBtn').setAttribute('aria-pressed',String(mode!=='worksheet'));
+  $('worksheetBtn').setAttribute('aria-pressed',String(mode==='worksheet'));$('randomSentenceBtn').setAttribute('aria-pressed',String(mode!=='worksheet'));
   $('writingCards').innerHTML=missionIds.map((id,n)=>{
-    const d=byId.get(id);
-    return '<article class="writing-card" data-id="'+id+'"><div class="label">문장 '+(n+1)+'</div><h3>'+escapeHTML(d.hanja)+'</h3><details class="writing-hint"><summary>독음 · 겉뜻 · 속뜻 확인</summary>'+definitionRows(d,true)+'</details><label for="sentence-'+id+'">이 성어를 넣어 문장을 써 보세요.</label><textarea id="sentence-'+id+'" maxlength="400" placeholder="한 문장씩, 내 말로 써 보세요." spellcheck="false"></textarea><div class="save-state" id="save-'+id+'"></div><p id="feedback-'+id+'" class="feedback" role="status"></p><details><summary>예문 보기</summary><p class="example">'+escapeHTML(d.example)+'</p><p class="small">예문은 참고용이에요. 내 상황에 맞게 새로 써 보세요.</p></details></article>';
+    const d=byId.get(id);return '<article class="writing-card" data-id="'+id+'"><div class="label">문장 '+(n+1)+'</div><h3>'+escapeHTML(d.hanja)+'</h3><details class="writing-hint"><summary>독음 · 겉뜻 · 속뜻 확인</summary>'+definitionRows(d,true)+'</details><label class="text-label" for="sentence-'+id+'">이 성어를 넣어 문장을 써 보세요.</label><textarea id="sentence-'+id+'" maxlength="400" placeholder="한 문장씩, 내 말로 써 보세요." spellcheck="false"></textarea><div class="save-state" id="save-'+id+'"></div><p id="feedback-'+id+'" class="feedback" role="status"></p><details><summary>예문 보기</summary><p class="example">'+escapeHTML(d.example)+'</p><p class="small">예문은 참고용이에요. 내 상황에 맞게 새로 써 보세요.</p></details></article>';
   }).join('');
-  missionIds.forEach(id=>{
-    const field=$('sentence-'+id);field.value=typeof drafts[id]==='string'?drafts[id]:'';
-    $('save-'+id).textContent=storageOK?(field.value?'이 브라우저에 저장된 문장이에요.':'입력하면 이 브라우저에 자동 저장돼요.'):'브라우저 저장을 사용할 수 없어 이 화면에서만 유지돼요.';
-    field.addEventListener('input',()=>saveDraft(id));
-  });
+  missionIds.forEach(id=>{const field=$('sentence-'+id);field.value=typeof drafts[id]==='string'?drafts[id]:'';$('save-'+id).textContent=storageOK?(field.value?'이 브라우저에 저장된 문장이에요.':'입력하면 이 브라우저에 자동 저장돼요.'):'브라우저 저장을 사용할 수 없어 현재 페이지에서만 유지돼요.';field.addEventListener('input',()=>saveDraft(id));});
 }
-function saveDraft(id){
-  drafts[id]=$('sentence-'+id).value;$('feedback-'+id).textContent='';
-  if(storageOK){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(drafts));}catch(_){storageOK=false;}}
-  $('save-'+id).textContent=storageOK?'이 브라우저에 저장했어요.':'브라우저 저장을 사용할 수 없어 이 화면에서만 유지돼요.';
-}
-function checkWriting(){
-  missionIds.forEach(id=>{
-    const text=$('sentence-'+id).value.trim(),d=byId.get(id),feedback=$('feedback-'+id);
-    const normalized=text.normalize('NFC').replace(/\s+/g,'');
-    const includes=normalized.includes(d.reading)||normalized.includes(d.hanja);
-    feedback.classList.toggle('warn',!text||!includes);
-    feedback.textContent=!text?'문장을 먼저 적어 주세요.':!includes?'문장에 이 성어의 독음 또는 한자를 넣어 주세요.':'성어가 들어 있어요. 뜻에 맞는 상황인지, 문장이 자연스러운지도 확인하세요.';
-  });
-}
-document.querySelectorAll('nav button').forEach((button,index)=>{
-  button.addEventListener('click',()=>showView(button.dataset.view));
-  button.addEventListener('keydown',event=>{
-    if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
-    event.preventDefault();const tabs=[...document.querySelectorAll('nav button')];
-    const next=event.key==='Home'?0:event.key==='End'?2:(index+(event.key==='ArrowRight'?1:2))%3;
-    showView(tabs[next].dataset.view);tabs[next].focus();
-  });
-});
-$('revealBtn').onclick=reveal;$('shuffleBtn').onclick=postpone;
-$('correctBtn').onclick=()=>grade(true);$('wrongBtn').onclick=()=>grade(false);
-$('restartBtn').onclick=()=>startSession();
-$('reviewBtn').onclick=()=>{const ids=state.order.filter(id=>!state.marks[id]);if(ids.length)startSession(ids,'review');};
-$('missionBtn').onclick=()=>showView('writing');
-$('studySearch').addEventListener('input',renderStudy);
-$('randomSentenceBtn').onclick=()=>pickSentences('random');$('worksheetBtn').onclick=()=>pickSentences('worksheet');$('checkWritingBtn').onclick=checkWriting;
-renderStudy();pickSentences('random');startSession();
+function saveDraft(id){drafts[id]=$('sentence-'+id).value;$('feedback-'+id).textContent='';const saved=storeLocal(STORAGE_KEY,drafts);$('save-'+id).textContent=saved?'이 브라우저에 저장했어요.':'브라우저 저장을 사용할 수 없어 현재 페이지에서만 유지돼요.';}
+function checkWriting(){missionIds.forEach(id=>{const text=$('sentence-'+id).value.trim(),d=byId.get(id),feedback=$('feedback-'+id),normalized=text.normalize('NFC').replace(/\s+/g,''),includes=normalized.includes(d.reading)||normalized.includes(d.hanja);feedback.classList.toggle('warn',!text||!includes);feedback.textContent=!text?'문장을 먼저 적어 주세요.':!includes?'문장에 이 성어의 독음 또는 한자를 넣어 주세요.':'성어가 들어 있어요. 뜻에 맞는 상황인지, 문장이 자연스러운지도 확인하세요.';});}
+document.querySelectorAll('nav button').forEach((button,index)=>{button.addEventListener('click',()=>showView(button.dataset.view));button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const tabs=[...document.querySelectorAll('nav button')],n=tabs.length,next=event.key==='Home'?0:event.key==='End'?n-1:(index+(event.key==='ArrowRight'?1:n-1))%n;showView(tabs[next].dataset.view);tabs[next].focus();});});
+$('revealBtn').onclick=reveal;$('shuffleBtn').onclick=postpone;$('correctBtn').onclick=()=>grade(true);$('wrongBtn').onclick=()=>grade(false);
+$('restartBtn').onclick=()=>requestSession();
+$('reviewBtn').onclick=()=>{if(!notebook||!notebook.wrong.length)return;const pending=notebook.wrong.filter(id=>!notebook.mastered.includes(id));requestSession(pending.length?pending:notebook.wrong,'review');};
+$('openNotebookBtn').onclick=()=>showView('notebook');$('missionBtn').onclick=()=>{showView('writing');window.scrollTo(0,0);};
+$('studySearch').addEventListener('input',renderStudy);$('randomSentenceBtn').onclick=()=>pickSentences('random');$('worksheetBtn').onclick=()=>pickSentences('worksheet');$('checkWritingBtn').onclick=checkWriting;
+renderStudy();renderNotebook();pickSentences('random');startSession();
 </script>
 </body>
 </html>
