@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>한자성어 랜덤 퀴즈 · 독음 · 겉뜻 · 속뜻</title>
+<style>
+:root {
+  --green:#03c75a;
+  --green-dark:#00a94f;
+  --ink:#111;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --soft:#f7f9fa;
+  --blue:#2b6cb0;
+  --yellow:#fff8d6;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+  background:#f3f5f7;
+  color:var(--ink);
+}
+.wrap { max-width:760px; margin:0 auto; min-height:100vh; background:#fff; }
+header {
+  position:sticky; top:0; z-index:10;
+  background:#fff; border-bottom:1px solid var(--line);
+  padding:14px 18px 12px;
+}
+.brand { display:flex; align-items:center; gap:10px; font-weight:900; }
+.brand .logo { color:var(--green); font-size:24px; letter-spacing:-1px; }
+.brand .sub { font-size:15px; color:#444; font-weight:700; }
+.search {
+  margin-top:12px; border:2px solid var(--green); border-radius:10px;
+  padding:12px 14px; display:flex; align-items:center; gap:10px;
+  box-shadow:0 1px 2px rgba(0,0,0,.03);
+}
+.search b { color:var(--green); }
+.search span { color:#555; font-size:14px; }
+main { padding:18px; }
+.toolbar {
+  display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.pill {
+  background:#eefbf4; color:var(--green-dark); border:1px solid #c9f0d8;
+  border-radius:999px; padding:7px 10px; font-size:13px; font-weight:800;
+}
+.progress { color:var(--muted); font-size:13px; }
+.card {
+  border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  box-shadow:0 4px 18px rgba(0,0,0,.04); background:#fff;
+}
+.card-head { padding:16px 18px; border-bottom:1px solid var(--line); background:#fafafa; }
+.card-head .label { font-size:13px; color:var(--muted); margin-bottom:5px; }
+.card-head .hanja {
+  font-family:"Noto Serif KR","Batang","Songti SC",serif;
+  font-size:44px; font-weight:700; letter-spacing:8px; text-align:center; padding:18px 0 12px;
+}
+.prompt {
+  text-align:center; font-size:15px; color:#444; margin-top:4px;
+}
+.answer {
+  display:none; padding:18px; background:#fff;
+}
+.answer.show { display:block; }
+.row { display:grid; grid-template-columns:90px 1fr; gap:10px; padding:11px 0; border-bottom:1px solid #f0f1f2; }
+.row:last-child { border-bottom:none; }
+.key { font-weight:800; color:#3f4954; }
+.value { line-height:1.55; overflow-wrap:anywhere; min-width:0; }
+.answer-guide { margin-bottom:6px; padding:10px 12px; background:#f2faf5; border-radius:8px; color:#436052; font-size:13px; line-height:1.6; }
+.sentence-meanings { margin-top:10px; }
+.sentence-meanings .row { border-color:#ece5bd; font-size:14px; }
+.sentence-meanings .row:last-child { border-bottom:0; }
+.actions {
+  display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;
+}
+button {
+  appearance:none; border:none; border-radius:10px; padding:14px 12px;
+  font-size:15px; font-weight:900; cursor:pointer;
+}
+.primary { background:var(--green); color:#fff; }
+.secondary { background:#eef1f4; color:#222; }
+.good { background:#eefbf4; color:#067a39; border:1px solid #c9f0d8; }
+.bad { background:#fff1f2; color:#b42318; border:1px solid #ffd4d7; }
+.scorebox {
+  display:none; margin-top:18px; padding:18px; background:#fbfcfd;
+  border:1px solid var(--line); border-radius:14px;
+}
+.scorebox.show { display:block; }
+.scoregrid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:12px 0; }
+.stat { text-align:center; padding:12px 8px; border-radius:10px; background:#fff; border:1px solid var(--line); }
+.stat b { display:block; font-size:22px; margin-bottom:4px; }
+.sentence {
+  margin-top:18px; padding:18px; border:1px solid #f0df8d; background:var(--yellow); border-radius:14px;
+}
+.sentence h3 { margin:0 0 8px; font-size:17px; }
+.sentence .target {
+  font-family:"Noto Serif KR","Batang",serif; font-size:28px; font-weight:800; margin:10px 0 6px;
+}
+.sentence small { color:#665c2f; }
+.footer-note { text-align:center; color:#89919a; font-size:12px; padding:24px 12px 30px; }
+@media (max-width:520px) {
+  .card-head .hanja { font-size:36px; letter-spacing:5px; }
+  .row { grid-template-columns:72px 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">한자사전</div>
+    <div class="sub">랜덤 퀴즈</div>
+  </div>
+  <div class="search">
+    <b>Q</b>
+    <span>한자만 보고 독음 · 겉뜻 · 속뜻을 맞혀 보세요.</span>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <div class="pill">35개 전부 랜덤 출제</div>
+    <div class="progress" id="progress">1 / 35</div>
+  </div>
+
+  <section class="card">
+    <div class="card-head">
+      <div class="label">오늘의 한자성어</div>
+      <div class="hanja" id="hanja">竹馬故友</div>
+      <div class="prompt">소리 내어 읽고, 겉뜻과 속뜻을 말한 뒤 정답을 확인하세요.</div>
+    </div>
+
+    <div class="answer" id="answer" aria-live="polite">
+      <div class="answer-guide">겉뜻은 한자를 풀어 쓴 뜻, 속뜻은 실제로 쓰이는 뜻이에요.</div>
+      <div class="row"><div class="key">독음</div><div class="value" id="reading"></div></div>
+      <div class="row"><div class="key">겉뜻</div><div class="value" id="literalMeaning"></div></div>
+      <div class="row"><div class="key">속뜻</div><div class="value" id="meaning"></div></div>
+    </div>
+  </section>
+
+  <div class="actions" id="mainActions">
+    <button class="primary" id="revealBtn">정답 보기</button>
+    <button class="secondary" id="shuffleBtn">다른 문제</button>
+  </div>
+
+  <div class="actions" id="gradeActions" style="display:none;">
+    <button class="good" id="correctBtn">맞았어요 ✓</button>
+    <button class="bad" id="wrongBtn">헷갈렸어요</button>
+  </div>
+
+  <section class="scorebox" id="scorebox">
+    <h3 style="margin:0;">퀴즈 완료 🎉</h3>
+    <div class="scoregrid">
+      <div class="stat"><b id="correctStat">0</b><span>정답</span></div>
+      <div class="stat"><b id="wrongStat">0</b><span>헷갈림</span></div>
+      <div class="stat"><b>35</b><span>총 문제</span></div>
+    </div>
+    <button class="primary" id="restartBtn" style="width:100%;">처음부터 다시</button>
+  </section>
+
+  <section class="sentence" id="sentenceBox" style="display:none;">
+    <h3>마지막 미션 · 문장 만들기</h3>
+    <div>아래 한자성어를 넣어 자연스러운 문장 하나를 만들어 보세요.</div>
+    <div class="target" id="sentenceTarget"></div>
+    <div class="sentence-meanings">
+      <div class="row"><div class="key">겉뜻</div><div class="value" id="sentenceLiteralMeaning"></div></div>
+      <div class="row"><div class="key">속뜻</div><div class="value" id="sentenceMeaning"></div></div>
+    </div>
+    <div class="actions" style="margin-top:14px;">
+      <button class="secondary" id="rerollSentence">다른 성어 뽑기</button>
+      <button class="primary" id="showExampleBtn">예시 문장 보기</button>
+    </div>
+    <div id="exampleBox" style="display:none;margin-top:12px;padding:12px 14px;background:#fff;border-radius:10px;border:1px solid #eadf9b;line-height:1.6;"></div>
+  </section>
+
+  <div class="footer-note">모든 문제는 페이지를 열 때마다 무작위 순서로 섞입니다.</div>
+</main>
+</div>
+
+<script>
+const DATA = [
+  {
+    "hanja": "竹馬故友",
+    "reading": "죽마고우",
+    "meaning": "어릴 때부터 함께 자란 친한 친구",
+    "literalMeaning": "대나무 말을 타고 놀던 옛 친구"
+  },
+  {
+    "hanja": "莫逆之友",
+    "reading": "막역지우",
+    "meaning": "허물없이 매우 친한 친구",
+    "literalMeaning": "서로 거스름이 없는 친구"
+  },
+  {
+    "hanja": "知己之友",
+    "reading": "지기지우",
+    "meaning": "서로의 마음을 잘 알아주는 친한 친구",
+    "literalMeaning": "자기를 알아주는 친구"
+  },
+  {
+    "hanja": "敎學相長",
+    "reading": "교학상장",
+    "meaning": "가르치는 사람과 배우는 사람이 서로 발전함",
+    "literalMeaning": "가르치고 배우면서 서로 성장함"
+  },
+  {
+    "hanja": "晝耕夜讀",
+    "reading": "주경야독",
+    "meaning": "어려운 환경에서도 열심히 공부함",
+    "literalMeaning": "낮에는 밭을 갈고 밤에는 책을 읽음"
+  },
+  {
+    "hanja": "螢雪之功",
+    "reading": "형설지공",
+    "meaning": "어려운 환경을 이겨 내며 열심히 공부하여 얻은 성과",
+    "literalMeaning": "반딧불과 눈(雪)에 비친 빛으로 공부한 공"
+  },
+  {
+    "hanja": "手不釋卷",
+    "reading": "수불석권",
+    "meaning": "늘 책을 가까이하며 열심히 공부함",
+    "literalMeaning": "손에서 책을 놓지 않음"
+  },
+  {
+    "hanja": "四面楚歌",
+    "reading": "사면초가",
+    "meaning": "아무에게도 도움받지 못하는 어려운 상황",
+    "literalMeaning": "사방에서 초나라 노래가 들림"
+  },
+  {
+    "hanja": "吾鼻三尺",
+    "reading": "오비삼척",
+    "meaning": "자기 일도 급해서 남을 도울 형편이 못 됨",
+    "literalMeaning": "내 코가 석 자임"
+  },
+  {
+    "hanja": "坐井觀天",
+    "reading": "좌정관천",
+    "meaning": "견문이 좁아 세상을 넓게 보지 못함",
+    "literalMeaning": "우물에 앉아서 하늘을 봄"
+  },
+  {
+    "hanja": "愚公移山",
+    "reading": "우공이산",
+    "meaning": "꾸준히 노력하면 큰일도 이루어 낼 수 있음",
+    "literalMeaning": "우공이 산을 옮김"
+  },
+  {
+    "hanja": "過猶不及",
+    "reading": "과유불급",
+    "meaning": "무엇이든 지나치면 좋지 않음",
+    "literalMeaning": "지나친 것은 모자란 것과 같음"
+  },
+  {
+    "hanja": "群鷄一鶴",
+    "reading": "군계일학",
+    "meaning": "많은 사람 가운데 특히 뛰어난 사람",
+    "literalMeaning": "닭 무리 속의 한 마리 학"
+  },
+  {
+    "hanja": "塞翁之馬",
+    "reading": "새옹지마",
+    "meaning": "인생의 길흉화복은 예측하기 어려움",
+    "literalMeaning": "변방 노인의 말"
+  },
+  {
+    "hanja": "始終一貫",
+    "reading": "시종일관",
+    "meaning": "처음부터 끝까지 태도나 행동이 한결같음",
+    "literalMeaning": "처음부터 끝까지 하나로 꿰뚫음"
+  },
+  {
+    "hanja": "信賞必罰",
+    "reading": "신상필벌",
+    "meaning": "공이 있으면 상을 주고 잘못하면 반드시 벌함",
+    "literalMeaning": "상을 확실히 주고 벌을 반드시 줌"
+  },
+  {
+    "hanja": "我田引水",
+    "reading": "아전인수",
+    "meaning": "자기에게만 유리하도록 생각하거나 행동함",
+    "literalMeaning": "자기 논에 물을 끌어들임"
+  },
+  {
+    "hanja": "溫故知新",
+    "reading": "온고지신",
+    "meaning": "옛것을 배우고 익혀 새로운 것을 깨달음",
+    "literalMeaning": "옛것을 익혀 새것을 앎"
+  },
+  {
+    "hanja": "靑山流水",
+    "reading": "청산유수",
+    "meaning": "말이 막힘없이 아주 유창함",
+    "literalMeaning": "푸른 산과 흐르는 물"
+  },
+  {
+    "hanja": "靑出於藍",
+    "reading": "청출어람",
+    "meaning": "제자가 스승보다 더 뛰어남",
+    "literalMeaning": "푸른빛이 쪽(물감을 만드는 풀)에서 나옴"
+  },
+  {
+    "hanja": "風樹之嘆",
+    "reading": "풍수지탄",
+    "meaning": "부모님께 효도하지 못한 채 여읜 슬픔과 후회",
+    "literalMeaning": "바람에 흔들리는 나무의 탄식"
+  },
+  {
+    "hanja": "鶴首苦待",
+    "reading": "학수고대",
+    "meaning": "몹시 간절하게 기다림",
+    "literalMeaning": "학처럼 목을 길게 빼고 애타게 기다림"
+  },
+  {
+    "hanja": "無用之物",
+    "reading": "무용지물",
+    "meaning": "아무런 쓸모가 없음",
+    "literalMeaning": "쓸모가 없는 물건"
+  },
+  {
+    "hanja": "自初至終",
+    "reading": "자초지종",
+    "meaning": "어떤 일이 처음부터 끝까지 진행된 모든 과정",
+    "literalMeaning": "처음부터 끝까지"
+  },
+  {
+    "hanja": "以熱治熱",
+    "reading": "이열치열",
+    "meaning": "더운 것을 더운 것으로 이겨 냄",
+    "literalMeaning": "열로써 열을 다스림"
+  },
+  {
+    "hanja": "畫龍點睛",
+    "reading": "화룡점정",
+    "meaning": "가장 중요한 부분을 더해 일을 완성함",
+    "literalMeaning": "용을 그린 뒤 눈동자를 찍음"
+  },
+  {
+    "hanja": "狐假虎威",
+    "reading": "호가호위",
+    "meaning": "남의 힘을 빌려 위세를 부림",
+    "literalMeaning": "여우가 호랑이의 위세를 빌림"
+  },
+  {
+    "hanja": "自業自得",
+    "reading": "자업자득",
+    "meaning": "자기가 저지른 일의 결과를 자기가 받음",
+    "literalMeaning": "자기가 한 일의 결과를 자기가 얻음"
+  },
+  {
+    "hanja": "異口同聲",
+    "reading": "이구동성",
+    "meaning": "여러 사람이 한결같이 같은 말을 함",
+    "literalMeaning": "서로 다른 입에서 같은 소리가 남"
+  },
+  {
+    "hanja": "臥薪嘗膽",
+    "reading": "와신상담",
+    "meaning": "목적을 이루려고 어려움을 참고 견딤",
+    "literalMeaning": "섶(땔나무)에 눕고 쓸개를 맛봄"
+  },
+  {
+    "hanja": "龍頭蛇尾",
+    "reading": "용두사미",
+    "meaning": "시작은 좋지만 끝이 좋지 않음",
+    "literalMeaning": "용의 머리와 뱀의 꼬리"
+  },
+  {
+    "hanja": "有終之美",
+    "reading": "유종지미",
+    "meaning": "일을 끝까지 잘 마무리함",
+    "literalMeaning": "끝맺음의 아름다움이 있음"
+  },
+  {
+    "hanja": "人之常情",
+    "reading": "인지상정",
+    "meaning": "누구나 자연스럽게 가지는 마음",
+    "literalMeaning": "사람의 보통 감정"
+  },
+  {
+    "hanja": "作心三日",
+    "reading": "작심삼일",
+    "meaning": "결심이 오래가지 못함",
+    "literalMeaning": "마음먹은 것이 사흘뿐임"
+  },
+  {
+    "hanja": "走馬看山",
+    "reading": "주마간산",
+    "meaning": "자세히 살피지 않고 대충 훑어봄",
+    "literalMeaning": "말을 달리며 산을 봄"
+  }
+];
+
+let order = [];
+let idx = 0;
+let correct = 0;
+let wrong = 0;
+let current = null;
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function newSession() {
+  order = shuffle(DATA.map((_,i)=>i));
+  idx = 0; correct = 0; wrong = 0;
+  document.getElementById('scorebox').classList.remove('show');
+  document.getElementById('sentenceBox').style.display = 'none';
+  loadQuestion();
+}
+
+function loadQuestion() {
+  if (idx >= order.length) return finish();
+  current = DATA[order[idx]];
+  document.getElementById('hanja').textContent = current.hanja;
+  document.getElementById('reading').textContent = current.reading;
+  document.getElementById('literalMeaning').textContent = current.literalMeaning;
+  document.getElementById('meaning').textContent = current.meaning;
+  document.getElementById('answer').classList.remove('show');
+  document.getElementById('mainActions').style.display = 'grid';
+  document.getElementById('gradeActions').style.display = 'none';
+  document.getElementById('progress').textContent = `${idx+1} / ${DATA.length}`;
+}
+
+function reveal() {
+  document.getElementById('answer').classList.add('show');
+  document.getElementById('mainActions').style.display = 'none';
+  document.getElementById('gradeActions').style.display = 'grid';
+}
+
+function next(mark) {
+  if (mark === 'correct') correct++;
+  if (mark === 'wrong') wrong++;
+  idx++;
+  loadQuestion();
+}
+
+function skipRandom() {
+  if (idx >= order.length-1) return;
+  const swapWith = idx + 1 + Math.floor(Math.random() * (order.length - idx - 1));
+  [order[idx], order[swapWith]] = [order[swapWith], order[idx]];
+  loadQuestion();
+}
+
+function finish() {
+  document.getElementById('mainActions').style.display = 'none';
+  document.getElementById('gradeActions').style.display = 'none';
+  document.getElementById('answer').classList.remove('show');
+  document.getElementById('hanja').textContent = '완료';
+  document.getElementById('progress').textContent = '35 / 35';
+  document.getElementById('correctStat').textContent = correct;
+  document.getElementById('wrongStat').textContent = wrong;
+  document.getElementById('scorebox').classList.add('show');
+  document.getElementById('sentenceBox').style.display = 'block';
+  pickSentence();
+}
+
+function pickSentence() {
+  const item = DATA[Math.floor(Math.random()*DATA.length)];
+  document.getElementById('sentenceTarget').textContent = `${item.hanja} · ${item.reading}`;
+  document.getElementById('sentenceLiteralMeaning').textContent = item.literalMeaning;
+  document.getElementById('sentenceMeaning').textContent = item.meaning;
+  document.getElementById('exampleBox').style.display = 'none';
+  document.getElementById('showExampleBtn').dataset.reading = item.reading;
+  document.getElementById('showExampleBtn').dataset.meaning = item.meaning;
+}
+
+function exampleSentence(reading, meaning) {
+  const samples = {
+    "죽마고우":"민수와 나는 유치원 때부터 함께 지낸 죽마고우다.",
+    "막역지우":"두 사람은 어떤 고민도 털어놓는 막역지우로 지냈다.",
+    "지기지우":"힘든 순간마다 내 마음을 먼저 알아주는 친구야말로 지기지우다.",
+    "교학상장":"동생에게 공부를 가르치다 보니 나도 다시 배우게 되어 교학상장을 느꼈다.",
+    "주경야독":"그는 바쁜 생활 속에서도 주경야독하며 꿈을 포기하지 않았다.",
+    "형설지공":"꾸준한 노력 끝에 좋은 결과를 얻은 것은 형설지공의 결실이었다.",
+    "수불석권":"그는 쉬는 시간에도 책을 읽는 수불석권의 자세를 보였다.",
+    "사면초가":"모두가 반대하자 그는 사면초가에 놓인 기분이었다.",
+    "오비삼척":"나도 숙제가 밀려 있어 친구를 도와주기엔 오비삼척이었다.",
+    "좌정관천":"한 가지 경험만으로 세상을 판단하는 것은 좌정관천일 수 있다.",
+    "우공이산":"매일 조금씩 연습하면 우공이산의 마음으로 목표를 이룰 수 있다.",
+    "과유불급":"운동도 너무 무리하면 과유불급이니 적당히 해야 한다.",
+    "군계일학":"그 선수는 뛰어난 실력으로 팀에서 군계일학의 존재였다.",
+    "새옹지마":"시험을 망쳤지만 부족한 점을 알게 되었으니 새옹지마라고 할 수 있다.",
+    "시종일관":"그는 처음부터 끝까지 시종일관 성실한 태도를 보였다.",
+    "신상필벌":"조직을 공정하게 운영하려면 신상필벌의 원칙이 필요하다.",
+    "아전인수":"자기에게 유리한 주장만 하는 것은 아전인수식 태도다.",
+    "온고지신":"옛 사례를 다시 살펴보며 새로운 방법을 찾는 것이 온고지신이다.",
+    "청산유수":"그는 발표에서 청산유수로 설명해 모두의 관심을 끌었다.",
+    "청출어람":"제자가 스승을 넘어선 실력을 보여 청출어람이라는 평가를 받았다.",
+    "풍수지탄":"부모님께 더 잘해 드리지 못한 풍수지탄을 남기지 않도록 노력해야 한다.",
+    "학수고대":"나는 방학이 시작되기만을 학수고대하고 있다.",
+    "무용지물":"배터리가 없는 휴대폰은 급할 때 무용지물이나 다름없다.",
+    "자초지종":"선생님께 사건의 자초지종을 차근차근 설명했다.",
+    "이열치열":"더운 날 뜨거운 국을 먹으며 이열치열로 더위를 이겨 냈다.",
+    "화룡점정":"마지막 제목 한 줄이 발표 자료의 화룡점정이 되었다.",
+    "호가호위":"남의 힘만 믿고 호가호위하는 태도는 좋지 않다.",
+    "자업자득":"규칙을 지키지 않아 생긴 결과는 결국 자업자득이었다.",
+    "이구동성":"친구들은 이구동성으로 그 영화를 재미있다고 말했다.",
+    "와신상담":"그 선수는 패배 뒤 와신상담하며 다음 경기를 준비했다.",
+    "용두사미":"계획은 거창했지만 끝까지 실천하지 못해 용두사미가 되었다.",
+    "유종지미":"마지막까지 최선을 다해 유종지미를 거두자.",
+    "인지상정":"칭찬을 들으면 기분이 좋아지는 것은 인지상정이다.",
+    "작심삼일":"매번 운동 계획이 작심삼일로 끝나지 않도록 이번에는 꾸준히 해 보자.",
+    "주마간산":"책을 주마간산으로 읽지 말고 중요한 내용을 꼼꼼히 살펴보자."
+  };
+  return samples[reading] || `${reading}의 뜻을 생각하며 자연스러운 문장을 만들어 보세요.`;
+}
+
+document.getElementById('revealBtn').onclick = reveal;
+document.getElementById('shuffleBtn').onclick = skipRandom;
+document.getElementById('correctBtn').onclick = ()=>next('correct');
+document.getElementById('wrongBtn').onclick = ()=>next('wrong');
+document.getElementById('restartBtn').onclick = newSession;
+document.getElementById('rerollSentence').onclick = pickSentence;
+document.getElementById('showExampleBtn').onclick = (e)=>{
+  const reading = e.currentTarget.dataset.reading;
+  const box = document.getElementById('exampleBox');
+  box.textContent = exampleSentence(reading, e.currentTarget.dataset.meaning);
+  box.style.display = 'block';
+};
+
+newSession();
+</script>
+</body>
+</html>
