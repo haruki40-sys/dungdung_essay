@@ -12,7 +12,7 @@
 | 둥둥 명언록 | `/insights/` | 한줄평 7개 |
 | 아이의 상상 | `/imagination/` | 11편 |
 | 둥둥 미술관 | `/gallery/` | 작품 43점 |
-| 영어 이야기 | `/english/` | 4편 |
+| 영어 이야기 | `/english/` | 5편 |
 | AI 재판 | `/court/` | 공개 판례 8편 통합 |
 
 ## 공통 메뉴
@@ -81,20 +81,25 @@
 
 ## 영어 이야기
 
-1. The Color That Was Never There
-   - 본문: `/english/stories/story-01-color.html`
-   - 음원: `/english/assets/audio/the-color-that-was-never-there.mp3`
-2. The Dashboard That Everyone Trusted
+1. Why a Word Can Suddenly Stop Looking Like a Word
+   - 본문: `/english/stories/story-05-semantic-satiation.html`
+   - 이미지: `/assets/images/story-05-semantic-satiation.png`
+   - 음원: 없음
+2. The Lake That Turns Animals into “Stone”
+   - 본문: `/english/stories/story-04-lake-natron.html`
+   - 이미지: `/assets/images/story-04-lake-natron.png`
+   - 음원: 없음
+3. The Color That Was Never There
+   - 본문: `/english/stories/story-03-darkness.html`
+   - 이미지: `/assets/images/story-03-darkness.png`
+   - 음원: 없음
+4. The Dashboard That Everyone Trusted
    - 본문: `/english/stories/story-02-dashboard.html`
    - 이미지: `/assets/images/story-02-dashboard.png`
    - 음원: 없음
-3. Why Some People Pay to Sleep in Complete Darkness
-   - 본문: `/english/stories/story-03-darkness.html`
-   - 이미지: `/assets/images/story-03-darkness-retreat.webp`
-   - 음원: 없음
-4. The Lake That Can Turn Animals Into Stone
-   - 본문: `/english/stories/story-04-lake-natron.html`
-   - 이미지: `/assets/images/story-04-lake-natron.webp`
+5. The Language That Changes Its Mind
+   - 본문: `/english/stories/story-01.html`
+   - 이미지: `/assets/images/story-01.png`
    - 음원: 없음
 
 ## 둥둥 미술관
