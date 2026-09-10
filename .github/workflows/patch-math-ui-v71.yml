@@ -72,7 +72,7 @@ jobs:
           s=s.replace('save(); route();','save(); route(false);')
 
           start=s.index('function route(){')
-          end=s.index("\nwindow.addEventListener('hashchange',route);",start)
+          end=s.index("window.addEventListener('hashchange',route);",start)
           route=r'''function route(shouldScroll=true){
            const h=location.hash||'#/';
            const p=h.replace(/^#\//,'').split('/');
@@ -83,7 +83,8 @@ jobs:
            else if(p[0]==='wrong')wrong();
            else home();
            if(shouldScroll) window.scrollTo({top:0,behavior:'instant'});
-          }'''
+          }
+          '''
           s=s[:start]+route+s[end:]
           s=s.replace("window.addEventListener('hashchange',route);","window.addEventListener('hashchange',()=>route(true));")
           p.write_text(s,encoding='utf-8')
