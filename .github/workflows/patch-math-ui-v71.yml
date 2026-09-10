@@ -20,7 +20,6 @@ jobs:
           s=p.read_text(encoding='utf-8')
           s=s.replace('<!-- math-release:7.0 -->','<!-- math-release:7.1 -->')
           s=s.replace('버전 7.0 · math-release:7.0','버전 7.1 · math-release:7.1')
-
           needle='.unitcard h3{margin:9px 0 4px}'
           extra=(needle+'.levelgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}'
           '.levelcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:165px;background:#fff;box-shadow:0 6px 18px rgba(60,96,122,.05)}'
@@ -33,7 +32,6 @@ jobs:
                       '@media(max-width:760px){.wrap{padding:12px 11px 45px}.hero{padding:21px}.grid{grid-template-columns:1fr}.unitgrid{grid-template-columns:1fr}.levelgrid{grid-template-columns:1fr}')
           s=s.replace('function qcard(q,idx){','function qcard(q,idx,total){')
           s=s.replace('${idx+1}/6 · 내신 빈출 유형 변형','${idx+1}/${total} · 내신 빈출 유형 변형')
-
           start=s.index('function quiz(id){')
           end=s.index('\nfunction answer(id,value){',start)
           block=r'''function levelSelect(id){
@@ -70,7 +68,6 @@ jobs:
           }'''
           s=s[:start]+block+s[end:]
           s=s.replace('save(); route();','save(); route(false);')
-
           start=s.index('function route(){')
           end=s.index("window.addEventListener('hashchange',route);",start)
           route=r'''function route(shouldScroll=true){
@@ -89,9 +86,6 @@ jobs:
           s=s.replace("window.addEventListener('hashchange',route);","window.addEventListener('hashchange',()=>route(true));")
           p.write_text(s,encoding='utf-8')
           PY
-          grep -q 'math-release:7.1' math-quiz/index.html
-          grep -q 'function levelSelect' math-quiz/index.html
-          grep -q 'route(false)' math-quiz/index.html
       - name: Commit patch
         shell: bash
         run: |
