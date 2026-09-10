@@ -1,0 +1,101 @@
+name: Patch math UI v7.1
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch-math-ui-v71.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply math UI patch
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('math-quiz/index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('<!-- math-release:7.0 -->','<!-- math-release:7.1 -->')
+          s=s.replace('버전 7.0 · math-release:7.0','버전 7.1 · math-release:7.1')
+
+          needle='.unitcard h3{margin:9px 0 4px}'
+          extra=(needle+'.levelgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}'
+          '.levelcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:165px;background:#fff;box-shadow:0 6px 18px rgba(60,96,122,.05)}'
+          '.levelcard:hover{transform:translateY(-2px)}.levelcard.begin{background:linear-gradient(#eaf9f1,#fff)}'
+          '.levelcard.mid{background:linear-gradient(#fff7df,#fff)}.levelcard.high{background:linear-gradient(#fff0f5,#fff)}'
+          '.levelcard .big{font-size:28px;font-weight:900;margin:5px 0}.levelcard p{color:var(--muted);font-size:13px;margin:4px 0}')
+          if '.levelgrid{' not in s:
+              s=s.replace(needle,extra)
+          s=s.replace('@media(max-width:760px){.wrap{padding:12px 11px 45px}.hero{padding:21px}.grid{grid-template-columns:1fr}.unitgrid{grid-template-columns:1fr}',
+                      '@media(max-width:760px){.wrap{padding:12px 11px 45px}.hero{padding:21px}.grid{grid-template-columns:1fr}.unitgrid{grid-template-columns:1fr}.levelgrid{grid-template-columns:1fr}')
+          s=s.replace('function qcard(q,idx){','function qcard(q,idx,total){')
+          s=s.replace('${idx+1}/6 · 내신 빈출 유형 변형','${idx+1}/${total} · 내신 빈출 유형 변형')
+
+          start=s.index('function quiz(id){')
+          end=s.index('\nfunction answer(id,value){',start)
+          block=r'''function levelSelect(id){
+           const u=unit(id), qs=questions(id);
+           if(!u||qs.length!==6){home();return}
+           crumb.innerHTML=`<a href="#/">홈</a><span>›</span><a href="#/chapter/${u.chapter}">${u.chapter}단원</a><span>›</span><span>${u.id} ${esc(u.title)}</span>`;
+           const levels=[
+            {code:'begin',name:'초급',icon:'🌱',desc:'개념 확인과 기본 계산',cls:'begin'},
+            {code:'mid',name:'중급',icon:'🔥',desc:'학교 내신에서 자주 나오는 응용',cls:'mid'},
+            {code:'high',name:'상급',icon:'🏆',desc:'조건을 한 번 더 생각하는 심화',cls:'high'}
+           ];
+           app.innerHTML=`<section class="panel"><span class="unit-id">${u.id}</span><h2>${esc(u.title)}</h2><p class="muted">난이도를 골라 2문제씩 풀어보세요.</p>
+           <div class="levelgrid">${levels.map(l=>{
+             const lqs=qs.filter(q=>q.level===l.name);
+             const done=lqs.filter(q=>state.answers[key(q)]!==undefined).length;
+             const score=lqs.filter(q=>state.answers[key(q)]===q.a).length;
+             return `<a class="levelcard ${l.cls}" href="#/unit/${u.id}/${l.code}"><div class="icon">${l.icon}</div><div class="big">${l.name}</div><p>${l.desc}</p><span class="tag">${done}/2 완료 · 정답 ${score}개</span></a>`;
+           }).join('')}</div></section>
+           <div class="tools"><a class="btn light" href="#/chapter/${u.chapter}">소단원 목록</a><a class="btn" href="#/wrong">오답노트</a></div>`;
+          }
+          function quiz(id,levelCode){
+           const u=unit(id);
+           const map={begin:'초급',mid:'중급',high:'상급'};
+           const level=map[levelCode];
+           const qs=questions(id).filter(q=>q.level===level);
+           if(!u||!level||qs.length!==2){levelSelect(id);return}
+           crumb.innerHTML=`<a href="#/">홈</a><span>›</span><a href="#/chapter/${u.chapter}">${u.chapter}단원</a><span>›</span><a href="#/unit/${u.id}">${u.id} ${esc(u.title)}</a><span>›</span><span>${level}</span>`;
+           const score=qs.filter(q=>state.answers[key(q)]===q.a).length;
+           const done=qs.filter(q=>state.answers[key(q)]!==undefined).length;
+           app.innerHTML=`<section class="panel"><span class="unit-id">${u.id}</span> <span class="level ${levelCode}">${level}</span><h2>${esc(u.title)}</h2>
+           <p class="muted">${level} 문제 2개</p><div class="summary">오늘 진행 <b>${done}/2</b> · 정답 <b>${score}개</b></div></section>
+           ${qs.map((q,i)=>qcard(q,i,qs.length)).join('')}
+           <div class="tools"><a class="btn light" href="#/unit/${u.id}">난이도 선택</a><a class="btn" href="#/wrong">오답노트</a></div>`;
+          }'''
+          s=s[:start]+block+s[end:]
+          s=s.replace('save(); route();','save(); route(false);')
+
+          start=s.index('function route(){')
+          end=s.index("\nwindow.addEventListener('hashchange',route);",start)
+          route=r'''function route(shouldScroll=true){
+           const h=location.hash||'#/';
+           const p=h.replace(/^#\//,'').split('/');
+           if(!p[0])home();
+           else if(p[0]==='chapter'&&['5','6'].includes(p[1]))chapter(p[1]);
+           else if(p[0]==='unit'&&unit(p[1])&&['begin','mid','high'].includes(p[2]))quiz(p[1],p[2]);
+           else if(p[0]==='unit'&&unit(p[1]))levelSelect(p[1]);
+           else if(p[0]==='wrong')wrong();
+           else home();
+           if(shouldScroll) window.scrollTo({top:0,behavior:'instant'});
+          }'''
+          s=s[:start]+route+s[end:]
+          s=s.replace("window.addEventListener('hashchange',route);","window.addEventListener('hashchange',()=>route(true));")
+          p.write_text(s,encoding='utf-8')
+          PY
+          grep -q 'math-release:7.1' math-quiz/index.html
+          grep -q 'function levelSelect' math-quiz/index.html
+          grep -q 'route(false)' math-quiz/index.html
+      - name: Commit patch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add math-quiz/index.html
+          git commit -m "Improve math quiz difficulty navigation and keep answer position"
+          git push
