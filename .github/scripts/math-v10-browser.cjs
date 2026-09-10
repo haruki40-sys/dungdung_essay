@@ -20,8 +20,8 @@ const URL=process.env.MATH_URL||'https://haruki40-sys.github.io/dungdung_essay/m
  async function choose(p,card,correct){
   const uid=await card.getAttribute('data-card');
   const q=await p.evaluate(id=>DailyMath.make(DailyMath.dateKey()).find(x=>x.uid===id),uid);
-  const labels=await card.locator('.opt').allTextContents();
-  const ix=labels.findIndex(t=>(t.trim().replace(/^\d+\s*/,'')===q.a)===correct);
+  const labels=await card.locator('.opt > span:last-child').allTextContents();
+  const ix=labels.findIndex(t=>(t.trim()===q.a)===correct);
   assert(ix>=0);
   const b=card.locator('.opt').nth(ix);await b.scrollIntoViewIfNeeded();
   await p.evaluate(()=>{window.__y=scrollY;window.__cards=[...document.querySelectorAll('.qcard')];});
