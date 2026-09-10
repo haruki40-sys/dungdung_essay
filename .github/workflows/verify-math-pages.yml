@@ -24,13 +24,13 @@ jobs:
           set -euo pipefail
           ok=0
           for attempt in $(seq 1 30); do
-            code=$(curl --location --silent --show-error --max-time 15 --output "$RUNNER_TEMP/math.html" --write-out '%{http_code}' "$BASE/math-quiz/?v=7.0&check=$GITHUB_RUN_ID" || true)
+            code=$(curl --location --silent --show-error --max-time 15 --output "$RUNNER_TEMP/math.html" --write-out '%{http_code}' "$BASE/math-quiz/?v=7.1&check=$GITHUB_RUN_ID" || true)
             echo "Attempt $attempt: math page HTTP $code"
-            if [ "$code" = "200" ] && grep -q 'math-release:7.0' "$RUNNER_TEMP/math.html"; then
+            if [ "$code" = "200" ] && grep -q 'math-release:7.1' "$RUNNER_TEMP/math.html"; then
               home=$(curl --location --silent --show-error --max-time 15 --output "$RUNNER_TEMP/home.html" --write-out '%{http_code}' "$BASE/?check=$GITHUB_RUN_ID" || true)
               if [ "$home" = "200" ] && grep -q 'math-quiz/' "$RUNNER_TEMP/home.html" && grep -q '내신대비 수학' "$RUNNER_TEMP/home.html"; then
                 ok=1
-                echo 'PASS: math page HTTP 200, release 7.0, homepage HTTP 200, and math navigation present.'
+                echo 'PASS: math page HTTP 200, release 7.1, homepage HTTP 200, and math navigation present.'
                 break
               fi
               echo "Homepage HTTP $home; waiting for matching navigation."
@@ -48,8 +48,8 @@ jobs:
           page = (pathlib.Path(os.environ['RUNNER_TEMP']) / 'math.html').read_text()
           assert '<title>내신대비 수학' in page
           assert '출제된 문제 중 잘못된 것이 있을 수도 있습니다.' in page
-          assert 'math-release:7.0' in page
-          assert '6.5 원과 부채꼴 이후' in page
-          assert '6.1' in page and '6.4' in page
-          print('PASS: release 7.0, scope guard, title, notice, and math page content verified.')
+          assert 'math-release:7.1' in page
+          assert 'function levelSelect' in page
+          assert 'route(false)' in page
+          print('PASS: title, scope notice, difficulty navigation, and no-answer-jump patch.')
           PY
