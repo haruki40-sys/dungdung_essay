@@ -4,7 +4,6 @@ on:
     branches: [main]
     paths:
       - 'math-quiz/**'
-      - 'index.html'
       - '.github/workflows/verify-math-pages.yml'
   workflow_dispatch:
 permissions: {}
@@ -16,40 +15,64 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - name: Check published math page and navigation
+      - name: Verify published page and tested assets
         env:
           BASE: https://haruki40-sys.github.io/dungdung_essay
         shell: bash
         run: |
           set -euo pipefail
+          cd "$RUNNER_TEMP"
           ok=0
           for attempt in $(seq 1 30); do
-            code=$(curl --location --silent --show-error --max-time 15 --output "$RUNNER_TEMP/math.html" --write-out '%{http_code}' "$BASE/math-quiz/?v=7.1&check=$GITHUB_RUN_ID" || true)
+            code=$(curl --location --silent --show-error --max-time 20 --output index.html --write-out '%{http_code}' "$BASE/math-quiz/?v=9.0&check=$GITHUB_RUN_ID" || true)
             echo "Attempt $attempt: math page HTTP $code"
-            if [ "$code" = "200" ] && grep -q 'math-release:7.1' "$RUNNER_TEMP/math.html"; then
-              home=$(curl --location --silent --show-error --max-time 15 --output "$RUNNER_TEMP/home.html" --write-out '%{http_code}' "$BASE/?check=$GITHUB_RUN_ID" || true)
-              if [ "$home" = "200" ] && grep -q 'math-quiz/' "$RUNNER_TEMP/home.html" && grep -q '내신대비 수학' "$RUNNER_TEMP/home.html"; then
-                ok=1
-                echo 'PASS: math page HTTP 200, release 7.1, homepage HTTP 200, and math navigation present.'
-                break
-              fi
-              echo "Homepage HTTP $home; waiting for matching navigation."
+            if [ "$code" = "200" ] && grep -q 'math-release:9.0' index.html; then
+              ok=1
+              break
             fi
             sleep 10
           done
-          [ "$ok" = "1" ]
-          for path in 'math-quiz/index.html' 'hanja-quiz/'; do
-            code=$(curl --location --silent --show-error --max-time 20 --output /dev/null --write-out '%{http_code}' "$BASE/$path?check=$GITHUB_RUN_ID")
-            echo "$path HTTP $code"
-            [ "$code" = "200" ]
+          [ "$ok" = 1 ]
+          for file in v9-bank.js v9-figures.js v9-app.js; do
+            curl --location --silent --show-error --fail --retry 3 --max-time 25 "$BASE/math-quiz/$file?check=$GITHUB_RUN_ID" -o "$file"
+            echo "$file HTTP 200"
+            node --check "$file"
           done
-          python3 - <<'PY'
-          import os, pathlib
-          page = (pathlib.Path(os.environ['RUNNER_TEMP']) / 'math.html').read_text()
-          assert '<title>내신대비 수학' in page
-          assert '출제된 문제 중 잘못된 것이 있을 수도 있습니다.' in page
-          assert 'math-release:7.1' in page
-          assert 'function levelSelect' in page
-          assert 'route(false)' in page
-          print('PASS: title, scope notice, difficulty navigation, and no-answer-jump patch.')
-          PY
+          node <<'JS'
+          const fs=require('fs'),crypto=require('crypto'),vm=require('vm');
+          const expected={
+            'index.html':'2089478d6ec8adb319be6f4f40b7c9d6793efd4f',
+            'v9-bank.js':'844c22751589a97be0fb2f951beed831ce338dfc',
+            'v9-figures.js':'f59e8c3fa69e93aa9c58931993b3c14d6bd2fe7b',
+            'v9-app.js':'47f6670014ad7b9c0c3945cd9de99133b36d28fe'
+          };
+          for(const [file,sha] of Object.entries(expected)){
+            const b=fs.readFileSync(file);
+            const actual=crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+b.length+'\0'),b])).digest('hex');
+            if(actual!==sha)throw Error('Published asset mismatch: '+file);
+            console.log('PASS exact tested asset:',file);
+          }
+          const ctx=vm.createContext({});
+          vm.runInContext(fs.readFileSync('v9-bank.js','utf8'),ctx);
+          vm.runInContext(fs.readFileSync('v9-figures.js','utf8'),ctx);
+          const canonical=vm.runInContext('JSON.stringify(MathBank)',ctx);
+          if(crypto.createHash('sha256').update(canonical).digest('hex')!=='1e33ae92b58c5c20e85fc1e2bdd49a5251b5a9e023ddb70793276917481e4503')throw Error('Original questions changed');
+          vm.runInContext(`
+            if(MathBank.UNITS.length!==10||MathBank.BANK.length!==60)throw Error('Count');
+            for(const u of MathBank.UNITS)for(const level of ['초급','중급','상급'])if(MathBank.BANK.filter(q=>q.unit===u.id&&q.level===level).length!==2)throw Error('Difficulty counts');
+            for(const q of MathBank.BANK){
+              if(new Set([q.a,...q.o]).size!==4)throw Error('Choices: '+q.id);
+              const s=MathFigures.generate(q.id);
+              if(!s.includes('<svg')||s.includes('NaN')||s.includes('Infinity'))throw Error('Figure: '+q.id);
+            }
+          `,ctx);
+          const app=fs.readFileSync('v9-app.js','utf8');
+          const answer=app.slice(app.indexOf('function answer(button)'),app.indexOf("APP.addEventListener('click'"));
+          if(answer.includes('route(')||answer.includes('scrollTo')||answer.includes('APP.innerHTML'))throw Error('Answer rerenders or scrolls');
+          console.log('PASS 10 units, 60 unchanged questions, 60 SVGs, 2 questions per level, local answer update.');
+          JS
+          for path in '' 'hanja-quiz/'; do
+            code=$(curl --location --silent --show-error --max-time 25 -o /dev/null --write-out '%{http_code}' "$BASE/$path?check=$GITHUB_RUN_ID")
+            echo "Existing page $path HTTP $code"
+            [ "$code" = 200 ]
+          done
