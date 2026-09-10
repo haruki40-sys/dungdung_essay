@@ -4,47 +4,55 @@ on:
     branches: [main]
     paths:
       - 'math-quiz/**'
+      - '.github/scripts/math-v10-*.cjs'
       - '.github/workflows/verify-math-pages.yml'
   workflow_dispatch:
-permissions: {}
+permissions:
+  contents: read
 concurrency:
   group: verify-math-pages
   cancel-in-progress: true
 jobs:
   public-url-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
-      - name: Verify published page and tested assets
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify published entry and exact tested assets
         env:
           BASE: https://haruki40-sys.github.io/dungdung_essay
         shell: bash
         run: |
           set -euo pipefail
-          cd "$RUNNER_TEMP"
+          mkdir -p "$RUNNER_TEMP/math-published"
+          cd "$RUNNER_TEMP/math-published"
           ok=0
           for attempt in $(seq 1 30); do
-            code=$(curl --location --silent --show-error --max-time 20 --output index.html --write-out '%{http_code}' "$BASE/math-quiz/?v=9.0&check=$GITHUB_RUN_ID" || true)
+            code=$(curl --location --silent --show-error --max-time 20 --output index.html --write-out '%{http_code}' "$BASE/math-quiz/?v=10.0&check=$GITHUB_RUN_ID" || true)
             echo "Attempt $attempt: math page HTTP $code"
-            if [ "$code" = "200" ] && grep -q 'math-release:9.0' index.html; then
+            if [ "$code" = 200 ] && grep -q 'math-release:10.0' index.html; then
               ok=1
               break
             fi
             sleep 10
           done
           [ "$ok" = 1 ]
-          for file in v9-bank.js v9-figures.js v9-app.js; do
+          for file in v9-bank.js v10-daily.js v10-figures.js v10-app.js v10-style.css; do
             curl --location --silent --show-error --fail --retry 3 --max-time 25 "$BASE/math-quiz/$file?check=$GITHUB_RUN_ID" -o "$file"
             echo "$file HTTP 200"
-            node --check "$file"
+            case "$file" in *.js) node --check "$file";; esac
           done
           node <<'JS'
-          const fs=require('fs'),crypto=require('crypto'),vm=require('vm');
+          const fs=require('fs'),crypto=require('crypto');
           const expected={
-            'index.html':'2089478d6ec8adb319be6f4f40b7c9d6793efd4f',
+            'index.html':'1244aec74a043bd51f03cef13ee12c911700c70e',
             'v9-bank.js':'844c22751589a97be0fb2f951beed831ce338dfc',
-            'v9-figures.js':'f59e8c3fa69e93aa9c58931993b3c14d6bd2fe7b',
-            'v9-app.js':'47f6670014ad7b9c0c3945cd9de99133b36d28fe'
+            'v10-daily.js':'1cdc39affb405c35662192524c270a3f62fe5dac',
+            'v10-figures.js':'a1afad23c34211a79865682a1edfc3117a253f64',
+            'v10-app.js':'e33e70f889e63c99af84a790130d9edbbbe486f9',
+            'v10-style.css':'f57e25e6916b8fb76620423fe81431e84e3a9d0a'
           };
           for(const [file,sha] of Object.entries(expected)){
             const b=fs.readFileSync(file);
@@ -52,27 +60,21 @@ jobs:
             if(actual!==sha)throw Error('Published asset mismatch: '+file);
             console.log('PASS exact tested asset:',file);
           }
-          const ctx=vm.createContext({});
-          vm.runInContext(fs.readFileSync('v9-bank.js','utf8'),ctx);
-          vm.runInContext(fs.readFileSync('v9-figures.js','utf8'),ctx);
-          const canonical=vm.runInContext('JSON.stringify(MathBank)',ctx);
-          if(crypto.createHash('sha256').update(canonical).digest('hex')!=='1e33ae92b58c5c20e85fc1e2bdd49a5251b5a9e023ddb70793276917481e4503')throw Error('Original questions changed');
-          vm.runInContext(`
-            if(MathBank.UNITS.length!==10||MathBank.BANK.length!==60)throw Error('Count');
-            for(const u of MathBank.UNITS)for(const level of ['초급','중급','상급'])if(MathBank.BANK.filter(q=>q.unit===u.id&&q.level===level).length!==2)throw Error('Difficulty counts');
-            for(const q of MathBank.BANK){
-              if(new Set([q.a,...q.o]).size!==4)throw Error('Choices: '+q.id);
-              const s=MathFigures.generate(q.id);
-              if(!s.includes('<svg')||s.includes('NaN')||s.includes('Infinity'))throw Error('Figure: '+q.id);
-            }
-          `,ctx);
-          const app=fs.readFileSync('v9-app.js','utf8');
-          const answer=app.slice(app.indexOf('function answer(button)'),app.indexOf("APP.addEventListener('click'"));
-          if(answer.includes('route(')||answer.includes('scrollTo')||answer.includes('APP.innerHTML'))throw Error('Answer rerenders or scrolls');
-          console.log('PASS 10 units, 60 unchanged questions, 60 SVGs, 2 questions per level, local answer update.');
           JS
           for path in '' 'hanja-quiz/'; do
             code=$(curl --location --silent --show-error --max-time 25 -o /dev/null --write-out '%{http_code}' "$BASE/$path?check=$GITHUB_RUN_ID")
             echo "Existing page $path HTTP $code"
             [ "$code" = 200 ]
           done
+      - name: Verify 366 daily sets, numerical answers and matching geometry
+        run: node .github/scripts/math-v10-content.cjs "$RUNNER_TEMP/math-published"
+      - name: Install pinned browser test dependency
+        shell: bash
+        run: |
+          npm install --prefix "$RUNNER_TEMP/math-browser" playwright@1.57.0 --no-fund --no-audit
+          "$RUNNER_TEMP/math-browser/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Verify actual browser navigation, saved answers and Korean midnight
+        env:
+          MATH_URL: https://haruki40-sys.github.io/dungdung_essay/math-quiz/?v=10.0
+        shell: bash
+        run: NODE_PATH="$RUNNER_TEMP/math-browser/node_modules" node .github/scripts/math-v10-browser.cjs
