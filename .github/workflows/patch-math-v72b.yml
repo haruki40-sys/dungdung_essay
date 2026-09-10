@@ -1,0 +1,78 @@
+name: Patch math v7.2b
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch-math-v72b.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply stable UI patch
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('math-quiz/index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('<!-- math-release:7.1 -->','<!-- math-release:7.2 -->')
+          s=s.replace('버전 7.1 · math-release:7.1','버전 7.2 · math-release:7.2')
+          s=s.replace("const REV='7.0';","const REV='7.2';")
+          s=s.replace('.qcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0}', '.qcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px;margin:0}')
+          s=s.replace('.qtext{font-size:20px;font-weight:800;line-height:1.65;margin:14px 0}', '.qtext{font-size:17px;font-weight:800;line-height:1.45;margin:9px 0}')
+          s=s.replace('.opt{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px}', '.opt{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:11px;padding:8px 10px;font-size:13px}')
+          s=s.replace('</style>', '.quizgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}.quiz-compact .hero,.quiz-compact .scope{display:none}.quiz-compact .wrap{padding-top:8px}.quiz-compact .crumb{margin:6px 0}.quiz-compact .panel.quizhead{padding:10px 12px;margin:6px 0}.qfigure{margin:7px 0;background:#f8fbff;border:1px solid var(--line);border-radius:11px;padding:5px}.qfigure svg{width:100%;height:95px;display:block}.feedback{font-size:12px;padding:7px 9px;margin-top:7px}@media(max-width:700px){.quizgrid{grid-template-columns:1fr}.qfigure svg{height:90px}}\n</style>')
+          fig="""function questionFigure(q){
+           const stroke='#36556e', accent='#2d7fc2', warm='#f09b32';
+           if(q.unit==='6.1')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 120\"><polygon points=\"150,12 255,50 215,108 85,108 45,50\" fill=\"#eef7ff\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"150\" y1=\"12\" x2=\"215\" y2=\"108\" stroke=\"${warm}\" stroke-width=\"4\"/><text x=\"145\" y=\"10\">A</text><text x=\"260\" y=\"54\">B</text><text x=\"216\" y=\"119\">C</text><text x=\"75\" y=\"119\">D</text><text x=\"31\" y=\"54\">E</text></svg></div>`;
+           if(q.unit==='6.2')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 120\"><polygon points=\"55,100 145,20 235,100\" fill=\"#eef7ff\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"235\" y1=\"100\" x2=\"285\" y2=\"100\" stroke=\"${stroke}\" stroke-width=\"3\"/><path d=\"M238 98 A28 28 0 0 0 268 72\" fill=\"none\" stroke=\"${warm}\" stroke-width=\"4\"/><text x=\"250\" y=\"68\" font-size=\"12\">외각</text></svg></div>`;
+           if(q.unit==='5.4')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 110\"><line x1=\"30\" y1=\"28\" x2=\"270\" y2=\"28\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"30\" y1=\"82\" x2=\"270\" y2=\"82\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"85\" y1=\"10\" x2=\"205\" y2=\"100\" stroke=\"${accent}\" stroke-width=\"3\"/></svg></div>`;
+           if(q.unit==='5.1')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 90\"><line x1=\"35\" y1=\"45\" x2=\"265\" y2=\"45\" stroke=\"${stroke}\" stroke-width=\"3\"/><circle cx=\"75\" cy=\"45\" r=\"5\" fill=\"${accent}\"/><circle cx=\"150\" cy=\"45\" r=\"5\" fill=\"${accent}\"/><circle cx=\"230\" cy=\"45\" r=\"5\" fill=\"${accent}\"/><text x=\"70\" y=\"28\">A</text><text x=\"145\" y=\"28\">C</text><text x=\"225\" y=\"28\">B</text></svg></div>`;
+           if(q.unit==='5.2')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 110\"><line x1=\"150\" y1=\"90\" x2=\"75\" y2=\"25\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"150\" y1=\"90\" x2=\"240\" y2=\"30\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"150\" y1=\"90\" x2=\"150\" y2=\"15\" stroke=\"${accent}\" stroke-width=\"3\" stroke-dasharray=\"5 4\"/></svg></div>`;
+           if(q.unit==='5.5'||q.unit==='5.6'||q.unit==='6.3'||q.unit==='6.4')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 110\"><polygon points=\"55,92 150,18 245,92\" fill=\"#eef7ff\" stroke=\"${stroke}\" stroke-width=\"3\"/></svg></div>`;
+           if(q.unit==='5.3')return `<div class=\"qfigure\"><svg viewBox=\"0 0 300 95\"><line x1=\"40\" y1=\"28\" x2=\"125\" y2=\"28\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"40\" y1=\"62\" x2=\"125\" y2=\"62\" stroke=\"${stroke}\" stroke-width=\"3\"/><line x1=\"180\" y1=\"20\" x2=\"260\" y2=\"43\" stroke=\"${accent}\" stroke-width=\"3\"/><line x1=\"185\" y1=\"75\" x2=\"255\" y2=\"55\" stroke=\"${warm}\" stroke-width=\"3\"/></svg></div>`;
+           return '';
+          }
+          """
+          if 'function questionFigure(q)' not in s:s=s.replace('function qcard(q,idx,total){',fig+'function qcard(q,idx,total){')
+          s=s.replace('<div class=\"qtext\">${esc(q.q)}</div>', '<div class=\"qtext\">${esc(q.q)}</div>${questionFigure(q)}')
+          start=s.index('function quiz(id,levelCode){')
+          end=s.index('\nfunction answer(id,value){',start)
+          quiz="""function quiz(id,levelCode){
+           const u=unit(id); const map={begin:'초급',mid:'중급',high:'상급'}; const level=map[levelCode];
+           const qs=questions(id).filter(q=>q.level===level);
+           if(!u||!level||qs.length!==2){levelSelect(id);return}
+           document.body.classList.add('quiz-compact');
+           crumb.innerHTML=`<a href=\"#/\">홈</a><span>›</span><a href=\"#/chapter/${u.chapter}\">${u.chapter}단원</a><span>›</span><a href=\"#/unit/${u.id}\">${u.id} ${esc(u.title)}</a><span>›</span><span>${level}</span>`;
+           app.innerHTML=`<section class=\"panel quizhead\"><span class=\"unit-id\">${u.id}</span><h2>${esc(u.title)} · ${level}</h2></section><div class=\"quizgrid\">${qs.map((q,i)=>qcard(q,i,qs.length)).join('')}</div><div class=\"tools\"><a class=\"btn light\" href=\"#/unit/${u.id}\">난이도 선택</a><a class=\"btn\" href=\"#/wrong\">오답노트</a></div>`;
+          }"""
+          s=s[:start]+quiz+s[end:]
+          start=s.index('function answer(id,value){')
+          end=s.index('\nfunction similar',start)
+          answer="""function answer(id,value){
+           const q=BANK.find(x=>x.id===id); if(!q||state.answers[key(q)]!==undefined)return;
+           state.answers[key(q)]=value;
+           if(value!==q.a&&!state.wrongs.includes(q.id))state.wrongs.unshift(q.id);
+           save();
+           const card=[...document.querySelectorAll('.qcard')].find(c=>[...c.querySelectorAll('.opt')].some(b=>b.getAttribute('onclick')?.includes(JSON.stringify(q.id))));
+           if(!card)return;
+           [...card.querySelectorAll('.opt')].forEach(b=>{b.disabled=true;const t=b.textContent.replace(/^\\d+\\.\\s*/,'').trim();if(t===q.a)b.classList.add('correct');else if(t===value)b.classList.add('wrong');});
+           const fb=document.createElement('div');fb.className='feedback';fb.innerHTML=`<b>${value===q.a?'✅ 정답!':'📝 정답: '+esc(q.a)}</b><br>${esc(q.e)}`;card.appendChild(fb);
+          }"""
+          s=s[:start]+answer+s[end:]
+          for sig in ['function home(){','function chapter(ch){','function levelSelect(id){','function wrong(){']:
+              if sig+"\n document.body.classList.remove('quiz-compact');" not in s:s=s.replace(sig,sig+"\n document.body.classList.remove('quiz-compact');",1)
+          s=s.replace('route();\n</script>','route(false);\n</script>')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add math-quiz/index.html
+          git commit -m "Keep answers in place and add diagrams inside questions"
+          git push
