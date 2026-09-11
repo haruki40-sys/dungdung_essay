@@ -1,5 +1,5 @@
 const works = [...document.querySelectorAll('.artwork')].map((work) => ({
-  src: work.querySelector('img').src,
+  src: work.querySelector('button').dataset.full || work.querySelector('img').src,
   alt: work.querySelector('img').alt,
   title: work.querySelector('figcaption').textContent
 }));
@@ -44,3 +44,4 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') show(current - 1);
   if (event.key === 'ArrowRight') show(current + 1);
 });
+
