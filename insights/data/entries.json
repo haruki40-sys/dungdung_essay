@@ -1,5 +1,97 @@
 [
   {
+    "id": "insight-20260925-001",
+    "quote": "소비량이 줄어도 지출까지 줄어드는 것은 아니다. 돈은 때로 ‘더 많이’에서 ‘더 나은 결과’로 이동한다.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-25",
+    "source": {
+      "publisher": "삼일PwC 경영연구원",
+      "title": "Voice of the Consumer 2026: 건강관리 소비자 트렌드 - 일상이 된 건강관리",
+      "url": "https://www.pwc.com/kr/ko/insights/industry-focus/voice-of-the-consumer-2026.html",
+      "publishedAt": "2026-08-12",
+      "supplementalUrl": "https://www.pwc.com/kr/ko/insights/industry-focus/samilpwc_voice-of-the-consumer-2026.pdf"
+    },
+    "context": "GLP-1 사용 경험자에게서 식비·건강관련 지출과 영양정보 관심이 함께 늘어나는 현상이 나타났다. 소비량 감소가 반드시 시장가치 감소를 뜻하지 않고, 지출이 더 높은 효용의 상품과 서비스로 이동할 수 있다는 의미로 재구성했다. 해당 설문 수치는 한국이 아닌 글로벌 응답자 기준이다."
+  },
+  {
+    "id": "insight-20260924-001",
+    "quote": "숫자가 반등했다고 구조가 돌아선 것은 아니다. 늘어난 이유가 사람 수인지 행동 변화인지부터 나눠봐야 한다.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-24",
+    "source": {
+      "publisher": "한국보건사회연구원(KIHASA), 보건복지 Issue & Focus 제468호",
+      "title": "최근 출생아 수 반등의 인구학적 요인 분석 및 시사점",
+      "url": "https://www.kihasa.re.kr/publish/regular/focus/view?seq=75897",
+      "publishedAt": "2026-06-15"
+    },
+    "context": "최근 출생아 증가에는 30대 출산행태 회복이라는 플러스 요인과 가임여성 감소·혼인구조 변화라는 마이너스 요인이 동시에 작용했다. 총량의 변화만으로 구조적 추세 전환을 판단하지 말고 구성요인을 분해해야 한다는 의미로 재구성했다."
+  },
+  {
+    "id": "insight-20260923-001",
+    "quote": "환율이 수출을 돕는지는 원화의 방향보다, 거래가 어느 통화로 가격 매겨졌는지까지 봐야 한다.",
+    "category": "리스크",
+    "writtenAt": "2026-09-23",
+    "source": {
+      "publisher": "KDI Journal of Economic Policy, 한국개발연구원(KDI)",
+      "title": "Invoicing Currency and Exchange Rate Transmission in Korea’s Export",
+      "url": "https://www.kdijep.org/v.48/3/1/Invoicing%2BCurrency%2Band%2BExchange%2BRate%2BTransmission%2Bin%2BKorea%E2%80%99s%2BExport?view=simple",
+      "publishedAt": "2026-08-31"
+    },
+    "context": "강달러 국면에서는 달러결제 비중이 높은 한국 수출의 가격경쟁력 개선이 제한될 수 있으며 결제통화에 따라 환율의 가격·물량 전가가 달라질 수 있다는 연구를, 환율효과는 단순 원/달러 방향보다 거래통화 구조까지 봐야 한다는 의미로 재구성했다."
+  },
+  {
+    "id": "insight-20260922-001",
+    "quote": "소비자가 브랜드를 이용해 작은 돈까지 버는 시대에는, 참여율보다 왜 참여했는지를 봐야 한다.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-22",
+    "source": {
+      "publisher": "KB경영연구소",
+      "title": "2026 한국 1인가구 보고서",
+      "url": "https://www.kbfg.com/kbresearch/report/reportView.do?reportId=2000498",
+      "publishedAt": "2026-07-19"
+    },
+    "context": "1인가구의 부수입 활동이 크게 늘었지만 가장 흔한 형태가 앱 출석·포인트 적립 같은 앱테크였다. 높은 디지털 참여가 반드시 강한 브랜드 선호를 뜻하지 않으므로 보상 목적과 자발적 관심을 구분해야 한다는 의미로 재구성했다."
+  },
+  {
+    "id": "insight-20260921-001",
+    "quote": "연금의 안전은 원금을 지키는 데서 끝나지 않고, 오래 버틸 만큼 불리는 데까지 포함된다.",
+    "category": "투자",
+    "writtenAt": "2026-09-21",
+    "source": {
+      "publisher": "자본시장연구원(KCMI)",
+      "title": "초고령사회 다층노후소득을 위한 퇴직연금제도 개편",
+      "url": "https://www.kcmi.re.kr/report/report_view?report_no=2327",
+      "publishedAt": "2026-09-04"
+    },
+    "context": "국내 퇴직연금의 상당 부분이 원리금보장상품에 머물러 있으며 장기수익률과 연금 기능이 충분하지 않다는 분석을 바탕으로, 장기자금에서 안전은 단기 원금보전뿐 아니라 은퇴 시점의 실질적 자산 확보까지 포함한다는 의미로 재구성했다."
+  },
+  {
+    "id": "insight-20260920-001",
+    "quote": "조직을 한곳에 모으는 것만으로 시너지가 생기지는 않는다. 모인 자원이 서로 연결될 때 비로소 성장효과가 퍼진다.",
+    "category": "경영",
+    "writtenAt": "2026-09-20",
+    "source": {
+      "publisher": "산업연구원(KIET)",
+      "title": "공공기관 지방이전의 파급효과와 혁신도시 거점화 방향",
+      "url": "https://www.kiet.re.kr/research/issueView?issue_no=864",
+      "publishedAt": "2026-08-07"
+    },
+    "context": "공공기관 이전으로 인구·고용 효과가 나타났지만 파급은 주변 서비스업과 비교적 가까운 지역에 집중됐다. 물리적으로 모이는 것과 경제적 연결이 형성되는 것은 다르다는 경영 관점으로 재구성했다."
+  },
+  {
+    "id": "insight-20260919-001",
+    "quote": "제품을 계속 좋아지게 만드는 기술은 고객가치를 늘리지만, 다음 제품을 살 이유까지 늦출 수 있다.",
+    "category": "산업변화",
+    "writtenAt": "2026-09-19",
+    "source": {
+      "publisher": "한국 딜로이트 그룹",
+      "title": "2026 딜로이트 글로벌 자동차 소비자 조사",
+      "url": "https://www.deloitte.com/kr/ko/Industries/automotive/perspectives/2026-global-automotive-consumer-study.html",
+      "publishedAt": "2026-03-04"
+    },
+    "context": "OTA 업데이트에 추가 비용을 지불하려는 소비자가 많은 동시에 지속적인 기능 개선이 차량 보유기간을 늘릴 수 있다는 결과가 함께 나타났다. 기존 제품의 고객가치를 높이는 혁신이 교체수요를 늦추는 상충효과도 만들 수 있다는 의미로 재구성했다."
+  },
+  {
     "id": "insight-20260918-001",
     "quote": "공장이 완성돼도 전력이 늦으면, 투자수익의 시계는 아직 시작되지 않는다.",
     "category": "투자",
