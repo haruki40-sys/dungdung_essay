@@ -1,5 +1,71 @@
 [
   {
+    "id": "insight-20261030-001",
+    "quote": "버려진 것이 원료가 되는 시장에서는, 무엇을 만드는지만큼 무엇을 모을 수 있는지도 중요해진다.",
+    "category": "산업변화",
+    "writtenAt": "2026-10-30",
+    "source": {
+      "publisher": "삼일PwC, Industry Focus",
+      "title": "순환경제 시대, 핵심 인프라로 떠오른 환경산업",
+      "url": "https://www.pwc.com/kr/ko/insights/industry-focus/deals-article-01.html",
+      "publishedAt": null,
+      "publishedAtNote": "2026년 10월. 정확한 발행일 미확인."
+    },
+    "context": "환경산업은 단순한 폐기물 처리에서 재활용 원료 공급으로 역할을 확대하고 있다. 순환경제에서는 최종 제품의 생산기술뿐 아니라 원료를 안정적으로 확보하는 수거망과 전처리 역량도 중요한 경쟁력이 될 수 있다는 의미다."
+  },
+  {
+    "id": "insight-20261028-001",
+    "quote": "같은 환율 상승도 모든 가계의 소비를 똑같이 위축시키지는 않는다. 과거의 충격 경험이 그 반응을 바꿀 수 있다.",
+    "category": "리스크",
+    "writtenAt": "2026-10-28",
+    "source": {
+      "publisher": "한국은행 경제연구원, BOK 경제연구 제2026-16호",
+      "title": "환율급등 경험과 가계소비 간의 관계 분석",
+      "url": "https://www.bok.or.kr/imer/bbs/P0002455/view.do?depth=500535&menuNo=500535&nttId=11065051&programType=rsrchrData&relate=Y",
+      "publishedAt": "2026-10-01"
+    },
+    "context": "과거 환율 급등을 많이 경험한 가계일수록 환율 상승과 소비 위축 사이의 부정적인 관계가 상대적으로 약하게 나타났다. 경제적 충격에 대한 소비 반응이 가계의 과거 경험에 따라 달라질 수 있다는 의미이며, 인과관계가 확정됐다는 뜻은 아니다."
+  },
+  {
+    "id": "insight-20261026-001",
+    "quote": "어떤 정책이 효과를 냈다는 사실과 그 정책을 계속 유지해야 한다는 판단은 별개의 문제다.",
+    "category": "경영",
+    "writtenAt": "2026-10-26",
+    "source": {
+      "publisher": "산업연구원(KIET), i-KIET 산업경제이슈",
+      "title": "석유 최고가격제의 가격안정 효과",
+      "url": "https://www.kiet.re.kr/research/issueView?issue_no=871",
+      "publishedAt": "2026-10-22"
+    },
+    "context": "석유 최고가격제는 가격 상승을 완충했을 가능성이 있지만, 장기화에 따른 재정 부담과 공급 유인 약화 등도 고려해야 한다. 정책의 효과가 확인되더라도 시장환경과 유지 비용을 반영해 지속 여부를 별도로 판단해야 한다는 의미다."
+  },
+  {
+    "id": "insight-20261025-001",
+    "quote": "사람이 떠나지 않는 조직과 사람이 머물고 싶어 하는 조직은 같지 않을 수 있다.",
+    "category": "조직",
+    "writtenAt": "2026-10-25",
+    "source": {
+      "publisher": "입소스(Ipsos)",
+      "title": "직장의 현실 | The Workplace Reality",
+      "url": "https://www.ipsos.com/ko-kr/the-workplace-reality",
+      "publishedAt": "2026-10-19"
+    },
+    "context": "직원들은 조직에 대한 애착뿐 아니라 고용 안정성을 유지하기 위해 현재 직장에 머무를 수 있다. 따라서 낮은 이직률이 반드시 높은 조직 몰입을 의미하지는 않는다는 점을 강조한 문장이다."
+  },
+  {
+    "id": "insight-20261024-001",
+    "quote": "시장이 성장한다고 모두가 이익을 얻는 것은 아니다. 경쟁의 속도가 수요의 성장을 앞지르면, 성장은 오히려 수익성을 압박할 수 있다.",
+    "category": "산업변화",
+    "writtenAt": "2026-10-24",
+    "source": {
+      "publisher": "대외경제정책연구원(KIEP), KIEP 세계경제 포커스",
+      "title": "중국 태양광 산업의 구조조정 동향 및 전망",
+      "url": "https://www.kiep.go.kr/galleryDownload.es?bid=0004&list_no=12406&seq=1",
+      "publishedAt": "2026-05-13"
+    },
+    "context": "중국 태양광 산업은 수요 확대에 대한 기대와 경쟁적인 설비투자로 생산능력이 급증하면서 가격경쟁과 수익성 악화를 경험했다. 산업의 성장 가능성과 개별 기업의 수익성은 구분해야 한다는 의미다."
+  },
+  {
     "id": "insight-20261023-001",
     "quote": "여러 곳에 나누어 투자했더라도 같은 위험에 노출되어 있다면, 분산의 효과는 생각보다 작을 수 있다.",
     "category": "투자",
