@@ -1,5 +1,85 @@
 [
   {
+    "id": "insight-20261106-001",
+    "quote": "탄소감축을 늦추면 초기 부담은 줄일 수 있지만, 전환 비용이 사라지는 것은 아니다.",
+    "category": "산업변화",
+    "writtenAt": "2026-11-06",
+    "source": {
+      "publisher": "한국은행, BOK 이슈노트 제2026-28호",
+      "title": "탄소중립 이행경로의 경제적 영향",
+      "url": "https://www.bok.or.kr/portal/bbs/P0002353/view.do?menuNo=200433&nttId=11065979",
+      "publishedAt": "2026-10-28"
+    },
+    "context": "연구에서는 탄소감축을 상대적으로 늦추는 경로가 초기 경제적 부담을 줄이는 대신 저탄소 기술의 개발과 보급도 지연되면서 2050년 무렵에 부담이 집중되는 것으로 분석됐다. 한줄평은 감축 시점에 따라 경제적 비용의 발생 시기가 달라진다는 의미이며, 모든 기업에서 조기감축이 반드시 경제적으로 유리하다는 뜻은 아니다."
+  },
+  {
+    "id": "insight-20261105-001",
+    "quote": "성장을 막는 요인이 기업마다 다르다면, 성장에 필요한 투자도 달라야 한다.",
+    "category": "경영",
+    "writtenAt": "2026-11-05",
+    "source": {
+      "publisher": "한국개발연구원(KDI), KDI FOCUS",
+      "title": "기업의 성공적 스케일업을 위한 정책 지원체계 재구축 방안",
+      "url": "https://www.kdi.re.kr/research/focusView?pub_no=19131",
+      "publishedAt": "2026-03-24"
+    },
+    "context": "보고서는 기업의 고성장 요인이 제조업과 서비스업에서 다르게 나타나며, 획일적인 R&D 지원보다 기업별 성장 병목을 진단하고 적절한 지원수단을 연계해야 한다고 설명한다. 한줄평은 이러한 정책적 시사점을 기업의 투자와 자원배분 관점으로 재구성한 것이다."
+  },
+  {
+    "id": "insight-20261104-001",
+    "quote": "은행의 위험을 줄이는 규제는 대출의 수요를 없애기보다, 그 수요를 채우는 금융기관을 바꿀 수도 있다.",
+    "category": "산업변화",
+    "writtenAt": "2026-11-04",
+    "source": {
+      "publisher": "Bank for International Settlements, BIS Working Papers No. 1388",
+      "title": "Bank liquidity regulation and the growth of private credit",
+      "url": "https://www.bis.org/publications/bank-liquidity-regulation-and-growth-private-credit",
+      "publishedAt": "2026-10-20"
+    },
+    "context": "연구는 미국에서 은행 유동성 규제가 강화된 이후 규제 대상 은행의 영향력이 큰 지역일수록 사모신용 공급이 더 크게 증가했음을 보여준다. 한줄평은 은행 규제가 기업의 대출 수요 자체를 없애기보다 대출 공급자의 구성을 변화시킬 수 있다는 의미이며, 금융시스템 전체의 위험이 감소했다는 뜻은 아니다."
+  },
+  {
+    "id": "insight-20261103-001",
+    "quote": "고칠 수 없는 배터리와, 고칠 수 있는지 알 수 없는 배터리는 다르다.",
+    "category": "리스크",
+    "writtenAt": "2026-11-03",
+    "source": {
+      "publisher": "보험연구원, KIRI 리포트 제655호",
+      "title": "전기차 배터리 정보 투명성 제고와 자동차보험",
+      "url": "https://www.kiri.or.kr/report/downloadFile.do?docId=880189",
+      "publishedAt": "2026-10-12"
+    },
+    "context": "전기차 사고 이후 배터리 손상 여부와 수리 가능성을 정확하게 판단할 정보가 부족하면 배터리 전체 교체나 차량 전손으로 이어질 가능성이 있다. 한줄평은 실제로 수리가 불가능한 상황과 정보 부족으로 수리 가능성을 판단하기 어려운 상황을 구분해야 한다는 의미다."
+  },
+  {
+    "id": "insight-20261102-001",
+    "quote": "자회사 상장은 성장자금을 마련할 수 있지만, 그 성장의 몫이 모회사 주주에게 어떻게 돌아갈지는 별도로 따져야 한다.",
+    "category": "투자",
+    "writtenAt": "2026-11-02",
+    "source": {
+      "publisher": "한국금융연구원, 금융브리프 제35권 제17호",
+      "title": "모자회사 중복상장 규제 도입 및 과제",
+      "url": "https://www.kif.re.kr/kif4/publication/pub_detail?cno=366258&mid=20&nid=190&pn=1&sid=188&vid=7774",
+      "publishedAt": null,
+      "publishedAtNote": "2026년 8월. 정확한 발행일 미확인.",
+      "supplementalUrl": "https://www.kif.re.kr/kif4/email/email_view?cno=202608227098"
+    },
+    "context": "보고서는 모자회사 중복상장 규제가 일반주주 보호에 기여할 수 있지만 기업의 자금조달을 위축시킬 가능성도 고려해야 한다고 설명한다. 한줄평은 자회사 IPO의 자금조달 효과와 모회사 주주의 경제적 이익을 구분해 평가해야 한다는 의미로 재구성했다."
+  },
+  {
+    "id": "insight-20261101-001",
+    "quote": "운동이 필수가 되어도, 운동에 돈을 쓸 이유는 별도로 설득해야 한다.",
+    "category": "산업변화",
+    "writtenAt": "2026-11-01",
+    "source": {
+      "publisher": "KB금융그룹 경영연구소",
+      "title": "2026 한국 웰니스 보고서",
+      "url": "https://www.kbfg.com/kbresearch/brand/brandView.do?reportId=2001364",
+      "publishedAt": "2026-10-25"
+    },
+    "context": "운동의 필요성을 인정하는 비율은 높아졌지만 운동에 돈을 쓰는 것을 투자로 생각하는 비율은 낮아졌다. 한줄평은 운동의 필요성에 대한 인식과 비용을 지불할 가치에 대한 판단이 서로 다를 수 있다는 의미이며, 실제 운동 지출이 감소했다는 뜻은 아니다."
+  },
+  {
     "id": "insight-20261030-001",
     "quote": "버려진 것이 원료가 되는 시장에서는, 무엇을 만드는지만큼 무엇을 모을 수 있는지도 중요해진다.",
     "category": "산업변화",
