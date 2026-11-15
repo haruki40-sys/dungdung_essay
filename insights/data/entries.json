@@ -1,5 +1,57 @@
 [
   {
+    "id": "insight-20261113-001",
+    "quote": "밸류업 공시기업의 높은 성과를 이해하려면, 공시 이후의 변화뿐 아니라 공시 이전의 경쟁력도 살펴봐야 한다.",
+    "category": "투자",
+    "writtenAt": "2026-11-13",
+    "source": {
+      "publisher": "자본시장연구원, 자본시장포커스 2026-22호",
+      "title": "밸류업 공시 참여에 따른 상장기업 성과 비교 및 향후 과제",
+      "url": "https://www.kcmi.re.kr/publications/pub_dt_view?cno=6774",
+      "publishedAt": "2026-11-02"
+    },
+    "context": "밸류업 공시기업은 주가와 수익성 등에서 높은 성과를 보였지만, 공시 참여기업 자체가 상대적으로 우수한 재무적 특성을 갖고 있었다. 따라서 관찰된 성과와 공시 자체의 효과를 구분해야 한다."
+  },
+  {
+    "id": "insight-20261112-001",
+    "quote": "경쟁자를 잘못 정의하면, 시장을 보호하려는 정책도 엉뚱한 곳에 혜택을 줄 수 있다.",
+    "category": "산업변화",
+    "writtenAt": "2026-11-12",
+    "source": {
+      "publisher": "한국개발연구원(KDI), KDI FOCUS",
+      "title": "의무휴업일 평일 전환이 시사하는 유통정책의 전환 방향",
+      "url": "https://pimac.kdi.re.kr/study/study_view.jsp?classcd=&pageNo=7&pub_no=19187",
+      "publishedAt": "2026-05-21"
+    },
+    "context": "대형마트 의무휴업 규제가 전통시장 보호라는 목적과 달리 온라인 소비에 유리하게 작용했을 가능성을 반영한다. 모든 유통 규제가 실패했다는 의미는 아니다."
+  },
+  {
+    "id": "insight-20261111-001",
+    "quote": "가계의 소득이 같아도 빚을 갚고 남는 여력이 다르면, 소비할 수 있는 힘도 달라진다.",
+    "category": "리스크",
+    "writtenAt": "2026-11-11",
+    "source": {
+      "publisher": "한국은행, BOK 이슈노트 제2026-23호",
+      "title": "가구DB를 이용한 가계부채 리스크 평가",
+      "url": "https://www.bok.or.kr/portal/bbs/P0002353/view.do?menuNo=200433&nttId=11064490",
+      "publishedAt": "2026-09-07"
+    },
+    "context": "한국은행 연구에서 채무상환 부담이 높아질수록 소비 증가세가 둔화되고 일정 수준 이후 감소하는 관계가 관찰된 점을 반영한다. 모든 가구에서 동일한 소비 감소가 발생한다는 의미는 아니다."
+  },
+  {
+    "id": "insight-20261110-001",
+    "quote": "소비자가 비교하며 구매하는 시장에서는 브랜드를 알리는 것만큼, 비교 과정에서 선택받을 이유를 만드는 일도 중요해진다.",
+    "category": "산업변화",
+    "writtenAt": "2026-11-10",
+    "source": {
+      "publisher": "Boston Consulting Group(BCG)",
+      "title": "The Research-Led Consumer Journey Is Changing the Rules of Marketing Influence",
+      "url": "https://www.bcg.com/publications/2026/research-led-consumer-journey-marketing",
+      "publishedAt": "2026-06-17"
+    },
+    "context": "소비자가 정보를 탐색하고 제품을 비교하는 구매 여정에서 브랜드의 발견 가능성, 매력도, 신뢰가 중요해지고 있다는 연구를 반영한다. 브랜드 인지도의 중요성이 사라진다는 뜻은 아니다."
+  },
+  {
     "id": "insight-20261106-001",
     "quote": "탄소감축을 늦추면 초기 부담은 줄일 수 있지만, 전환 비용이 사라지는 것은 아니다.",
     "category": "산업변화",
