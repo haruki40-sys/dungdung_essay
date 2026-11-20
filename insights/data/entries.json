@@ -1,5 +1,98 @@
 [
   {
+    "id": "insight-20261120-001",
+    "quote": "임금을 지속적으로 높이려면 비용을 감당하는 능력뿐 아니라, 부가가치를 만들어내는 능력이 함께 성장해야 한다.",
+    "category": "경영",
+    "writtenAt": "2026-11-20",
+    "source": {
+      "publisher": "한국개발연구원(KDI)",
+      "title": "기업 생산성 분석으로 살펴본 실질임금 정체의 배경과 시사점",
+      "url": "https://www.kdi.re.kr/research/analysisView?art_no=3830",
+      "publishedAt": "2026-11-16"
+    },
+    "context": "비반도체 부문의 생산성 정체는 실질임금 개선을 제약하는 중요한 요인이다. 지속적인 임금 개선에는 기업의 부가가치 창출력 향상이 뒷받침되어야 한다는 의미다."
+  },
+  {
+    "id": "insight-20261119-001",
+    "quote": "기업을 많이 탄생시키는 것과, 탄생한 기업이 계속 성장할 수 있는 생태계를 만드는 것은 다른 과제다.",
+    "category": "경영",
+    "writtenAt": "2026-11-19",
+    "source": {
+      "publisher": "산업연구원(KIET), 월간 KIET 산업경제",
+      "title": "한국 벤처생태계 담론 변화와 정책과제",
+      "url": "https://www.kiet.re.kr/research/economyDetailView?detail_no=3152",
+      "publishedAt": "2026-01-30"
+    },
+    "context": "한국 벤처생태계는 양적으로 성장했지만 스케일업과 투자 회수 단계에는 구조적 병목이 남아 있다. 창업 촉진과 지속적인 기업 성장을 지원하는 정책·시장 조건은 구분해야 한다는 의미다."
+  },
+  {
+    "id": "insight-20261118-001",
+    "quote": "시장의 거래 속도가 빨라진다고 해서, 기업의 자금조달 여건까지 반드시 좋아지는 것은 아니다.",
+    "category": "투자",
+    "writtenAt": "2026-11-18",
+    "source": {
+      "publisher": "Bank for International Settlements(BIS), Working Paper No. 1290",
+      "title": "The speed premium: high-frequency trading and the cost of capital",
+      "url": "https://www.bis.org/publications/working-paper-1290-speed-premium-high-frequency-trading-and-cost-capital",
+      "publishedAt": "2025-09-23",
+      "publishedAtNote": "2026년 10월 개정."
+    },
+    "context": "고빈도매매는 유동성을 개선하는 한편 체계적 위험을 높이는 경로로 자본비용에 영향을 줄 수 있다. 거래기술의 발전이 모든 기업에 동일한 금융상 이익을 제공하지는 않는다는 의미다."
+  },
+  {
+    "id": "insight-20261117-001",
+    "quote": "소비자가 중요하다고 말하는 가치가, 반드시 돈을 지불하는 이유가 되는 것은 아니다.",
+    "category": "산업변화",
+    "writtenAt": "2026-11-17",
+    "source": {
+      "publisher": "LG경제연구원(현 LG경영연구원)",
+      "title": "그린 마케팅의 불편한 진실과 과제",
+      "url": "https://www.lgbr.co.kr/report/view.do?idx=15866",
+      "publishedAt": "2009-03-03"
+    },
+    "context": "소비자는 친환경 가치를 지지하면서도 실제 구매에서는 가격과 품질, 편의성 등을 함께 고려한다. 가치관에 대한 긍정적인 응답과 실제 구매 행동을 구분해야 한다는 의미다."
+  },
+  {
+    "id": "insight-20261116-001",
+    "quote": "공급처가 여러 곳이어도 핵심 공정이 한곳에 집중되어 있다면, 공급망 위험은 여전히 남아 있다.",
+    "category": "리스크",
+    "writtenAt": "2026-11-16",
+    "source": {
+      "publisher": "대외경제정책연구원(KIEP)",
+      "title": "핵심광물 공급망 안정화를 위한 통상협정 활용 연구",
+      "url": "https://www.kiep.go.kr/gallery.es?act=view&bid=0001&list_no=12209&mid=a10101010000",
+      "publishedAt": "2025-12-30"
+    },
+    "context": "핵심광물은 채굴·정제·중간재 생산이 서로 다른 국가에서 이루어질 수 있다. 거래처 수를 늘리는 것과 실제 공급망 위험을 분산하는 것은 다르다는 의미다."
+  },
+  {
+    "id": "insight-20261115-001",
+    "quote": "디지털 기술을 잘 활용하는 조직은 연결하는 능력뿐 아니라, 필요할 때 연결을 멈추는 능력도 갖춰야 한다.",
+    "category": "조직",
+    "writtenAt": "2026-11-15",
+    "source": {
+      "publisher": "포스코경영연구원(POSRI)",
+      "title": "테크노 스트레스의 해법, 디지털 회복탄력성",
+      "url": "https://www.posri.re.kr/upload/file/202606/20260617H51K0nUVSx.pdf",
+      "publishedAt": "2026-06-19"
+    },
+    "context": "디지털 혁신으로 발생하는 테크노 스트레스에 대응하기 위해 기술 적응력과 인간적 회복력을 함께 고려해야 한다는 의미다. 의도적인 비연결도 건강한 디지털 업무환경의 일부가 될 수 있다."
+  },
+  {
+    "id": "insight-20261114-001",
+    "quote": "기업정보의 공개는 금융기관 간 경쟁을 촉진하지만, 정보를 생산하는 은행의 유인까지 강화하는 것은 아닐 수 있다.",
+    "category": "경영",
+    "writtenAt": "2026-11-14",
+    "source": {
+      "publisher": "한국금융연구원(KIF)",
+      "title": "기업 정보와 중소기업 금융: 외감·공시 의무 요건 변화의 영향을 중심으로",
+      "url": "https://www.kif.re.kr/KIF/Publication/ReportDetail.aspx?NodeID=865&ControlNo=369278&ParentNodeID=49&PageNo=1&SearchText=&VolumeID=7826&SearchIndex=-1",
+      "publishedAt": null,
+      "publishedAtNote": "2026년 10월. 정확한 발행일 미확인."
+    },
+    "context": "기업정보 공개는 은행 간 경쟁을 촉진하는 동시에 주거래 은행의 정보 생산과 장기 금융 제공 유인에 영향을 미칠 수 있다. 정보공개의 효과가 항상 단일한 방향으로 나타나는 것은 아니라는 의미다."
+  },
+  {
     "id": "insight-20261113-001",
     "quote": "밸류업 공시기업의 높은 성과를 이해하려면, 공시 이후의 변화뿐 아니라 공시 이전의 경쟁력도 살펴봐야 한다.",
     "category": "투자",
